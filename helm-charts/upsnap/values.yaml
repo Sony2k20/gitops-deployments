@@ -1,0 +1,36 @@
+replicaCount: 1
+
+image:
+  repository: ghcr.io/seriousm4x/upsnap
+  pullPolicy: IfNotPresent
+  tag: latest
+
+service:
+  type: ClusterIP
+  port: 8090
+  containerPort: 8090
+
+ingress:
+  host: upsnap.csnguyen.de
+  annotations:
+    traefik.ingress.kubernetes.io/redirect-entry-point: "web"
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    traefik.ingress.kubernetes.io/router.middlewares: |
+      kube-system-redirect-https@kubernetescrd
+
+persistentVolume:
+  - name: upsnap
+    namespace: prod
+    storage: 500Mi
+    hostPath: /srv/dev-disk-by-uuid-4c7807a3-ad92-4a02-921b-5414abc40250/kubernetes/upsnap
+    accessModes:
+      - ReadWriteMany 
+
+livenessProbe:
+  httpGet:
+    path: /
+    port: 8090
+readinessProbe:
+  httpGet:
+    path: /
+    port: 8090
