@@ -16,6 +16,5 @@ spec:
       storage: {{ .storage }} 
   selector:
     matchLabels:
-      disk: {{ .disk }} 
       name: {{ .name }}
 {{- end }}
