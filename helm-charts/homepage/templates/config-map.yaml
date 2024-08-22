@@ -1,0 +1,121 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "homepage.fullname" . }}
+  labels:
+    app.kubernetes.io/name: {{ include "homepage.fullname" . }}
+data:
+  kubernetes.yaml: |
+    mode: cluster
+  settings.yaml: |
+    providers:
+      openweathermap: openweathermapapikey
+      weatherapi: weatherapiapikey
+    title: Sony2k Homepage
+    background:
+      image: https://images.pexels.com/photos/1624496/pexels-photo-1624496.jpeg
+      opacity: 30 # 0-100
+    layout:
+      Websites:
+        style: row
+        columns: 2
+      Data:
+        style: row
+        columns: 2
+        header: false
+      Services:
+        style: row
+        columns: 4
+      Social:
+        style: row
+        columns: 3
+    quicklaunch:
+      searchDescriptions: true
+      hideInternetSearch: true
+      hideVisitURL: true
+    hideVersion: false
+    useEqualHeights: true
+    color: slate
+    statusStyle: "dot"
+    disableCollapse: true
+    headerStyle: clean
+  custom.css: ''
+  custom.js: ''
+  bookmarks.yaml: |
+    - Social:
+      - Github:
+        - icon: github-light.png
+          href: https://github.com/Sony2k20
+      - Linkedin:
+        - icon: linkedin.png
+          href: https://www.linkedin.com/in/cong-son-nguyen-8a86b520b/
+      - Xing:
+        - icon: /icons/xing.png
+          href: https://www.xing.com/profile/CongSon_Nguyen/web_profiles?expandNeffi=true
+  services.yaml: |
+    - Websites:
+        - Portfolio:
+            icon: /icons/portfolio.png
+            href: https://csnguyen.de
+            widget:
+              type: uptimekuma
+              fields: ["up","uptime"]
+              url: https://uptime-kuma.csnguyen.de
+              slug: portfolio
+        - Blog:
+            icon: /icons/angular.png
+            href: https://blog.csnguyen.de
+            widget:
+              type: uptimekuma
+              fields: ["up","uptime"]
+              url: https://uptime-kuma.csnguyen.de
+              slug: blog
+
+    - Services:
+        - Jellyfin:
+            icon: jellyfin.png
+            href: https://jellyfin.csnguyen.de
+        - Nextcloud:
+            icon: nextcloud.png
+            href: https://nextcloud.csnguyen.de
+        - Pihole:
+            icon: pi-hole.png
+            href: https://pihole.csnguyen.de/admin
+        - Traefik:
+            icon: traefik.png
+            href: https://traefik.csnguyen.de
+        - Openmediavault:
+            icon: openmediavault.png
+            href: https://omv.csnguyen.de
+        - Upsnap:
+            icon: upsnap.png
+            href: https://wol.csnguyen.de
+        - Uptime Kuma:
+            icon: uptime-kuma.png
+            href: https://uptime-kuma.csnguyen.de
+  widgets.yaml: |
+    - greeting:
+        text_size: xl
+        text: Welcome To Sony2k's Server
+    - resources:
+        expanded: true
+        cpu: true
+        memory: true
+        uptime: false
+        refresh: 1000
+        disk: /
+    - resources:
+        expanded: true
+        disk:
+          - /disk1
+          - /disk2
+    - resources:
+        expanded: false
+        cpu: false
+        memory: false
+        uptime: true
+        refresh: 1000
+    - search:
+        provider: google
+        target: _blank
+  docker.yaml: ''

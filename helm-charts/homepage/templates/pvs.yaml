@@ -1,0 +1,21 @@
+{{- range .Values.persistentVolume }}
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: {{ .name }}
+  labels:
+    disk: {{ .disk }}
+    name: {{ .name }}
+spec:
+  capacity:
+    storage: {{ .storage }} 
+  accessModes:
+    {{- range .accessModes }}
+    - {{ . }}
+    {{- end }}
+  hostPath:
+    path: {{ .hostPath }}
+  storageClassName: manual
+  persistentVolumeReclaimPolicy: Retain
+{{- end }}

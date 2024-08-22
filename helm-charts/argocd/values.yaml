@@ -1,0 +1,19 @@
+argo-cd:
+  dex:
+    enabled: false
+  global:
+    domain: argocd.csnguyen.de
+  server:
+    ingress:
+      enabled: true
+      ingressClassName: traefik
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-prod
+        traefik.ingress.kubernetes.io/router.middlewares: |
+          kube-system-redirect-https@kubernetescrd
+      tls: true
+  configs:
+    params:
+      server.insecure: true
+    cm: 
+      exec.enabled: true

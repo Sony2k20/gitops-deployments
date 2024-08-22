@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: {{ include "homepage.fullname" . }}
+    labels:
+        app.kubernetes.io/name: {{ include "homepage.fullname" . }}
+spec:
+    revisionHistoryLimit: 3
+    replicas: 1
+    strategy:
+        type: RollingUpdate
+    selector:
+        matchLabels:
+            app.kubernetes.io/name: {{ include "homepage.fullname" . }}
+    template:
+        metadata:
+            annotations:
+                checksum/config: {{ include (print $.Template.BasePath "/config-map.yaml") . | sha256sum }}
+            labels:
+                app.kubernetes.io/name: {{ include "homepage.fullname" . }}
+        spec:
+            serviceAccountName: {{ include "homepage.fullname" . }}
+            automountServiceAccountToken: true
+            dnsPolicy: ClusterFirst
+            enableServiceLinks: true
+            containers:
+                - name: {{ include "homepage.fullname" . }}
+                  image: "ghcr.io/gethomepage/homepage:latest"
+                  imagePullPolicy: Always
+                  ports:
+                      - name: http
+                        containerPort: {{ .Values.service.port }}
+                        protocol: TCP
+                  volumeMounts:
+                      - name: homepage-config
+                        mountPath: /app/config
+                      - name: logs
+                        mountPath: /app/config/logs
+                      - name: disk1
+                        mountPath: /disk1
+                      - name: disk2
+                        mountPath: /disk2
+                      - name: disk1
+                        mountPath: /app/public/icons  
+                        subPath: kubernetes/homepage/icons
+            volumes:
+                - name: homepage-config
+                  configMap:
+                      name: {{ include "homepage.fullname" . }}
+                - name: logs
+                  emptyDir: {}
+                - name: disk1
+                  persistentVolumeClaim:
+                      claimName: homepage-disk1
+                - name: disk2
+                  persistentVolumeClaim:
+                      claimName: homepage-disk2

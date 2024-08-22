@@ -1,0 +1,28 @@
+namespace: prod
+
+service:
+  port: 3000
+
+ingress:
+  host: homepage.csnguyen.de
+  annotations:
+    traefik.ingress.kubernetes.io/redirect-entry-point: "web"
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    traefik.ingress.kubernetes.io/router.middlewares: |
+      kube-system-redirect-https@kubernetescrd
+
+persistentVolume:
+  - name: homepage-disk1
+    namespace: prod
+    storage: 100Mi
+    disk: disk1
+    hostPath: /srv/dev-disk-by-uuid-4c7807a3-ad92-4a02-921b-5414abc40250
+    accessModes:
+      - ReadWriteMany 
+  - name: homepage-disk2
+    namespace: prod
+    storage: 100Mi
+    disk: disk2
+    hostPath: /srv/dev-disk-by-uuid-1637aef4-f2aa-4ea3-98e4-3e31d5c4f6ae
+    accessModes:
+      - ReadWriteMany 

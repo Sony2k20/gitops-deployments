@@ -1,0 +1,70 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "ng-web-blog.fullname" . }}
+  labels:
+    {{- include "ng-web-blog.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "ng-web-blog.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "ng-web-blog.labels" . | nindent 8 }}
+        {{- with .Values.podLabels }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+    spec:
+      initContainers:
+        - name: init-container
+          image: node:22-alpine3.18
+          command: ['sh', '-c']
+          args:
+            - |
+              apk update && apk add git
+              git clone --branch {{ .Values.github.branch }} {{ .Values.github.repo }} /src
+              cd /src
+              rm src/environments/environment.prod.ts
+              cp /secrets/key src/environments/environment.prod.ts
+
+              npm install -g @angular/cli --legacy-peer-deps
+              npm install --save-dev @angular-devkit/build-angular --legacy-peer-deps
+              ng build ---output-path=dist/app
+              exit 0
+          volumeMounts:
+            - mountPath: /src
+              name: angular-files
+            - name: secret-volume
+              mountPath: /secrets
+              readOnly: true
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default "latest" }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: {{ .Values.service.port }}
+              protocol: TCP
+          livenessProbe:
+            {{- toYaml .Values.livenessProbe | nindent 12 }}
+          readinessProbe:
+            {{- toYaml .Values.readinessProbe | nindent 12 }}
+          volumeMounts:
+            - mountPath: /usr/share/nginx/html
+              name: angular-files
+              subPath: dist/app
+            - mountPath: /etc/nginx/conf.d
+              name: angular-files
+              subPath: nginx
+      volumes:
+        - name: angular-files
+          emptyDir: {}  
+        - name: secret-volume
+          secret:
+            secretName: environment-ts

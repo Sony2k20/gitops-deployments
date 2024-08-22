@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ include "ng-web-blog.fullname" . }}
+  labels:
+    {{- include "ng-web-blog.labels" . | nindent 4 }}
+  {{- with .Values.ingress.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: {{.Values.ingress.host }}
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ include "ng-web-blog.fullname" . }}
+                port:
+                  number: 80
+  tls:
+    - hosts:
+       - {{.Values.ingress.host }}
+      secretName: {{ include "ng-web-blog.fullname" . }}
