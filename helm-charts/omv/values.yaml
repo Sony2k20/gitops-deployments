@@ -1,0 +1,12 @@
+service:
+  type: ExternalName
+  externalName: "192.168.2.109"
+  port: 8000
+
+ingress:
+  host: omv.csnguyen.de
+  annotations:
+    traefik.ingress.kubernetes.io/redirect-entry-point: "web"
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    traefik.ingress.kubernetes.io/router.middlewares: |
+      kube-system-redirect-https@kubernetescrd

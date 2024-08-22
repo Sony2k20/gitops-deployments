@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "omv.fullname" . }}
+  labels:
+    {{- include "omv.labels" . | nindent 4 }}
+spec:
+  type: ExternalName
+  externalName: {{ .Values.service.externalName }}
+  ports:
+  - port: {{ .Values.service.port }}
