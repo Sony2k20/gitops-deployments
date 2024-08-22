@@ -4,7 +4,7 @@ metadata:
   name: omv
   namespace: argocd
   labels:
-    type: app
+    type: infra
 spec:
   destination:
     namespace: prod

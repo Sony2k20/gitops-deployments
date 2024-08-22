@@ -1,7 +1,9 @@
 service:
-  type: ExternalName
-  externalName: "192.168.2.109"
-  port: 8000
+  port: 80
+  containerPort: 8000
+
+endpoint:
+  ip: "192.168.2.109"
 
 ingress:
   host: omv.csnguyen.de
