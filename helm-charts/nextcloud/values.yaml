@@ -13,6 +13,6 @@ nextcloud:
       - secretName: nextcloud
         hosts:
           - nextcloud.csnguyen.de
-persistence:
-  enabled: true
-  existingClaim: nextcloud
+  persistence:
+    enabled: true
+    existingClaim: nextcloud

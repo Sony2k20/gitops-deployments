@@ -72,6 +72,9 @@ data:
               slug: blog
 
     - Services:
+        - ArgoCD:
+            icon: argocd.png
+            href: https://argocd.csnguyen.de
         - Jellyfin:
             icon: jellyfin.png
             href: https://jellyfin.csnguyen.de
