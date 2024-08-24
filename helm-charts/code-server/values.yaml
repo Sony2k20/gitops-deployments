@@ -169,7 +169,7 @@ extraInitContainers: |
       - sh
       - -c
       - |
-        apk add --update nodejs npm
+        apt update && apt install -y nodejs npm
     volumeMounts:
       - name: nodejs
         mountPath: /usr/local/lib/nodejs
