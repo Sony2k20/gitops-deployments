@@ -5,8 +5,8 @@
 replicaCount: 1
 
 image:
-  repository: codercom/code-server
-  tag: '4.92.2'
+  repository: connorlanigan/code-server-with-node
+  tag: 'latest'
   pullPolicy: Always
 
 # Specifies one or more secrets to be used when pulling images from a
@@ -162,17 +162,17 @@ extraContainers: |
 #    value: "overlay2"
 
 extraInitContainers: |
-  - name: nodejs
-    image: debian
-    imagePullPolicy: IfNotPresent
-    command:
-      - sh
-      - -c
-      - |
-        apt update && apt install -y nodejs npm
-    volumeMounts:
-      - name: nodejs
-        mountPath: /usr/local/lib/nodejs
+# - name: nodejs
+#   image: debian
+#   imagePullPolicy: IfNotPresent
+#   command:
+#     - sh
+#     - -c
+#     - |
+#       apt update && apt install -y nodejs npm
+#   volumeMounts:
+#     - name: nodejs
+#       mountPath: /usr/local/lib/nodejs
 
 ## Additional code-server secret mounts
 extraSecretMounts: []
@@ -183,10 +183,10 @@ extraSecretMounts: []
   #   readOnly: true
 
 ## Additional code-server volume mounts
-extraVolumeMounts: 
-  - name: nodejs
-    mountPath: /usr/local/lib/nodejs
-    emptyDir: {}
+extraVolumeMounts: []
+  # - name: nodejs
+  #   mountPath: /usr/local/lib/nodejs
+  #   emptyDir: {}
 
 extraConfigmapMounts: []
   # - name: certs-configmap
