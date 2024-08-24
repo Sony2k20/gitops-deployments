@@ -59,8 +59,6 @@ spec:
 {{ tpl .Values.extraContainers . | indent 8}}
 {{- end }}
         - name: {{ .Chart.Name }}
-          command: ["/bin/sh", "-c"]
-          args: ["sudo apt update && sudo apt install -y nodejs", "/usr/bin/entrypoint.sh", "--bind-addr", "0.0.0.0:8080", "."]
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           {{- if .Values.securityContext.enabled }}
