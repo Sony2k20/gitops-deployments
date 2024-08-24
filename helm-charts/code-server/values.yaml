@@ -1,0 +1,76 @@
+replicaCount: 1
+
+image:
+  repository: codercom/code-server
+  tag: '4.92.2'
+  pullPolicy: Always
+
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+
+service:
+  type: ClusterIP
+  port: 8080
+
+ingress:
+  host: code-server.csnguyen.de
+  annotations:
+    traefik.ingress.kubernetes.io/redirect-entry-point: "web"
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    traefik.ingress.kubernetes.io/router.middlewares: |
+      kube-system-redirect-https@kubernetescrd
+
+
+# Optional additional arguments
+extraArgs: []
+  # These are the arguments normally passed to code-server; run
+  # code-server --help for a list of available options.
+  #
+  # Each argument and parameter must have its own entry; if you use
+  # --param value on the command line, then enter it here as:
+  #
+  # - --param
+  # - value
+  #
+  # If you receive an error like "Unknown option --param value", it may be
+  # because both the parameter and value are specified as a single argument,
+  # rather than two separate arguments (e.g. "- --param value" on a line).
+
+# Optional additional environment variables
+extraVars: []
+#  - name: DISABLE_TELEMETRY
+#    value: "true"
+#  - name: DOCKER_HOST
+#    value: "tcp://localhost:2375"
+
+##
+## Init containers parameters:
+## volumePermissions: Change the owner of the persist volume mountpoint to RunAsUser:fsGroup
+##
+volumePermissions:
+  enabled: true
+  securityContext:
+    runAsUser: 0
+
+## Pod Security Context
+## ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
+##
+securityContext:
+  enabled: true
+  fsGroup: 1000
+  runAsUser: 1000
+
+
+## Persist data to a persistent volume
+persistence:
+  enabled: true
+  existingClaim: code-server
+
