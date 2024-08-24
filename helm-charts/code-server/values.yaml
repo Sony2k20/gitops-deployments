@@ -163,7 +163,7 @@ extraContainers: |
 
 extraInitContainers: |
   - name: nodejs
-    image: busybox:latest
+    image: debian
     imagePullPolicy: IfNotPresent
     command:
       - sh
