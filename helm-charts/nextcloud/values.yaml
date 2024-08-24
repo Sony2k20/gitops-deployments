@@ -16,3 +16,7 @@ nextcloud:
   persistence:
     enabled: true
     existingClaim: nextcloud
+  livenessProbe:
+    enabled: false
+  readinessProbe:
+    enabled: false
