@@ -94,8 +94,8 @@ spec:
 {{ toYaml .Values.extraArgs | indent 10 }}
         {{- end }}
           volumeMounts:
-          # - name: data
-          #   mountPath: /home/coder
+          - name: data
+            mountPath: /home/coder
           {{- range .Values.extraConfigmapMounts }}
           - name: {{ .name }}
             mountPath: {{ .mountPath }}
