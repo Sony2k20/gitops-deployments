@@ -36,20 +36,20 @@ spec:
         fsGroup: {{ .Values.securityContext.fsGroup }}
       {{- end }}
       {{- if and .Values.volumePermissions.enabled .Values.persistence.enabled }}
-      initContainers:
-      - name: init-chmod-data
-        image: busybox:latest
-        imagePullPolicy: IfNotPresent
-        command:
-          - sh
-          - -c
-          - |
-            chown -R {{ .Values.securityContext.runAsUser }}:{{ .Values.securityContext.fsGroup }} /home/coder
-        securityContext:
-          runAsUser: {{ .Values.volumePermissions.securityContext.runAsUser }}
-        volumeMounts:
-        - name: data
-          mountPath: /home/coder
+      # initContainers:
+      # - name: init-chmod-data
+      #   image: busybox:latest
+      #   imagePullPolicy: IfNotPresent
+      #   command:
+      #     - sh
+      #     - -c
+      #     - |
+      #       chown -R {{ .Values.securityContext.runAsUser }}:{{ .Values.securityContext.fsGroup }} /home/coder
+      #   securityContext:
+      #     runAsUser: {{ .Values.volumePermissions.securityContext.runAsUser }}
+      #   volumeMounts:
+      #   - name: data
+      #     mountPath: /home/coder
 {{- if .Values.extraInitContainers }}
 {{ tpl .Values.extraInitContainers . | indent 6}}
 {{- end }}
@@ -62,8 +62,8 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           {{- if .Values.securityContext.enabled }}
-          securityContext:
-            runAsUser: {{ .Values.securityContext.runAsUser }}
+          # securityContext:
+          #   runAsUser: {{ .Values.securityContext.runAsUser }}
           {{- end }}
           {{- if .Values.lifecycle.enabled }}
           lifecycle:
@@ -94,8 +94,8 @@ spec:
 {{ toYaml .Values.extraArgs | indent 10 }}
         {{- end }}
           volumeMounts:
-          - name: data
-            mountPath: /home/coder
+          # - name: data
+          #   mountPath: /home/coder
           {{- range .Values.extraConfigmapMounts }}
           - name: {{ .name }}
             mountPath: {{ .mountPath }}
