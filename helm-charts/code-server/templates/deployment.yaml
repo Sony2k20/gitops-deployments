@@ -58,6 +58,24 @@ spec:
 {{- if .Values.extraContainers }}
 {{ tpl .Values.extraContainers . | indent 8}}
 {{- end }}
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          {{- if .Values.securityContext.enabled }}
+          securityContext:
+            runAsUser: {{ .Values.securityContext.runAsUser }}
+          {{- end }}
+          {{- if .Values.lifecycle.enabled }}
+          lifecycle:
+            {{- if .Values.lifecycle.postStart }}
+            postStart:
+              {{ toYaml .Values.lifecycle.postStart | nindent 14 }}
+            {{- end }}
+            {{- if .Values.lifecycle.preStop }}
+            preStop:
+              {{ toYaml .Values.lifecycle.preStop | nindent 14 }}
+            {{- end }}
+          {{- end }}
           env:
         {{- if .Values.extraVars }}
 {{ toYaml .Values.extraVars | indent 10 }}
