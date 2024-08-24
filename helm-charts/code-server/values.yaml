@@ -5,9 +5,9 @@
 replicaCount: 1
 
 image:
-  repository: sony2k20/code-server-with-node
-  tag: latest
-  pullPolicy: IfNotPresent
+  repository: codercom/code-server
+  tag: '4.92.2'
+  pullPolicy: Always
 
 # Specifies one or more secrets to be used when pulling images from a
 # private container repository
@@ -60,6 +60,7 @@ ingress:
 
 # Optional additional arguments
 extraArgs: []
+  # - sudo apt update && sudo apt install -y node 
   # These are the arguments normally passed to code-server; run
   # code-server --help for a list of available options.
   #
