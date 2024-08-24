@@ -76,7 +76,7 @@ data:
             icon: argocd.png
             href: https://argocd.csnguyen.de
         - Code-Server:
-            icon: code-server.png
+            icon: code.png
             href: https://code-server.csnguyen.de
         - Jellyfin:
             icon: jellyfin.png
