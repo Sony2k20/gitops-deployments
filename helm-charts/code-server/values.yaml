@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: linuxserver/code-server
+  repository: codercom/code-server
   tag: latest
   pullPolicy: Always
 
