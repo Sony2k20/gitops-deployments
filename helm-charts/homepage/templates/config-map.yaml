@@ -84,9 +84,6 @@ data:
         - Nextcloud:
             icon: nextcloud.png
             href: https://nextcloud.csnguyen.de
-        - Pihole:
-            icon: pi-hole.png
-            href: https://pihole.csnguyen.de/admin
         - Traefik:
             icon: traefik.png
             href: https://traefik.csnguyen.de
