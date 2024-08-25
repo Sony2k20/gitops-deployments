@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: sony2k20/code-server-with-node
+  repository: codercom/code-server # sony2k20/code-server-with-node
   tag: latest
   pullPolicy: Always
 
