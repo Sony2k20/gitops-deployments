@@ -33,6 +33,16 @@ spec:
   {{- end }}
   rules:
   {{- if semverCompare ">=1.19-0" $.Capabilities.KubeVersion.GitVersion -}}
+    - host: angular.csnguyen.de
+      http:
+        paths:
+          - backend:
+              service:
+                name: code-server
+                port:
+                  number: 4200
+            path: /
+            pathType: Prefix
     {{- range .Values.ingress.hosts }}
     - host: {{ .host | quote }}
       http:
