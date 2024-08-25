@@ -196,7 +196,10 @@ extraConfigmapMounts: []
   #   configMap: certs-configmap
   #   readOnly: true
 
-extraPorts: []
-  # - name: minecraft
-  #   port: 25565
-  #   protocol: tcp
+extraPorts: 
+  - name: angular
+    port: 4200
+    protocol: tcp
+  - name: nodejs
+    port: 3000
+    protocol: tcp
