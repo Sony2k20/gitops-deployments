@@ -32,7 +32,6 @@ spec:
     {{- end }}
   {{- end }}
   rules:
-  {{- if semverCompare ">=1.19-0" $.Capabilities.KubeVersion.GitVersion -}}
     - host: angular.csnguyen.de
       http:
         paths:
@@ -43,6 +42,7 @@ spec:
                   number: 4200
             path: /
             pathType: Prefix
+  {{- if semverCompare ">=1.19-0" $.Capabilities.KubeVersion.GitVersion -}}
     {{- range .Values.ingress.hosts }}
     - host: {{ .host | quote }}
       http:
