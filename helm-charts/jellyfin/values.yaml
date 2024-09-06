@@ -124,9 +124,9 @@ extraPodLabels: {}
 
 extraEnvVars: 
   - name: JELLYFIN_FFmpeg__probesize
-    value: "500000000"
+    value: "10G"
   - name: JELLYFIN_FFmpeg__analyzeduration
-    value: "500000000"
+    value: "30M"
 
 # additional annotations applied to the pod
 extraPodAnnotations: {}
