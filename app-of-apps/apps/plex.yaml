@@ -13,6 +13,8 @@ spec:
     targetRevision: "0.4.0"
     helm:
       values: |
+        extraEnv:
+          PLEX_CLAIM: "claim-kCK2eRXySEreGsfSz35v"
         image:
           registry: docker.io
           repository: linuxserver/plex
