@@ -90,6 +90,8 @@ spec:
               port: http
         {{- end }}
           volumeMounts:
+            - name: media
+              mountPath: /media
             # - mountPath: /dev/vcsm
             #   name: device-vcsm
             # - mountPath: /dev/vchiq
@@ -100,10 +102,8 @@ spec:
             #   name: device-video11
             # - mountPath: /dev/video12
             #   name: device-video12
-            # - mountPath: /config
-            #   name: config
-            - name: media2
-              mountPath: /media2
+            - mountPath: /config
+              name: config
             {{- if .Values.persistence.config.subPath }}
               subPath: {{ .Values.persistence.config.subPath }}
             {{- end }}
@@ -126,10 +126,10 @@ spec:
           resources:
 {{ toYaml .Values.resources | indent 12 }}
       volumes:
-        - name: media2
-          hostPath:
-            path: /srv/dev-disk-by-uuid-1637aef4-f2aa-4ea3-98e4-3e31d5c4f6ae/NAS
-            type: Directory
+      - name: media2
+        hostPath:
+          path: /srv/dev-disk-by-uuid-1637aef4-f2aa-4ea3-98e4-3e31d5c4f6ae/NAS
+          type: Directory
       # - name: device-vcsm # Only needed if you want to use your Raspberry Pi MMAL video decoding (Enabled as OpenMax H264 decode in gui settings).
       #   hostPath:
       #     path: /dev/vcsm 
