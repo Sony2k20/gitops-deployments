@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://raw.githubusercontent.com/plexinc/pms-docker/gh-pages
     chart: plex
-    targetRevision: latest
+    targetRevision: "1.16.0"
     helm:
       values: |
         ingress:
