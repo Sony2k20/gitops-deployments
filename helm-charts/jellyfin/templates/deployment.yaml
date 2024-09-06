@@ -91,7 +91,7 @@ spec:
         {{- end }}
           volumeMounts:
             - name: media2
-              mountPath: /media
+              mountPath: /media2
             # - mountPath: /dev/vcsm
             #   name: device-vcsm
             # - mountPath: /dev/vchiq
