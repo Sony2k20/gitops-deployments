@@ -5,8 +5,11 @@ Install Order for K3s setup.
 
 ```
 kubectl apply -f secrets.yaml
-helm upgrade -i k3s-storage k3s-storage/. -f k3s-storage/values.yaml  --namespace kube-system --wait
+
+helm dependency build helm-charts/cert-manager/.
 helm upgrade -i cert-manager helm-charts/cert-manager/. --namespace cert-manager --wait --create-namespace # install twice for cluster issuer
+
+helm dependency build helm-charts/argocd/.
 helm upgrade -i argocd helm-charts/argocd/.  --namespace argocd --wait --create-namespace
 ```
 

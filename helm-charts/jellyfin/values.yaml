@@ -6,8 +6,8 @@ replicaCount: 1
 
 image:
   repository: docker.io/jellyfin/jellyfin
-  tag: "10.9.1"
-  pullPolicy: IfNotPresent
+  tag: "latesst"
+  pullPolicy: Always
 
 # Setting this to true enables DLNA which requires the pod to be attached to the
 # host network in order to be useful - this can break things like ingress to the service
