@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: docker.io/jellyfin/jellyfin
-  tag: "latesst"
+  tag: "latest"
   pullPolicy: Always
 
 # Setting this to true enables DLNA which requires the pod to be attached to the
