@@ -69,7 +69,7 @@ persistence:
     # accessMode: ReadWriteOnce
     # size: 1Gi
   media:
-    enabled: false
+    enabled: true
     ## Directory where media is persisted
     ## If defined, storageClassName: <storageClass>
     ## If set to "-", storageClassName: "", which disables dynamic provisioning
@@ -158,10 +158,10 @@ persistentVolume:
     hostPath: /srv/dev-disk-by-uuid-4c7807a3-ad92-4a02-921b-5414abc40250/kubernetes/jellyfin
     accessModes:
       - ReadWriteMany 
-  # - name: jellyfin-media
-  #   namespace: prod
-  #   storage: 2Ti 
-  #   disk: disk2
-  #   hostPath: /srv/dev-disk-by-uuid-1637aef4-f2aa-4ea3-98e4-3e31d5c4f6ae/NAS
-  #   accessModes:
-  #     - ReadWriteMany 
+  - name: jellyfin-media
+    namespace: prod
+    storage: 2Ti 
+    disk: disk2
+    hostPath: /srv/dev-disk-by-uuid-1637aef4-f2aa-4ea3-98e4-3e31d5c4f6ae/NAS
+    accessModes:
+      - ReadWriteMany 
