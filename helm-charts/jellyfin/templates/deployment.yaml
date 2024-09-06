@@ -90,7 +90,7 @@ spec:
               port: http
         {{- end }}
           volumeMounts:
-            - name: media
+            - name: media2
               mountPath: /media
             # - mountPath: /dev/vcsm
             #   name: device-vcsm
