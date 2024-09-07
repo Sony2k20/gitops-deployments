@@ -15,6 +15,10 @@ metadata:
 {{ toYaml . | indent 4 }}
 {{- end }}
 spec:
+  ipFamilies:            
+    - IPv4
+    - IPv6
+  ipFamilyPolicy: PreferDualStack 
 {{- if (or (eq .Values.service.type "ClusterIP") (empty .Values.service.type)) }}
   type: ClusterIP
   {{- if .Values.service.clusterIP }}
