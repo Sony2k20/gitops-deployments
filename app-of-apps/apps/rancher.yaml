@@ -21,6 +21,10 @@ spec:
           extraAnnotations: 
             cert-manager.io/cluster-issuer: letsencrypt-prod
             traefik.ingress.kubernetes.io/router.middlewares: kube-system-redirect-https@kubernetescrd
+            traefik.ingress.kubernetes.io/router.connect-timeout: "30s"
+            traefik.ingress.kubernetes.io/router.read-timeout: "30s"
+            traefik.ingress.kubernetes.io/router.write-timeout: "30s"
+            traefik.ingress.kubernetes.io/router.idle-timeout: "30s"
           ingressClassName: traefik
           tls:
             source: secret
