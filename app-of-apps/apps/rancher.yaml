@@ -34,7 +34,9 @@ spec:
     namespace: cattle-system
   syncPolicy:
     automated:
-      prune: true
+      prune: false
+      selfHeal: false
     syncOptions:
       - PruneLast=true
       - CreateNamespace=true
+      - SkipHooks=true
