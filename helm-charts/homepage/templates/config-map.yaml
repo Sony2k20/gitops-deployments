@@ -84,12 +84,18 @@ data:
         - Nextcloud:
             icon: nextcloud.png
             href: https://nextcloud.csnguyen.de
-        - Traefik:
-            icon: traefik.png
-            href: https://traefik.csnguyen.de
         - Openmediavault:
             icon: openmediavault.png
             href: https://omv.csnguyen.de
+        - Plex:
+            icon: plex.png
+            href: https://plex.csnguyen.de
+        - Rancher:
+            icon: rancher.png
+            href: https://rancher.csnguyen.de
+        - Traefik:
+            icon: traefik.png
+            href: https://traefik.csnguyen.de
         - Upsnap:
             icon: upsnap.png
             href: https://upsnap.csnguyen.de
