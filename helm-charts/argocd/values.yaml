@@ -11,9 +11,10 @@ argo-cd:
         cert-manager.io/cluster-issuer: letsencrypt-prod
         traefik.ingress.kubernetes.io/router.middlewares: |
           kube-system-redirect-https@kubernetescrd
+        traefik.ingress.kubernetes.io/router.entrypoints: "vpn"
       tls: true
   configs:
     params:
       server.insecure: true
-    cm: 
+    cm:
       exec.enabled: true
