@@ -87,8 +87,8 @@ data:
         - Openmediavault:
             icon: openmediavault.png
             href: https://omv.csnguyen.de
-        - Pihole:
-            icon: pihole.png
+        - Pi-hole:
+            icon: pi-hole.png
             href: https://pihole.csnguyen.de/admin
         - Rancher:
             icon: rancher.png
