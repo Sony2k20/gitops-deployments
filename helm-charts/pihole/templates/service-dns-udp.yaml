@@ -39,4 +39,5 @@ spec:
       name: dns-udp
   selector:
     app: {{ template "pihole.name" . }}
-    release: {{ .Release.Name }}W
+    release: {{ .Release.Name }}
+{{- end }}

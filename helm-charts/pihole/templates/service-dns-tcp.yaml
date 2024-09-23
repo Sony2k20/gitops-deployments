@@ -46,3 +46,4 @@ spec:
   selector:
     app: {{ template "pihole.name" . }}
     release: {{ .Release.Name }}
+{{- end }}
