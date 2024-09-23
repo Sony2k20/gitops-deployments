@@ -142,11 +142,10 @@ ingress:
   enabled: true
   ingressClassName: traefik
   annotations:
-    traefik.ingress.kubernetes.io/redirect-entry-point: "web"
+    traefik.ingress.kubernetes.io/redirect-entry-point: "vpn"
     cert-manager.io/cluster-issuer: letsencrypt-prod
     traefik.ingress.kubernetes.io/router.middlewares: |
       kube-system-redirect-https@kubernetescrd
-    #     traefik.ingress.kubernetes.io/router.entrypoints: "vpn"
   path: /
   hosts:
     - pihole.csnguyen.de
