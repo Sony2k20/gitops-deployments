@@ -22,12 +22,12 @@ pihole:
   #   https:
   #     enabled: true
   #     port: 443
-  # serviceDns:
+  serviceDns:
   #   port: 53
   #   mixedService: true
-  #   type: LoadBalancer
-  #   loadBalancerIP: "192.168.2.109"
-  #   loadBalancerIPv6: "2a00:1f:4700:3b01:e65f:1ff:fe27:6bbe"
+    type: LoadBalancer
+    loadBalancerIP: "192.168.2.109"
+    loadBalancerIPv6: "2a00:1f:4700:3b01:e65f:1ff:fe27:6bbe"
   ingress:
     enabled: true
     ingressClassName: traefik
