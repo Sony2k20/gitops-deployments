@@ -93,7 +93,7 @@ spec:
               valueFrom:
                 secretKeyRef:
                   key: {{ .Values.admin.passwordKey | default "password" }}
-                  name: {{ .Values.admin.existingSecret | default (include "pihole.password-secret" .) }}
+                  name: {{ .Values.admin.existingSecret }}
               {{- else }}
               value: ""
               {{- end }}
@@ -146,7 +146,7 @@ spec:
             valueFrom:
               secretKeyRef:
                 key: {{ .Values.admin.passwordKey | default "password" }}
-                name: {{ .Values.admin.existingSecret | default (include "pihole.password-secret" .) }}
+                name: {{ .Values.admin.existingSecret }}
             {{- else }}
             value: ""
             {{- end }}
