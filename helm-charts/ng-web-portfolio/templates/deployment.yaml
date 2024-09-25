@@ -31,8 +31,9 @@ spec:
               git clone --branch {{ .Values.github.branch }} {{ .Values.github.repo }} /src
               cd /src
               npm install -g @angular/cli 
-              npm install --save-dev @angular-devkit/build-angular 
-              ng build ---output-path=dist/app
+              rm package-lock.json
+              npm i --save-dev @angular-devkit/build-angular
+              ng build --output-path=dist/app
               exit 0
           volumeMounts:
             - mountPath: /src
@@ -55,10 +56,7 @@ spec:
           volumeMounts:
             - mountPath: /usr/share/nginx/html
               name: angular-files
-              subPath: dist/app
-            - mountPath: /etc/nginx/conf.d
-              name: angular-files
-              subPath: nginx
+              subPath: dist/app//browser
       volumes:
         - name: angular-files
           emptyDir: {}  
