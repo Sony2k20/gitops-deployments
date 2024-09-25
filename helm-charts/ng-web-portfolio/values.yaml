@@ -1,0 +1,30 @@
+replicaCount: 1
+
+image:
+  repository: nginx
+  pullPolicy: IfNotPresent
+  tag: ""
+
+github:
+  repo: "https://github.com/Sony2k20/ng-web-portfolio"
+  branch: "master"
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  host: katy.csnguyen.de
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    traefik.ingress.kubernetes.io/router.middlewares: |
+      kube-system-redirect-https@kubernetescrd
+
+livenessProbe:
+  httpGet:
+    path: /
+    port: 80
+readinessProbe:
+  httpGet:
+    path: /
+    port: 80
