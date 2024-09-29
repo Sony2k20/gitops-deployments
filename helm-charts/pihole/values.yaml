@@ -337,7 +337,7 @@ dnsmasq:
 
   # -- Add custom dns entries to override the dns resolution. All lines will be added to the pihole dnsmasq configuration.
   customDnsEntries: 
-    - address=/csnguyen.local/192.168.2.109
+    - address=/csnguyen.de/192.168.2.109
   # - address=/foo.bar/192.168.178.10
   # - address=/bar.foo/192.168.178.11
 
