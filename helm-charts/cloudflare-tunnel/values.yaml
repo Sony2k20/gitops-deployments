@@ -1,0 +1,4 @@
+image:
+  repository: cloudflare/cloudflared:latest
+  pullPolicy: IfNotPresent
+  tag: ""
