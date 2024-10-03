@@ -1,3 +1,5 @@
 **/secrets.yaml
 **/secret.yaml
 /k3s-config
+*.cer
+*.key
