@@ -47,7 +47,7 @@ ingress:
   hosts:
     - jellyfin.csnguyen.de
   tls: 
-   - secretName: jellyfin
+   - secretName: csnguyen-tls
      hosts:
        - jellyfin.csnguyen.de
 

@@ -12,7 +12,8 @@ argo-cd:
         traefik.ingress.kubernetes.io/router.middlewares: |
           kube-system-redirect-https@kubernetescrd
         traefik.ingress.kubernetes.io/redirect-entry-point: web
-      tls: true
+      tls: 
+        secretName: csnguyen-tls
   configs:
     params:
       server.insecure: true

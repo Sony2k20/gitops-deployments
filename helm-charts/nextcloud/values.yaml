@@ -10,7 +10,7 @@ nextcloud:
       traefik.ingress.kubernetes.io/router.middlewares: |
         kube-system-redirect-https@kubernetescrd
     tls:
-      - secretName: nextcloud
+      - secretName: csnguyen-tls
         hosts:
           - nextcloud.csnguyen.de
   persistence:

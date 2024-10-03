@@ -54,7 +54,7 @@ serviceDns:
 
   # -- Annotations for the DNS service
   annotations:
-    {}
+    "helm.sh/hook": post-install,post-upgrade
     # metallb.universe.tf/address-pool: network-services
     # metallb.universe.tf/allow-shared-ip: pihole-svc
 
@@ -149,7 +149,7 @@ ingress:
   hosts:
     - pihole.csnguyen.de
   tls:
-    - secretName: pihole
+    - secretName: csnguyen-tls
       hosts:
         - pihole.csnguyen.de
 

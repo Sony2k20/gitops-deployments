@@ -53,7 +53,7 @@ ingress:
        - /
   ingressClassName: traefik
   tls:
-   - secretName: code-server
+   - secretName: csnguyen-tls
      hosts:
        - code-server.csnguyen.de
 
