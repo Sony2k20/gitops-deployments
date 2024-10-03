@@ -13,7 +13,7 @@ service:
 ingress:
   host: upsnap.csnguyen.de
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-prod
+    # cert-manager.io/cluster-issuer: letsencrypt-prod
     traefik.ingress.kubernetes.io/router.middlewares: |
       kube-system-redirect-https@kubernetescrd
 
