@@ -16,7 +16,6 @@ service:
 ingress:
   host: csnguyen.de
   annotations:
-    traefik.ingress.kubernetes.io/redirect-entry-point: "web"
     cert-manager.io/cluster-issuer: letsencrypt-prod
     traefik.ingress.kubernetes.io/router.middlewares: |
       kube-system-redirect-https@kubernetescrd

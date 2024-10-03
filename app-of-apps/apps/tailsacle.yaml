@@ -11,8 +11,6 @@ spec:
     repoURL: https://pkgs.tailscale.com/helmcharts
     chart: tailscale-operator
     targetRevision: "1.74.1"
-    # helm:
-    #   values: |
   destination:
     namespace: prod
     name: in-cluster
