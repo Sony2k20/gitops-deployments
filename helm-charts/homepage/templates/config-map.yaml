@@ -18,7 +18,7 @@ data:
     layout:
       Websites:
         style: row
-        columns: 2
+        columns: 3
       Data:
         style: row
         columns: 2
@@ -60,7 +60,7 @@ data:
           href: https://www.xing.com/profile/CongSon_Nguyen/web_profiles?expandNeffi=true
   services.yaml: |
     - Websites:
-        - Portfolio:
+        - csnguyen.de:
             icon: /icons/portfolio.png
             href: https://csnguyen.de
             widget:
@@ -68,7 +68,7 @@ data:
               fields: ["up","uptime"]
               url: https://uptime-kuma.csnguyen.de
               slug: portfolio
-        - Blog:
+        - blog.csnguyen.de:
             icon: /icons/angular.png
             href: https://blog.csnguyen.de
             widget:
@@ -76,6 +76,14 @@ data:
               fields: ["up","uptime"]
               url: https://uptime-kuma.csnguyen.de
               slug: blog
+        - katy.csnguyen.de:
+            icon: /icons/angular.png
+            href: https://blog.csnguyen.de
+            widget:
+              type: uptimekuma
+              fields: ["up","uptime"]
+              url: https://uptime-kuma.csnguyen.de
+              slug: katy
 
     - Public Services:
         - Jellyfin:
