@@ -1,27 +1,27 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{ include "omv.fullname" . }}-ts
+  name: {{ include "rancher.fullname" . }}-ts
   labels:
-    {{- include "omv.labels" . | nindent 4 }}
-  {{- with .Values.ingress.annotations }}
+    {{- include "rancher.labels" . | nindent 4 }}
+  {{- with .Values.rancher.ingress.extraAnnotations }}
   annotations:
     {{- toYaml . | nindent 4 }}
   {{- end }}
 spec:
   ingressClassName: tailscale
   rules:
-    - host: {{.Values.ingress.host }}
+    - host: {{.Values.rancher.hostname }}
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: {{ include "omv.fullname" . }}
+                name: {{ include "rancher.fullname" . }}
                 port:
-                  number: {{ .Values.service.port }}
+                  number: 80
   tls:
     - hosts:
-       - {{.Values.ingress.host }}
+       - {{.Values.rancher.hostname }}
       secretName: csnguyen-tls

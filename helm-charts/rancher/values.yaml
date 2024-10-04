@@ -1,0 +1,12 @@
+rancher:
+  replicas: 1
+  hostname: rancher.csnguyen.de
+  ingress:
+    enabled: true
+    includeDefaultExtraAnnotations: false
+    extraAnnotations: 
+      traefik.ingress.kubernetes.io/router.middlewares: kube-system-redirect-https@kubernetescrd
+    ingressClassName: traefik
+    tls:
+      source: secret
+      secretName: csnguyen-tls

@@ -28,10 +28,10 @@ data:
         columns: 4
       Public Services:
         style: row
-        columns: 4
+        columns: 3
       Private Services:
         style: row
-        columns: 4
+        columns: 3
       Social:
         style: row
         columns: 3
