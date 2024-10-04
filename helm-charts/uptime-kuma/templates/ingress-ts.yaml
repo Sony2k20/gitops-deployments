@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ include "uptime-kuma.fullname" . }}-ts
+  labels:
+    {{- include "uptime-kuma.labels" . | nindent 4 }}
+  {{- with index .Values "uptime-kuma" "ingress" "annotations" }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  ingressClassName: tailscale
+  rules:
+    - host: {{ index .Values "uptime-kuma" "ingress" "hosts" 0 "host" }}
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ include "uptime-kuma.fullname" . }}
+                port:
+                  number: 3001
+  tls:
+    - hosts:
+        - {{ index .Values "uptime-kuma" "ingress" "hosts" 0 "host" }}
+      secretName: {{ index .Values "uptime-kuma" "ingress" "tls" 0 "secretName" }}

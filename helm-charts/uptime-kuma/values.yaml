@@ -1,0 +1,19 @@
+uptime-kuma:
+  volume:
+    enabled: true
+    existingClaim: uptime-kuma
+  ingress:
+    enabled: true
+    annotations:
+      traefik.ingress.kubernetes.io/router.middlewares: kube-system-redirect-https@kubernetescrd
+    className: traefik
+    hosts:
+      - host: uptime-kuma.csnguyen.de
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+    tls:
+      - secretName: csnguyen-tls
+        hosts:
+          - uptime-kuma.csnguyen.de
+
