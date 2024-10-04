@@ -4,6 +4,8 @@ metadata:
   name: {{ include "upsnap.fullname" . }}
   labels:
     {{- include "upsnap.labels" . | nindent 4 }}
+  annotations:
+    tailscale.com/expose: "true"
 spec:
   type: {{ .Values.service.type }}
   ports:

@@ -4,6 +4,8 @@ metadata:
   name: {{ include "web-portfolio.fullname" . }}
   labels:
     {{- include "web-portfolio.labels" . | nindent 4 }}
+  annotations:
+    tailscale.com/expose: "true"
 spec:
   type: {{ .Values.service.type }}
   ports:
