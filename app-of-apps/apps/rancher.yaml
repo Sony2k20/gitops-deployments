@@ -1,39 +1,39 @@
-# apiVersion: argoproj.io/v1alpha1
-# kind: Application
-# metadata:
-#   name: rancher
-#   namespace: argocd
-#   labels:
-#     type: infra
-# spec:
-#   project: default
-#   source:
-#     repoURL: https://releases.rancher.com/server-charts/latest
-#     chart: rancher
-#     targetRevision: "2.9.0"
-#     helm:
-#       values: |
-#         replicas: 1
-#         hostname: rancher.csnguyen.de
-#         ingress:
-#           enabled: true
-#           includeDefaultExtraAnnotations: false
-#           extraAnnotations: 
-#             cert-manager.io/cluster-issuer: letsencrypt-prod
-#             traefik.ingress.kubernetes.io/router.middlewares: kube-system-redirect-https@kubernetescrd
-#             traefik.ingress.kubernetes.io/redirect-entry-point: "vpn"
-#           ingressClassName: traefik
-#           tls:
-#             source: secret
-#             secretName: tls-rancher-ingress
-#   destination:
-#     server: "https://kubernetes.default.svc"
-#     namespace: cattle-system
-#   syncPolicy:
-#     automated:
-#       prune: false
-#       selfHeal: false
-#     syncOptions:
-#       - PruneLast=true
-#       - CreateNamespace=true
-#       - SkipHooks=true
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: rancher
+  namespace: argocd
+  labels:
+    type: infra
+spec:
+  project: default
+  source:
+    repoURL: https://releases.rancher.com/server-charts/latest
+    chart: rancher
+    targetRevision: "2.9.0"
+    helm:
+      values: |
+        replicas: 1
+        hostname: rancher.csnguyen.de
+        ingress:
+          enabled: true
+          includeDefaultExtraAnnotations: false
+          extraAnnotations: 
+            cert-manager.io/cluster-issuer: letsencrypt-prod
+            traefik.ingress.kubernetes.io/router.middlewares: kube-system-redirect-https@kubernetescrd
+            traefik.ingress.kubernetes.io/redirect-entry-point: "vpn"
+          ingressClassName: traefik
+          tls:
+            source: secret
+            secretName: tls-rancher-ingress
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: cattle-system
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false
+    syncOptions:
+      - PruneLast=true
+      - CreateNamespace=true
+      - SkipHooks=true

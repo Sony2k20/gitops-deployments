@@ -10,11 +10,18 @@ metadata:
   {{- end }}
 spec:
   ingressClassName: tailscale
-  defaultBackend:
-    service:
-      name: {{ include "web-portfolio.fullname" . }}
-      port:
-        number: {{ .Values.service.port }}
+  rules:
+    - host: {{.Values.ingress.host }}
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ include "web-portfolio.fullname" . }}
+                port:
+                  number: {{ .Values.service.port }}
   tls:
     - hosts:
        - {{.Values.ingress.host }}
+      secretName: csnguyen-tls

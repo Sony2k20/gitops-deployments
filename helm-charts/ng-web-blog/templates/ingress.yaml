@@ -20,7 +20,7 @@ spec:
               service:
                 name: {{ include "ng-web-blog.fullname" . }}
                 port:
-                  number: 80
+                  number: {{ .Values.service.port }}
   tls:
     - hosts:
        - {{.Values.ingress.host }}

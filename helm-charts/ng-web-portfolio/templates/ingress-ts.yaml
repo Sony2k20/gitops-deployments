@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{ include "ng-web-portfolio.fullname" . }}
+  name: {{ include "ng-web-portfolio.fullname" . }}-ts
   labels:
     {{- include "ng-web-portfolio.labels" . | nindent 4 }}
   {{- with .Values.ingress.annotations }}
@@ -9,7 +9,7 @@ metadata:
     {{- toYaml . | nindent 4 }}
   {{- end }}
 spec:
-  ingressClassName: traefik
+  ingressClassName: tailscale
   rules:
     - host: {{.Values.ingress.host }}
       http:

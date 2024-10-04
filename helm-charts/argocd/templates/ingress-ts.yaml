@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: argocd-server-ts
+  labels:
+    app.kubernetes.io/component: server
+    app.kubernetes.io/instance: argocd
+    app.kubernetes.io/name: argocd-server
+    app.kubernetes.io/part-of: argocd
+    argocd.argoproj.io/instance: argocd
+  {{- with index .Values "argo-cd" "server" "ingress" "annotations" }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  ingressClassName: tailscale
+  defaultBackend:
+    service:
+      name: argocd-server
+      port:
+        number: {{ index .Values "argo-cd" "server" "service" "servicePortHttp" }}
+  tls:
+    - hosts:
+       - {{ index .Values "argo-cd" "global" "domain" }}

@@ -24,4 +24,4 @@ spec:
   tls:
     - hosts:
        - {{.Values.ingress.host }}
-      secretName: {{ include "homepage.fullname" . }}
+      secretName: csnguyen-tls
