@@ -78,7 +78,7 @@ data:
               slug: blog
         - katy.csnguyen.de:
             icon: /icons/angular.png
-            href: https://blog.csnguyen.de
+            href: https://katy.csnguyen.de
             widget:
               type: uptimekuma
               fields: ["up","uptime"]
