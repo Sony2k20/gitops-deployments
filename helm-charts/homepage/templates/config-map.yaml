@@ -18,7 +18,7 @@ data:
     layout:
       Websites:
         style: row
-        columns: 3
+        columns: 4
       Data:
         style: row
         columns: 2
@@ -84,6 +84,14 @@ data:
               fields: ["up","uptime"]
               url: https://uptime-kuma.csnguyen.de
               slug: katy
+        - katharinaniesche.de:
+            icon: /icons/angular.png
+            href: https://katharinaniesche.de
+            widget:
+              type: uptimekuma
+              fields: ["up","uptime"]
+              url: https://uptime-kuma.csnguyen.de
+              slug: niesche
 
     - Public Services:
         - Jellyfin:
