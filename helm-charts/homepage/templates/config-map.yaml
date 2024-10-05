@@ -31,7 +31,7 @@ data:
         columns: 3
       Private Services:
         style: row
-        columns: 3
+        columns: 4
       Social:
         style: row
         columns: 3
@@ -114,12 +114,12 @@ data:
         - Pi-hole:
             icon: pi-hole.png
             href: https://pihole.csnguyen.de/admin
-        - Rancher:
-            icon: rancher.png
-            href: https://rancher.csnguyen.de
-        - Traefik:
-            icon: traefik.png
-            href: https://traefik.csnguyen.de
+        # - Rancher:
+        #     icon: rancher.png
+        #     href: https://rancher.csnguyen.de
+        # - Traefik:
+        #     icon: traefik.png
+        #     href: https://traefik.csnguyen.de
         - Upsnap:
             icon: upsnap.png
             href: https://upsnap.csnguyen.de
