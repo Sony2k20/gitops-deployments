@@ -1,22 +1,22 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: tailscale
-  namespace: argocd
-  labels:
-    type: app
-spec:
-  project: default
-  source:
-    repoURL: https://pkgs.tailscale.com/helmcharts
-    chart: tailscale-operator
-    targetRevision: "1.74.1"
-  destination:
-    namespace: prod
-    name: in-cluster
-  syncPolicy: 
-    automated:
-      selfHeal: false
-      prune: false
-    syncOptions:
-      - CreateNamespace=true
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: tailscale
+#   namespace: argocd
+#   labels:
+#     type: app
+# spec:
+#   project: default
+#   source:
+#     repoURL: https://pkgs.tailscale.com/helmcharts
+#     chart: tailscale-operator
+#     targetRevision: "1.74.1"
+#   destination:
+#     namespace: prod
+#     name: in-cluster
+#   syncPolicy: 
+#     automated:
+#       selfHeal: false
+#       prune: false
+#     syncOptions:
+#       - CreateNamespace=true
