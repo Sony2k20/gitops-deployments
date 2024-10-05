@@ -93,17 +93,6 @@ data:
               url: https://uptime-kuma.csnguyen.de
               slug: niesche
 
-    - Public Services:
-        - Jellyfin:
-            icon: jellyfin.png
-            href: https://jellyfin.csnguyen.de
-        - Nextcloud:
-            icon: nextcloud.png
-            href: https://nextcloud.csnguyen.de
-        - Uptime Kuma:
-            icon: uptime-kuma.png
-            href: https://uptime-kuma.csnguyen.de
-
     - Private Services:
         - ArgoCD:
             icon: argocd.png
@@ -123,6 +112,18 @@ data:
         - Upsnap:
             icon: upsnap.png
             href: https://upsnap.csnguyen.de
+
+    - Public Services:
+        - Jellyfin:
+            icon: jellyfin.png
+            href: https://jellyfin.csnguyen.de
+        - Nextcloud:
+            icon: nextcloud.png
+            href: https://nextcloud.csnguyen.de
+        - Uptime Kuma:
+            icon: uptime-kuma.png
+            href: https://uptime-kuma.csnguyen.de
+
 
   widgets.yaml: |
     - greeting:
