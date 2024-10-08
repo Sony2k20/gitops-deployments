@@ -1,16 +1,16 @@
 home-assistant:
   ingress:
-  enabled: true
-  className: traefik
-  annotations:
-    traefik.ingress.kubernetes.io/router.middlewares: |
-      kube-system-redirect-https@kubernetescrd
-  hosts:
-    - host: home-assistant.csnguyen.de
-      paths:
-        - path: /
-          pathType: ImplementationSpecific
-  tls: 
-    - secretName: home-assistant.csnguyen.de
-      hosts:
-        - csnguyen-tls
+    enabled: true
+    className: traefik
+    annotations:
+      traefik.ingress.kubernetes.io/router.middlewares: |
+        kube-system-redirect-https@kubernetescrd
+    hosts:
+      - host: home-assistant.csnguyen.de
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+    tls: 
+      - secretName: home-assistant.csnguyen.de
+        hosts:
+          - csnguyen-tls
