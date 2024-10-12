@@ -1,9 +1,9 @@
 replicaCount: 1
 
 image:
-  repository: nginx
-  pullPolicy: IfNotPresent
-  tag: ""
+  repository: sony2k20/ng-web-portfolio
+  pullPolicy: Always
+  tag: latest
 
 github:
   repo: "https://github.com/Sony2k20/ng-web-portfolio"

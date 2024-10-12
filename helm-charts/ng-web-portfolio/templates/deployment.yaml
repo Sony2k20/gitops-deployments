@@ -21,26 +21,6 @@ spec:
         {{- toYaml . | nindent 8 }}
         {{- end }}
     spec:
-      initContainers:
-        - name: init-container
-          image: node:current-alpine3.20
-          command: ['sh', '-c']
-          args:
-            - |
-              apk update && apk add git
-              git clone --branch {{ .Values.github.branch }} {{ .Values.github.repo }} /src
-              cd /src
-              npm install -g @angular/cli 
-              rm package-lock.json
-              npm i --save-dev @angular-devkit/build-angular
-              ng build --output-path=dist/app
-              exit 0
-          volumeMounts:
-            - mountPath: /src
-              name: angular-files
-            - name: secret-volume
-              mountPath: /secrets
-              readOnly: true
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default "latest" }}"
@@ -53,13 +33,3 @@ spec:
             {{- toYaml .Values.livenessProbe | nindent 12 }}
           readinessProbe:
             {{- toYaml .Values.readinessProbe | nindent 12 }}
-          volumeMounts:
-            - mountPath: /usr/share/nginx/html
-              name: angular-files
-              subPath: dist/app//browser
-      volumes:
-        - name: angular-files
-          emptyDir: {}  
-        - name: secret-volume
-          secret:
-            secretName: environment-ts
