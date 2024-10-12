@@ -1,0 +1,22 @@
+joplin:
+  image:
+    repository: joplin/server
+    tag: 3.0.15
+    pullPolicy: IfNotPresent
+
+  ingress:
+    main:
+      enabled: true
+      className: traefik
+      annotations: 
+        traefik.ingress.kubernetes.io/router.middlewares: |
+          kube-system-redirect-https@kubernetescrd
+      hosts:
+        - host: notes.csnguyen.de
+          paths:
+            - path: /
+              pathType: ImplementationSpecific
+      tls: 
+      - secretName: csnguyen-tls
+        hosts:
+          - notes.csnguyen.de
