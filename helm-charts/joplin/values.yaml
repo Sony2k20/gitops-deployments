@@ -33,7 +33,7 @@ joplin:
     POSTGRES_PASSWORD: joplin-pass
 
   postgresql:
-    enabled: false
+    enabled: true
     postgresqlUsername: joplin
     postgresqlPassword: joplin-pass
     postgresqlDatabase: joplin
