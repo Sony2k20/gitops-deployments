@@ -1,12 +1,16 @@
 postgresql:
-  primary.persistence.existingClaim: postgresql
-  global.postgresql.auth.username: joplin	
-  global.postgresql.auth.database: joplin
-  global.postgresql.auth.existingSecret: joplin-db-secret	
-  global.postgresql.auth.secretKeys.adminPasswordKey:	POSTGRES_PASSWORD
-  global.postgresql.auth.secretKeys.userPasswordKey: POSTGRES_PASSWORD
-  global.postgresql.auth.secretKeys.replicationPasswordKey: POSTGRES_PASSWORD
-
+  primary:
+    persistence:
+      existingClaim: postgresql
+  auth:
+    username: joplin
+    database: joplin
+    existingSecret: joplin-db-secret
+    secretKeys:
+      adminPasswordKey: POSTGRES_PASSWORD
+      userPasswordKey: POSTGRES_PASSWORD
+      replicationPasswordKey: POSTGRES_PASSWORD
+      
 service:
   port: 22300
 
