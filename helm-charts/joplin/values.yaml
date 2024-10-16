@@ -1,20 +1,11 @@
 postgresql:
-  postgresqlUsername: joplin
-  postgresqlPassword: joplin-pass
-  postgresqlDatabase: joplin
-
-
-primary.persistence.existingClaim	Name of an existing PVC to use
-
-global.postgresql.auth.postgresPassword	Password for the "postgres" admin user (overrides auth.postgresPassword)	""
-global.postgresql.auth.username	Name for a custom user to create (overrides auth.username)	""
-global.postgresql.auth.password	Password for the custom user to create (overrides auth.password)	""
-global.postgresql.auth.database	Name for a custom database to create (overrides auth.database)	""
-global.postgresql.auth.existingSecret	Name of existing secret to use for PostgreSQL credentials (overrides auth.existingSecret).	""
-global.postgresql.auth.secretKeys.adminPasswordKey	Name of key in existing secret to use for PostgreSQL credentials (overrides auth.secretKeys.adminPasswordKey). Only used when global.postgresql.auth.existingSecret is set.	""
-global.postgresql.auth.secretKeys.userPasswordKey	Name of key in existing secret to use for PostgreSQL credentials (overrides auth.secretKeys.userPasswordKey). Only used when global.postgresql.auth.existingSecret is set.	""
-global.postgresql.auth.secretKeys.replicationPasswordKey	Name of key in existing secret to use for PostgreSQL credentials (overrides auth.secretKeys.replicationPasswordKey). Only used when global.postgresql.auth.existingSecret is set.
-
+  primary.persistence.existingClaim: postgresql
+  global.postgresql.auth.username: joplin	
+  global.postgresql.auth.database: joplin
+  global.postgresql.auth.existingSecret: joplin-db-secret	
+  global.postgresql.auth.secretKeys.adminPasswordKey:	POSTGRES_PASSWORD
+  global.postgresql.auth.secretKeys.userPasswordKey: POSTGRES_PASSWORD
+  global.postgresql.auth.secretKeys.replicationPasswordKey: POSTGRES_PASSWORD
 
 service:
   port: 80
