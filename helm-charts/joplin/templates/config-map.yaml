@@ -4,7 +4,7 @@ metadata:
   name: joplin-config
 data:
   TZ: UTC
-  APP_PORT: {{ .Values.service.port }}
+  APP_PORT: "{{ .Values.service.port }}"
   DB_CLIENT: pg
   POSTGRES_HOST: joplin-postgresql
   POSTGRES_PORT: "5432"
