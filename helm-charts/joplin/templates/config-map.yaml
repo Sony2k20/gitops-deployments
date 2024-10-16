@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: joplin-config
+data:
+  TZ: UTC
+  APP_BASE_URL: https://notes.csnguyen.de
+  APP_PORT: "80"
+  DB_CLIENT: pg
+  POSTGRES_HOST: joplin-postgresql
+  POSTGRES_PORT: "5432"
+  POSTGRES_DATABASE: joplin
+  POSTGRES_USER: joplin

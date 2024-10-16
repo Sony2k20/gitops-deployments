@@ -1,42 +1,46 @@
-joplin:
-  image:
-    repository: joplin/server
-    tag: 3.0.15
-    pullPolicy: IfNotPresent
+postgresql:
+  postgresqlUsername: joplin
+  postgresqlPassword: joplin-pass
+  postgresqlDatabase: joplin
 
-  ingress:
-    main:
-      enabled: true
-      className: traefik
-      annotations:
-        traefik.ingress.kubernetes.io/router.middlewares: |
-          kube-system-redirect-https@kubernetescrd
-      hosts:
-        - host: notes.csnguyen.de
-          paths:
-            - path: /
-              pathType: ImplementationSpecific
-      tls:
-        - secretName: csnguyen-tls
-          hosts:
-            - notes.csnguyen.de
 
-  env:
-    TZ: UTC
-    APP_BASE_URL: https://notes.csnguyen.de
-    APP_PORT: 22300
-    DB_CLIENT: pg
-    POSTGRES_HOST: joplin-postgresql
-    POSTGRES_PORT: 5432
-    POSTGRES_DATABASE: joplin
-    POSTGRES_USER: joplin
-    POSTGRES_PASSWORD: joplin-pass
+primary.persistence.existingClaim	Name of an existing PVC to use
 
-  postgresql:
+global.postgresql.auth.postgresPassword	Password for the "postgres" admin user (overrides auth.postgresPassword)	""
+global.postgresql.auth.username	Name for a custom user to create (overrides auth.username)	""
+global.postgresql.auth.password	Password for the custom user to create (overrides auth.password)	""
+global.postgresql.auth.database	Name for a custom database to create (overrides auth.database)	""
+global.postgresql.auth.existingSecret	Name of existing secret to use for PostgreSQL credentials (overrides auth.existingSecret).	""
+global.postgresql.auth.secretKeys.adminPasswordKey	Name of key in existing secret to use for PostgreSQL credentials (overrides auth.secretKeys.adminPasswordKey). Only used when global.postgresql.auth.existingSecret is set.	""
+global.postgresql.auth.secretKeys.userPasswordKey	Name of key in existing secret to use for PostgreSQL credentials (overrides auth.secretKeys.userPasswordKey). Only used when global.postgresql.auth.existingSecret is set.	""
+global.postgresql.auth.secretKeys.replicationPasswordKey	Name of key in existing secret to use for PostgreSQL credentials (overrides auth.secretKeys.replicationPasswordKey). Only used when global.postgresql.auth.existingSecret is set.
+
+
+service:
+  port: 80
+
+image:
+  repository: joplin/server
+  tag: 3.0.15
+  pullPolicy: IfNotPresent
+
+ingress:
+  main:
     enabled: true
-    postgresqlUsername: joplin
-    postgresqlPassword: joplin-pass
-    postgresqlDatabase: joplin
-    persistence:
-      enabled: true
-      # storageClass: ""
+    className: traefik
+    annotations:
+      traefik.ingress.kubernetes.io/router.middlewares: |
+        kube-system-redirect-https@kubernetescrd
+    hosts:
+      - host: notes.csnguyen.de
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+    tls:
+      - secretName: csnguyen-tls
+        hosts:
+          - notes.csnguyen.de
+
+
+
+
