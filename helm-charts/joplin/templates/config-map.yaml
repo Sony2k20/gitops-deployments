@@ -4,6 +4,7 @@ metadata:
   name: joplin-config
 data:
   TZ: UTC
+  APP_BASE_URL: https://notes.csnguyen.de
   APP_PORT: "{{ .Values.service.port }}"
   DB_CLIENT: pg
   POSTGRES_HOST: joplin-postgresql
