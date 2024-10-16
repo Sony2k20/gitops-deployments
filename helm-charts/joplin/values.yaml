@@ -8,7 +8,7 @@ postgresql:
   global.postgresql.auth.secretKeys.replicationPasswordKey: POSTGRES_PASSWORD
 
 service:
-  port: 80
+  port: 22300
 
 image:
   repository: florider89/joplin-server
