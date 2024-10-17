@@ -41,6 +41,7 @@ priorityClassName: ""
 service:
   type: ClusterIP
   port: 8080
+  nodePort: 30008
 
 ingress:
   enabled: true

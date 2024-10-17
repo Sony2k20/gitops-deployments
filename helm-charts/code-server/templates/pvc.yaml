@@ -1,4 +1,3 @@
-{{- if and (and .Values.persistence.enabled (not .Values.persistence.existingClaim)) (not .Values.persistence.hostPath) }}
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
@@ -24,6 +23,5 @@ spec:
   storageClassName: ""
 {{- else }}
   storageClassName: "{{ .Values.persistence.storageClass }}"
-{{- end }}
 {{- end }}
 {{- end }}
