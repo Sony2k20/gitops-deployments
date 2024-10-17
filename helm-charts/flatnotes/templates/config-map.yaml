@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: flatnotes-config
+data:
+  JWT_SECRET: "bXktc2VjcmV0"
+  CORS_ORIGINS: "192.168.2.109:8000"
