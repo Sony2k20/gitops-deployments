@@ -1,8 +1,8 @@
 service:
-  port: 8000
+  port: 8080
 
 image:
-  repository: ghcr.io/enchant97/note-mark-aio
+  repository: dullage/flatnotes
   tag: ""
   pullPolicy: IfNotPresent
 

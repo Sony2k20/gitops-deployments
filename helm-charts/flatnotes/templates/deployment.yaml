@@ -29,11 +29,16 @@ spec:
             - configMapRef:
                 name: flatnotes-config
           env:
-            - name: POSTGRES_PASSWORD
+            - name: FLATNOTES_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: flatnotes-db-secret
-                  key: POSTGRES_PASSWORD
+                  name: flatnotes-secrets
+                  key: FLATNOTES_PASSWORD
+            - name: FLATNOTES_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: flatnotes-secrets
+                  key: FLATNOTES_SECRET_KEY
           ports:
             - name: http
               containerPort: {{ .Values.service.port }}
