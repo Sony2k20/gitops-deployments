@@ -3,7 +3,7 @@ service:
 
 image:
   repository: dullage/flatnotes
-  tag: ""
+  tag: v5
   pullPolicy: IfNotPresent
 
 ingress:

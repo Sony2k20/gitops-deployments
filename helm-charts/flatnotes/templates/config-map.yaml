@@ -3,8 +3,7 @@ kind: ConfigMap
 metadata:
   name: flatnotes-config
 data:
-  PUID: "1000"
-  PGID: "1000"
+  FLATNOTES_PORT: "{{ .Values.service.port }}"
   FLATNOTES_AUTH_TYPE: "password"
   FLATNOTES_USERNAME: "katyson"
   FLATNOTES_SESSION_EXPIRY_DAYS: "30"

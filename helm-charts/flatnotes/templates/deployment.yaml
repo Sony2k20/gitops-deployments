@@ -48,8 +48,9 @@ spec:
           readinessProbe:
             {{- toYaml .Values.readinessProbe | nindent 12 }}
           volumeMounts:
-            - name: content
-              mountPath: /usr/share/nginx/html
+           - mountPath: /data
+             name: data
       volumes:
-        - name: content
-          emptyDir: {}
+        - name: data
+          persistentVolumeClaim:
+            claimName: flatnotes

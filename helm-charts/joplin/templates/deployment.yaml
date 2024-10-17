@@ -42,9 +42,3 @@ spec:
             {{- toYaml .Values.livenessProbe | nindent 12 }}
           readinessProbe:
             {{- toYaml .Values.readinessProbe | nindent 12 }}
-          volumeMounts:
-            - name: content
-              mountPath: /usr/share/nginx/html
-      volumes:
-        - name: content
-          emptyDir: {}
