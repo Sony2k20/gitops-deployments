@@ -12,8 +12,22 @@ spec:
     volumeMounts:
     - mountPath: /home/data
       name: data
+    - mountPath: /usr/bin/ffmpeg
+      name: ffmpeg-bin
+      subPath: ffmpeg
+    - mountPath: /usr/local/bin/mp4decrypt
+      name: mp4decrypt-bin
+      subPath: mp4decrypt
   volumes:
   - name: data
     hostPath:
       path: /srv/dev-disk-by-uuid-4c7807a3-ad92-4a02-921b-5414abc40250/kubernetes/utils
-      type: Directory 
+      type: Directory
+  - name: ffmpeg-bin
+    hostPath:
+      path: /usr/bin/ffmpeg
+      type: File
+  - name: mp4decrypt-bin
+    hostPath:
+      path: /usr/local/bin/mp4decrypt
+      type: File
