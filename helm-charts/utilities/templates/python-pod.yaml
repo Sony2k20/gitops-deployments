@@ -11,6 +11,7 @@ spec:
     command: ["sleep", "infinity"]
     volumeMounts:
     - mountPath: /home/data
+      name: data
   volumes:
   - name: data
     hostPath:
