@@ -7,8 +7,14 @@ metadata:
 spec:
   containers:
   - name: python
-    image: python:latest
-    command: ["sleep", "infinity"]
+    image: python:3.11
+    command: ["/bin/bash", "-c"]
+    args:
+      - |
+        apt update && \
+        apt install -y pipx ffmpeg && \
+        pipx ensurepath && \
+        sleep infinity
     volumeMounts:
     - mountPath: /home/data
       name: data
@@ -16,4 +22,4 @@ spec:
   - name: data
     hostPath:
       path: /srv/dev-disk-by-uuid-4c7807a3-ad92-4a02-921b-5414abc40250/kubernetes/utils
-      type: Directory 
+      type: Directory
