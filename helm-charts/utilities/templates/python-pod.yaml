@@ -12,7 +12,7 @@ spec:
     args:
       - |
         apt update && \
-        apt install -y pipx ffmpeg && \
+        apt install -y pipx ffmpeg gcc python3-dev && \
         pipx ensurepath && \
         sleep infinity
     volumeMounts:
