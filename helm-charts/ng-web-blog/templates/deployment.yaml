@@ -23,9 +23,7 @@ spec:
     spec:
       containers:
         - name: {{ .Chart.Name }}
-          image: 
-            repository: {{ .Values.image.repository }}
-            tag: {{ .Values.image.tag | default "latest" }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default "latest" }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http

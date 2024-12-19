@@ -8,8 +8,8 @@ metadata:
   annotations:
     argocd-image-updater.argoproj.io/write-back-method: "helm"
     argocd-image-updater.argoproj.io/image-list: ng-web-portfolio=sony2k20/ng-web-portfolio:latest
-    argocd-image-updater.argoproj.io/ng-web-portfolio.helm.image-name: "image.repository"
-    argocd-image-updater.argoproj.io/ng-web-portfolio.helm.image-tag: "image.tag"
+    argocd-image-updater.argoproj.io/ng-web-blog.helm.image-name: ng-web-portfolio.image.repository
+    argocd-image-updater.argoproj.io/ng-web-blog.helm.image-tag: ng-web-portfolio.image.tag
     argocd-image-updater.argoproj.io/fooalias.update-strategy: digest
 spec:
   destination:
