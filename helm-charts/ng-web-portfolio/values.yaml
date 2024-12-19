@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  repository: sony2k20/ng-web-portfolio
+  name: sony2k20/ng-web-portfolio
   pullPolicy: Always
   tag: latest
 
