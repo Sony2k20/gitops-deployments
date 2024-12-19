@@ -6,7 +6,10 @@ metadata:
   labels:
     type: app
   annotations:
+    argocd-image-updater.argoproj.io/write-back-method: "helm"
     argocd-image-updater.argoproj.io/image-list: ng-web-blog=sony2k20/ng-web-blog:latest
+    argocd-image-updater.argoproj.io/ng-web-blog.helm.image-name: "image.repository"
+    argocd-image-updater.argoproj.io/ng-web-blog.helm.image-tag: "image.tag"
     argocd-image-updater.argoproj.io/fooalias.update-strategy: digest
 spec:
   destination:
