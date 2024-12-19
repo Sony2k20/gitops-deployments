@@ -4,6 +4,8 @@ metadata:
   name: {{ include "ng-web-blog.fullname" . }}
   labels:
     {{- include "ng-web-blog.labels" . | nindent 4 }}
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: "{{ .Chart.Name }}={{ .Values.image.repository }}:{{ .Values.image.tag | default "latest" }}"
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:

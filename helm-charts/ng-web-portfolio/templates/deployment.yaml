@@ -4,6 +4,8 @@ metadata:
   name: {{ include "ng-web-portfolio.fullname" . }}
   labels:
     {{- include "ng-web-portfolio.labels" . | nindent 4 }}
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: "{{ .Chart.Name }}={{ .Values.image.repository }}:{{ .Values.image.tag | default "latest" }}"  
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:

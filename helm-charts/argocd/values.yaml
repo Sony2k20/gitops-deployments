@@ -19,3 +19,11 @@ argo-cd:
       server.insecure: true
     cm:
       exec.enabled: true
+
+argocd-image-updater:
+  config:
+    argocd:
+      grpcWeb: false
+      serverAddress: "https://argocd.csnguyen.de/"
+      insecure: false
+      plaintext: false
