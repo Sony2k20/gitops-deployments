@@ -5,6 +5,8 @@ metadata:
   namespace: argocd
   labels:
     type: app
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: sony2k20/ng-web-portfolio:latest
 spec:
   destination:
     namespace: prod
@@ -16,7 +18,7 @@ spec:
     targetRevision: HEAD
   syncPolicy:
     automated:
-      selfHeal: true
-      prune: true
+      selfHeal: false
+      prune: false
     syncOptions:
       - CreateNamespace=true

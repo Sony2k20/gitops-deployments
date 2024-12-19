@@ -5,6 +5,8 @@ metadata:
   namespace: argocd
   labels:
     type: app
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: sony2k20/ng-web-blog:latest
 spec:
   destination:
     namespace: prod
