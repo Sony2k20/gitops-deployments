@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nestjs-email-service
+  namespace: argocd
+  labels:
+    type: app
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: email=sony2k20/nestjs-email-service:latest
+    argocd-image-updater.argoproj.io/email.update-strategy: digest
+spec:
+  destination:
+    namespace: prod
+    name: in-cluster
+  project: default
+  source:
+    path: helm-charts/nestjs-email-service
+    repoURL: https://github.com/Sony2k20/gitops-deployments.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      selfHeal: false
+      prune: true
+    syncOptions:
+      - CreateNamespace=true
