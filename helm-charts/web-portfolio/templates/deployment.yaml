@@ -33,7 +33,7 @@ spec:
               mountPath: /usr/share/nginx/html
       containers:
         - name: {{ .Chart.Name }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default "latest" }}"
+          image: "{{ .Values.image.name }}:{{ .Values.image.tag | default "latest" }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
