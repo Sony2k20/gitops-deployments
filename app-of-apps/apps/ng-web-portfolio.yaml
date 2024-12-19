@@ -6,7 +6,8 @@ metadata:
   labels:
     type: app
   annotations:
-    argocd-image-updater.argoproj.io/image-list: sony2k20/ng-web-portfolio:latest
+    argocd-image-updater.argoproj.io/image-list: ng-web-portfolio=sony2k20/ng-web-portfolio:latest
+    argocd-image-updater.argoproj.io/fooalias.update-strategy: digest
 spec:
   destination:
     namespace: prod

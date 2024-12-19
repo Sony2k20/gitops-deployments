@@ -6,7 +6,8 @@ metadata:
   labels:
     type: app
   annotations:
-    argocd-image-updater.argoproj.io/image-list: sony2k20/ng-web-blog:latest
+    argocd-image-updater.argoproj.io/image-list: ng-web-blog=sony2k20/ng-web-blog:latest
+    argocd-image-updater.argoproj.io/fooalias.update-strategy: digest
 spec:
   destination:
     namespace: prod
