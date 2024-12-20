@@ -4,8 +4,6 @@ metadata:
   name: {{ include "ng-web-portfolio.fullname" . }}
   labels:
     {{- include "ng-web-portfolio.labels" . | nindent 4 }}
-  annotations:
-    deploymentTime: {{ now | date "2006-01-02 15:04:05" }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
@@ -13,10 +11,8 @@ spec:
       {{- include "ng-web-portfolio.selectorLabels" . | nindent 6 }}
   template:
     metadata:
-      {{- with .Values.podAnnotations }}
       annotations:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
+        deploymentTime: {{ now | date "2006-01-02 15:04:05" }}
       labels:
         {{- include "ng-web-portfolio.labels" . | nindent 8 }}
         {{- with .Values.podLabels }}

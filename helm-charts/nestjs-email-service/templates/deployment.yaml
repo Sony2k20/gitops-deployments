@@ -4,8 +4,6 @@ metadata:
   name: {{ include "nestjs-email-service.fullname" . }}
   labels:
     {{- include "nestjs-email-service.labels" . | nindent 4 }}
-  annotations:
-    deploymentTime: "2024-12-20 11:27:54"
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
@@ -13,10 +11,8 @@ spec:
       {{- include "nestjs-email-service.selectorLabels" . | nindent 6 }}
   template:
     metadata:
-      {{- with .Values.podAnnotations }}
       annotations:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
+        deploymentTime: {{ now | date "2006-01-02 15:04:05" }}
       labels:
         {{- include "nestjs-email-service.labels" . | nindent 8 }}
         {{- with .Values.podLabels }}
