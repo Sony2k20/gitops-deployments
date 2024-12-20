@@ -12,7 +12,7 @@ spec:
   template:
     metadata:
       annotations:
-        deploymentTime: {{ now | date "2006-01-02 15:04:05" }}
+        deploymentTime: "2024-12-20 11:39:03"
       labels:
         {{- include "nestjs-email-service.labels" . | nindent 8 }}
         {{- with .Values.podLabels }}
