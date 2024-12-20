@@ -5,7 +5,7 @@ metadata:
   labels:
     {{- include "ng-web-portfolio.labels" . | nindent 4 }}
   annotations:
-    deploymenTime: {{ now | date "2006-01-02 15:04:05" }}
+    deploymentTime: {{ now | date "2006-01-02 15:04:05" }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
