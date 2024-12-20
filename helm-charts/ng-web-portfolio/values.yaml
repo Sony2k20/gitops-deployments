@@ -13,6 +13,9 @@ service:
   type: ClusterIP
   port: 80
 
+env:
+  emailServerUrl: https://email-service.csnguyen.de/email/send
+
 ingress:
   host: katy.csnguyen.de
   annotations:
