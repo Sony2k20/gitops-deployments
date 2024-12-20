@@ -5,7 +5,7 @@ metadata:
   labels:
     {{- include "nestjs-email-service.labels" . | nindent 4 }}
   annotations:
-    deploymentTime: 2024-12-20 11:22:28
+    deploymentTime: "2024-12-20 11:27:54"
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
