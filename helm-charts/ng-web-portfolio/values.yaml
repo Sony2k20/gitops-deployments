@@ -15,6 +15,7 @@ service:
 
 env:
   emailServerUrl: https://email-service.csnguyen.de/email/send
+  emailAdress: king_cong_son_nguyen@web.de
 
 ingress:
   host: katy.csnguyen.de
