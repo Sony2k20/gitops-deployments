@@ -30,6 +30,8 @@ spec:
           env:
             - name: EMAIL_SERVER_URL
               value: {{ .Values.env.emailServerUrl }}
+            - name: EMAIL_SERVER_URL
+              value: {{ .Values.env.emailAdress }}
           livenessProbe:
             {{- toYaml .Values.livenessProbe | nindent 12 }}
           readinessProbe:
