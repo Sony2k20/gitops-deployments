@@ -22,9 +22,9 @@ ingress:
 
 livenessProbe:
   httpGet:
-    path: /api
+    path: /docs
     port: 3000
 readinessProbe:
   httpGet:
-    path: /api
+    path: /docs
     port: 3000
