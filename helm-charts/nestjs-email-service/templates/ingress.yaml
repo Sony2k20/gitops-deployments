@@ -20,7 +20,7 @@ spec:
               service:
                 name: {{ include "nestjs-email-service.fullname" . }}
                 port:
-                  number: {{ .Values.service.port }}
+                  number: http
   tls:
     - hosts:
        - {{.Values.ingress.host }}
