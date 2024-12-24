@@ -14,11 +14,12 @@ service:
   port: 80
 
 env:
-  emailServerUrl: https://email-service.csnguyen.de/email/send
-  emailAdress: king_cong_son_nguyen@web.de
+  EMAIL_SERVER_URL: https://email-service.csnguyen.de/email/send
+  EMAIL_ADRESS: king_cong_son_nguyen@web.de
 
 ingress:
   host: katy.csnguyen.de
+  path: /
   annotations:
     # cert-manager.io/cluster-issuer: letsencrypt-prod
     traefik.ingress.kubernetes.io/router.middlewares: |

@@ -11,10 +11,10 @@ metadata:
 spec:
   ingressClassName: traefik
   rules:
-    - host: {{.Values.ingress.host }}
+    - host: {{ .Values.ingress.host }}
       http:
         paths:
-          - path: /
+          - path: {{ .Values.ingress.path }}
             pathType: Prefix
             backend:
               service:

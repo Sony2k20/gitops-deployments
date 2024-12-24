@@ -14,11 +14,20 @@ service:
   port: 3000
 
 ingress:
-  host: email.csnguyen.de
+  className: traefik
   annotations:
-    # cert-manager.io/cluster-issuer: letsencrypt-prod
+    traefik.ingress.kubernetes.io/rewrite-target: /$2
     traefik.ingress.kubernetes.io/router.middlewares: |
       kube-system-redirect-https@kubernetescrd
+  hosts:
+    - host: katy.csnguyen.de
+      paths:
+        - path: /api(/|$)(.*)
+          pathType: ImplementationSpecific
+  tls:
+    - secretName: csnguyen-tls
+      hosts:
+        - katy.csnguyen.de
 
 livenessProbe:
   httpGet:
