@@ -16,8 +16,8 @@ spec:
     namespace: prod
   syncPolicy:
     automated:
-      prune: false
-      selfHeal: false
+      prune: true
+      selfHeal: true
     syncOptions:
       - PruneLast=true
       - CreateNamespace=true
