@@ -27,11 +27,6 @@ spec:
             - name: http
               containerPort: {{ .Values.service.port }}
               protocol: TCP
-          env:
-            - name: EMAIL_SERVER_URL
-              value: {{ .Values.env.emailServerUrl }}
-            - name: EMAIL_ADRESS
-              value: {{ .Values.env.emailAdress }}
           livenessProbe:
             {{- toYaml .Values.livenessProbe | nindent 12 }}
           readinessProbe:

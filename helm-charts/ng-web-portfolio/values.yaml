@@ -13,10 +13,6 @@ service:
   type: ClusterIP
   port: 80
 
-env:
-  EMAIL_SERVER_URL: https://email-service.csnguyen.de/email/send
-  EMAIL_ADRESS: king_cong_son_nguyen@web.de
-
 ingress:
   host: katy.csnguyen.de
   path: /
