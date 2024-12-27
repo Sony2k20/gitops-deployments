@@ -20,7 +20,7 @@ ingress:
     # traefik.ingress.kubernetes.io/rewrite-target: /$2
     traefik.ingress.kubernetes.io/router.middlewares: |
       kube-system-redirect-https@kubernetescrd
-      kube-system-api-prefix@kubernetescrd
+      kube-system-strip-api-prefix@kubernetescrd
   hosts:
     - host: katy.csnguyen.de
       paths:
