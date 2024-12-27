@@ -22,8 +22,8 @@ ingress:
   hosts:
     - host: katy.csnguyen.de
       paths:
-        - path: /api(/|$)(.*)
-          pathType: ImplementationSpecific
+        - path: /api
+          pathType: Prefix
   tls:
     - secretName: csnguyen-tls
       hosts:
