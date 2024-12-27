@@ -17,12 +17,12 @@ ingress:
   className: traefik
   annotations:
     traefik.ingress.kubernetes.io/router.middlewares: |
-      kube-system-redirect-https@kubernetescrd
+      kube-system-redirect-https@kubernetescrd,
       kube-system-strip-api-prefix@kubernetescrd
   hosts:
     - host: katy.csnguyen.de
       paths:
-        - path: /api(/|$)
+        - path: /api(/|$)(.*)
           pathType: ImplementationSpecific
   tls:
     - secretName: csnguyen-tls
