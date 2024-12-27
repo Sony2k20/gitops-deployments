@@ -17,7 +17,6 @@ ingress:
   host: katy.csnguyen.de
   path: /
   annotations:
-    traefik.ingress.kubernetes.io/router.priority: "5"
     traefik.ingress.kubernetes.io/router.middlewares: |
       kube-system-redirect-https@kubernetescrd
 
