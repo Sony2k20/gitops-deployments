@@ -28,26 +28,23 @@ spec:
               containerPort: {{ .Values.service.port }}
               protocol: TCP
           env:
-            - name: SMTP_HOST
+          {{- with .Values.env }}
+          {{- range $key, $value := . }}
+            - name: {{ $key }}
+              value: {{ $value | quote }}
+          {{- end }}
+          {{- end }}
+
+          {{- with .Values.envSecrets }}
+          {{- $secretName := .secretKeyRef }}
+          {{- range $key, $value := .name }}
+            - name: {{ $key }}
               valueFrom:
                 secretKeyRef:
-                  name: email-service-secrets
-                  key: SMTP_HOST
-            - name: SMTP_PORT
-              valueFrom:
-                secretKeyRef:
-                  name: email-service-secrets
-                  key: SMTP_PORT
-            - name: SMTP_USER
-              valueFrom:
-                secretKeyRef:
-                  name: email-service-secrets
-                  key: SMTP_USER
-            - name: SMTP_PASS
-              valueFrom:
-                secretKeyRef:
-                  name: email-service-secrets
-                  key: SMTP_PASS                                                      
+                  name: {{ $secretName }}
+                  key: {{ $value }}
+          {{- end }}
+          {{- end }}                                              
           livenessProbe:
             {{- toYaml .Values.livenessProbe | nindent 12 }}
           readinessProbe:
