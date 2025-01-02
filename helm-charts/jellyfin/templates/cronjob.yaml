@@ -11,8 +11,8 @@ spec:
           containers:
           - name: kubectl
             image: bitnami/kubectl:latest
-            command:
-            - /bin/sh
-            - -c
-            - kubectl delete pod $(kubectl get pods -n {{ .Release.Namespace }} | grep {{ .Chart.Name }} | awk '{print $1}') -n {{ .Release.Namespace }}
+            command: ["sh", "-c", "sleep infinity"]
+            # - /bin/sh
+            # - -c
+            # - kubectl delete pod $(kubectl get pods -n {{ .Release.Namespace }} | grep {{ .Chart.Name }} | awk '{print $1}') -n {{ .Release.Namespace }}
           restartPolicy: OnFailure
