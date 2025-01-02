@@ -8,6 +8,7 @@ spec:
     spec:
       template:
         spec:
+          serviceAccountName: cronjob-sa-jellyfin
           containers:
           - name: kubectl
             image: bitnami/kubectl:latest
