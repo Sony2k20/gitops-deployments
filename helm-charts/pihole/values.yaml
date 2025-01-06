@@ -128,7 +128,6 @@ serviceWeb:
 
   # -- Annotations for the DHCP service
   annotations:
-    tailscale.com/expose: "true"
     # metallb.universe.tf/address-pool: network-services
     # metallb.universe.tf/allow-shared-ip: pihole-svc
 
