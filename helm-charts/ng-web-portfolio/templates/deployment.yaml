@@ -12,7 +12,7 @@ spec:
   template:
     metadata:
       annotations:
-        deploymentTime: "2025-01-10 17:43:04"
+        deploymentTime: "2025-01-10 19:32:28"
       labels:
         {{- include "ng-web-portfolio.labels" . | nindent 8 }}
         {{- with .Values.podLabels }}
