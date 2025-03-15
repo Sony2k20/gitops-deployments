@@ -16,6 +16,8 @@ service:
 
 env:
   NODE_ENV: test
+  FIRESTORE_PROJECT_ID: katy-portfolio
+  FIRESTORE_KEY_FILE: service-account-firestore.json
 
 envSecrets:
   secretKeyRef: email-service-secrets
