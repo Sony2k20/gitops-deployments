@@ -95,7 +95,7 @@ data:
 
     - Private Services:
         - ArgoCD:
-            icon: argocd.png
+            icon: argo-cd.png
             href: https://argocd.csnguyen.de
         - Openmediavault:
             icon: openmediavault.png
