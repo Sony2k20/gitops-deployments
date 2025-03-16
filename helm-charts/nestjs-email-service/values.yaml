@@ -16,8 +16,6 @@ service:
 
 env:
   NODE_ENV: test
-  FIRESTORE_PROJECT_ID: katy-portfolio
-  FIRESTORE_KEY_FILE: service-account-firestore.json
 
 envSecrets:
   secretKeyRef: email-service-secrets
@@ -26,6 +24,7 @@ envSecrets:
     SMTP_PORT: SMTP_PORT
     SMTP_USER: SMTP_USER
     SMTP_PASS: SMTP_PASS
+    MONGODB_URI: MONGODB_URI
 
 ingress:
   className: traefik
