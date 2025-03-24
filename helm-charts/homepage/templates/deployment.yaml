@@ -27,6 +27,13 @@ spec:
                 - name: {{ include "homepage.fullname" . }}
                   image: "ghcr.io/gethomepage/homepage:latest"
                   imagePullPolicy: Always
+                  env:
+                    {{- with .Values.env }}
+                    {{- range $key, $value := . }}
+                      - name: {{ $key }}
+                        value: {{ $value | quote }}
+                    {{- end }}
+                    {{- end }}
                   ports:
                       - name: http
                         containerPort: {{ .Values.service.port }}

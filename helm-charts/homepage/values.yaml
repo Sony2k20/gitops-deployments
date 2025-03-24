@@ -3,6 +3,9 @@ namespace: prod
 service:
   port: 3000
 
+env:
+  HOMEPAGE_ALLOWED_HOSTS: homepage.csnguyen.de
+
 ingress:
   host: homepage.csnguyen.de
   annotations:
