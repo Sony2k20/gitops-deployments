@@ -4,6 +4,8 @@ metadata:
   name: daily-restart
 spec:
   schedule: "0 5 * * *" # At 5:00 AM daily
+  successfulJobsHistoryLimit: 0
+  failedJobsHistoryLimit: 0
   jobTemplate:
     spec:
       template:
