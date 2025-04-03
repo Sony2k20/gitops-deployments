@@ -18,7 +18,7 @@ image:
   # -- the repostory to pull the image from
   repository: "pihole/pihole"
   # -- the docker tag, if left empty it will get it from the chart's appVersion
-  tag: "2024.07.0"
+  tag: "2025.03.1"
   # -- the pull policy
   pullPolicy: IfNotPresent
 
@@ -565,7 +565,6 @@ adlists:
   - https://v.firebog.net/hosts/Easylist.txt
   - https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts;showintro=0
   - https://raw.githubusercontent.com/StevenBlack/hosts/master/data/UncheckyAds/hosts
-  - https://www.squidblacklist.org/downloads/dg-ads.acl
   - https://v.firebog.net/hosts/Easyprivacy.txt
   - https://v.firebog.net/hosts/Prigent-Ads.txt
   - https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-blocklist.txt
@@ -579,7 +578,6 @@ adlists:
   - https://phishing.army/download/phishing_army_blocklist_extended.txt
   - https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-malware.txt
   - https://raw.githubusercontent.com/StevenBlack/hosts/master/data/add.Risk/hosts
-  - https://www.squidblacklist.org/downloads/dg-malicious.acl
   - https://raw.githubusercontent.com/HorusTeknoloji/TR-PhishingList/master/url-lists.txt
   - https://zerodot1.gitlab.io/CoinBlockerLists/hosts
 
