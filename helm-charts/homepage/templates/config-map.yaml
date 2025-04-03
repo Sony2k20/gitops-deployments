@@ -77,7 +77,7 @@ data:
               url: https://uptime-kuma.csnguyen.de
               slug: blog
         - katy.csnguyen.de:
-            icon: /icons/angular.png
+            icon: /icons/katy.ico
             href: https://katy.csnguyen.de
             widget:
               type: uptimekuma
@@ -85,7 +85,7 @@ data:
               url: https://uptime-kuma.csnguyen.de
               slug: katy
         - katharinaniesche.de:
-            icon: /icons/angular.png
+            icon: /icons/katy.ico
             href: https://katharinaniesche.de
             widget:
               type: uptimekuma
@@ -123,6 +123,9 @@ data:
         - Uptime Kuma:
             icon: uptime-kuma.png
             href: https://uptime-kuma.csnguyen.de
+        - Flatnotes:
+            icon: flatnotes.png
+            href: https://flatnotes.csnguyen.de
 
 
   widgets.yaml: |
