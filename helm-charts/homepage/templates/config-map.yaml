@@ -28,7 +28,7 @@ data:
         columns: 4
       Public Services:
         style: row
-        columns: 3
+        columns: 4
       Private Services:
         style: row
         columns: 4
