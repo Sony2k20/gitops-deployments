@@ -578,8 +578,6 @@ adlists:
   - https://phishing.army/download/phishing_army_blocklist_extended.txt
   - https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-malware.txt
   - https://raw.githubusercontent.com/StevenBlack/hosts/master/data/add.Risk/hosts
-  - https://raw.githubusercontent.com/HorusTeknoloji/TR-PhishingList/master/url-lists.txt
-  - https://zerodot1.gitlab.io/CoinBlockerLists/hosts
 
 whitelist:
   - 0.client-channel.google.com
