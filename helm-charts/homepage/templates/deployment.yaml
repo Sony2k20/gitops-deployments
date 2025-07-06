@@ -64,3 +64,6 @@ spec:
                 - name: disk2
                   persistentVolumeClaim:
                       claimName: homepage-disk2
+                - name: disk3
+                  persistentVolumeClaim:
+                      claimName: homepage-disk3
