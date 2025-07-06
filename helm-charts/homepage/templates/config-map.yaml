@@ -103,9 +103,9 @@ data:
         - Pi-hole:
             icon: pi-hole.png
             href: https://pihole.csnguyen.de/admin
-        # - Rancher:
-        #     icon: rancher.png
-        #     href: https://rancher.csnguyen.de
+        - Rancher:
+            icon: rancher.png
+            href: https://rancher.csnguyen.de
         # - Traefik:
         #     icon: traefik.png
         #     href: https://traefik.csnguyen.de
@@ -138,7 +138,7 @@ data:
         memory: true
         uptime: false
         refresh: 1000
-        disk: /
+        # disk: /
     - resources:
         expanded: true
         disk:
