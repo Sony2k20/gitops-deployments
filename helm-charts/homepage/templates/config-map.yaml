@@ -31,7 +31,7 @@ data:
         columns: 4
       Private Services:
         style: row
-        columns: 4
+        columns: 5
       Social:
         style: row
         columns: 3
@@ -144,6 +144,7 @@ data:
         disk:
           - /disk1
           - /disk2
+          - /disk3
     - resources:
         expanded: false
         cpu: false
