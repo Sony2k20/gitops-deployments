@@ -4,7 +4,7 @@ This Repository contains various Helm Charts for K3s, Treafik, Cert-Manager and 
 Install Order for K3s setup.
 
 ```
-kubectl apply -f secrets.yaml
+kubectl apply -f k3s-config
 
 helm dependency build helm-charts/cert-manager/.
 helm upgrade -i cert-manager helm-charts/cert-manager/. --namespace cert-manager --wait --create-namespace # install twice for cluster issuer
