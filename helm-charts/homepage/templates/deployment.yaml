@@ -47,9 +47,11 @@ spec:
                         mountPath: /disk1
                       - name: disk2
                         mountPath: /disk2
+                      - name: disk3
+                        mountPath: /disk3
                       - name: disk1
                         mountPath: /app/public/icons  
-                        subPath: icons
+                        subPath: sda1/kubernetes/homepage/icons
             volumes:
                 - name: homepage-config
                   configMap:

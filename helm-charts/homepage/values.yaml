@@ -28,3 +28,10 @@ persistentVolume:
     hostPath: /srv/dev-disk-by-uuid-1637aef4-f2aa-4ea3-98e4-3e31d5c4f6ae
     accessModes:
       - ReadWriteMany 
+  - name: homepage-disk3
+    namespace: prod
+    storage: 100Mi
+    disk: disk3
+    hostPath: /srv/dev-disk-by-uuid-4c859ea3-7b9e-47a7-9cd1-15b8093ec06f
+    accessModes:
+      - ReadWriteMany 
