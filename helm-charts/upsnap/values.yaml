@@ -21,7 +21,7 @@ persistentVolume:
   - name: upsnap
     namespace: prod
     storage: 500Mi
-    hostPath: /srv/dev-disk-by-uuid-4c7807a3-ad92-4a02-921b-5414abc40250/kubernetes/upsnap
+    hostPath: /srv/dev-disk-by-uuid-4c7807a3-ad92-4a02-921b-5414abc40250/sda1/kubernetes/upsnap
     accessModes:
       - ReadWriteMany 
 

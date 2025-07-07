@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: portainer
+  namespace: argocd
+  labels:
+    type: infra
+spec:
+  destination:
+    namespace: prod
+    name: in-cluster
+  project: default
+  source:
+    path: helm-charts/portainer
+    repoURL: https://github.com/Sony2k20/gitops-deployments.git
+    targetRevision: HEAD
+  syncPolicy: 
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
