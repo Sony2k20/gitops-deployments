@@ -16,4 +16,8 @@ uptime-kuma:
       - secretName: csnguyen-tls
         hosts:
           - uptime-kuma.csnguyen.de
-
+  resources:
+    limits:
+      memory: 256Mi
+    requests:
+      memory: 256Mi
