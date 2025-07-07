@@ -25,5 +25,5 @@ appVersion: "1.16.0"
 
 dependencies:
   - name: uptime-kuma
-    version: "2.19.3"
+    version: "2.21.3"
     repository: https://helm.irsigler.cloud
