@@ -10,11 +10,10 @@ spec:
     namespace: traefik
     name: in-cluster
   project: default
-spec:
-  project: default
   source:
     repoURL: oci://ghcr.io/traefik/helm/traefik
     chart: traefik
+    targetRevision: 36.3.0
   syncPolicy:
     automated:
       selfHeal: true
