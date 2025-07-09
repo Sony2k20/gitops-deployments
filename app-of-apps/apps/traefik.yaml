@@ -11,7 +11,7 @@ spec:
     name: in-cluster
   project: default
   source:
-    repoURL: oci://ghcr.io/traefik/helm/traefik
+    repoURL: https://traefik.github.io/charts
     chart: traefik
     targetRevision: 36.3.0
   syncPolicy:
