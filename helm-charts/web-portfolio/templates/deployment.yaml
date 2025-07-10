@@ -23,7 +23,7 @@ spec:
     spec:
       initContainers:
         - name: download-content
-          image: alpine/git
+          image: alpine/git:2.47.2
           command: ['sh', '-c']
           args:
             - git clone --branch {{ .Values.github.branch }} {{ .Values.github.repo }} /src &&
