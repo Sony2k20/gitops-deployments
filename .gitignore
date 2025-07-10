@@ -3,3 +3,4 @@
 /k3s-config
 *.cer
 *.key
+*.tgz
