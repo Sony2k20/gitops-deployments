@@ -45,10 +45,8 @@ spec:
                         mountPath: /app/config/logs
                       - name: disk1
                         mountPath: /disk1
-                      # - name: disk2
-                      #   mountPath: /disk2
-                        mountPath: /app/public/icons  
-                        subPath: sda1/kubernetes/homepage/icons
+                      - mountPath: /app/public/icons  
+                        subPath: data/kubernetes/homepage/icons
             volumes:
                 - name: homepage-config
                   configMap:
@@ -58,6 +56,3 @@ spec:
                 - name: disk1
                   persistentVolumeClaim:
                       claimName: homepage-disk1
-                # - name: disk2
-                #   persistentVolumeClaim:
-                #       claimName: homepage-disk2
