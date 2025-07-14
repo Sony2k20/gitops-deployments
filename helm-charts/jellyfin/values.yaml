@@ -156,13 +156,13 @@ persistentVolume:
     namespace: prod
     storage: 1Gi
     disk: disk1
-    hostPath: /srv/dev-disk-by-uuid-4c7807a3-ad92-4a02-921b-5414abc40250/kubernetes/jellyfin
+    hostPath: /srv/dev-disk-by-uuid-1f2204f1-efe5-4e04-a2a2-b4598f7b17db/kubernetes/jellyfin
     accessModes:
       - ReadWriteMany 
   - name: jellyfin-media
     namespace: prod
-    storage: 2Ti 
+    storage: 5Ti 
     disk: disk2
-    hostPath: /srv/dev-disk-by-uuid-1637aef4-f2aa-4ea3-98e4-3e31d5c4f6ae/NAS
+    hostPath: /srv/dev-disk-by-uuid-1f2204f1-efe5-4e04-a2a2-b4598f7b17db/data
     accessModes:
       - ReadWriteMany 

@@ -1,6 +1,15 @@
 nextcloud:
   nextcloud:
     host: nextcloud.csnguyen.de
+    existingSecret:
+      enabled: true
+      secretName: nextcloud-secret
+      usernameKey: nextcloud-username
+      passwordKey: nextcloud-password
+      tokenKey: ""
+      smtpUsernameKey: smtp-username
+      smtpPasswordKey: smtp-password
+      smtpHostKey: smtp-host
   ingress:
     enabled: true
     className: traefik
