@@ -106,9 +106,6 @@ data:
         - Rancher:
             icon: rancher.png
             href: https://rancher.csnguyen.de
-        - Portainer:
-            icon: portainer.png
-            href: https://portainer.csnguyen.de
         - Upsnap:
             icon: upsnap.png
             href: https://upsnap.csnguyen.de
@@ -143,8 +140,6 @@ data:
         expanded: true
         disk:
           - /disk1
-          - /disk2
-          - /disk3
     - resources:
         expanded: false
         cpu: false
