@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: daily-restart
+  name: daily-restart-uptime-kuma
 spec:
   schedule: "0 5 * * *" # At 5:00 AM daily
   successfulJobsHistoryLimit: 0
