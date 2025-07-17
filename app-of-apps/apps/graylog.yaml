@@ -1,35 +1,35 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: graylog
-  namespace: argocd
-spec:
-  project: default
-  source:
-    repoURL: https://charts.kong-z.com/
-    targetRevision: 2.3.16
-    chart: graylog
-    helm:
-      values: |
-        graylog:
-          ingress:
-            enabled: true
-            ingressClassName: traefik
-            port: 9000
-            annotations:
-              traefik.ingress.kubernetes.io/router.middlewares: "kube-system-redirect-https@kubernetescrd"
-            hosts:
-              - graylog.csnguyen.de
-            tls:
-              - hosts:
-                  - graylog.csnguyen.de
-                secretName: csnguyen-tls
-  destination:
-    name: in-cluster
-    namespace: graylog
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-    syncOptions:
-      - CreateNamespace=true
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: graylog
+#   namespace: argocd
+# spec:
+#   project: default
+#   source:
+#     repoURL: https://charts.kong-z.com/
+#     targetRevision: 2.3.16
+#     chart: graylog
+#     helm:
+#       values: |
+#         graylog:
+#           ingress:
+#             enabled: true
+#             ingressClassName: traefik
+#             port: 9000
+#             annotations:
+#               traefik.ingress.kubernetes.io/router.middlewares: "kube-system-redirect-https@kubernetescrd"
+#             hosts:
+#               - graylog.csnguyen.de
+#             tls:
+#               - hosts:
+#                   - graylog.csnguyen.de
+#                 secretName: csnguyen-tls
+#   destination:
+#     name: in-cluster
+#     namespace: graylog
+#   syncPolicy:
+#     automated:
+#       prune: true
+#       selfHeal: true
+#     syncOptions:
+#       - CreateNamespace=true
