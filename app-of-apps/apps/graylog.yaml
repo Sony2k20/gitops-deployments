@@ -1,4 +1,3 @@
-# graylog-application.yaml
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -17,9 +16,10 @@ spec:
             enabled: true
             ingressClassName: traefik
             port: 9000
-            annotations: traefik.ingress.kubernetes.io/router.middlewares: "kube-system-redirect-https@kubernetescrd"
+            annotations:
+              traefik.ingress.kubernetes.io/router.middlewares: "kube-system-redirect-https@kubernetescrd"
             hosts: graylog.csnguyen.de
-            tls: 	
+            tls:     
               - hosts:
                   - graylog.csnguyen.de
                 secretName: csnguyen-tls
