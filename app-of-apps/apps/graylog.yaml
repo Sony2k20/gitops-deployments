@@ -18,8 +18,9 @@ spec:
             port: 9000
             annotations:
               traefik.ingress.kubernetes.io/router.middlewares: "kube-system-redirect-https@kubernetescrd"
-            hosts: graylog.csnguyen.de
-            tls:     
+            hosts:
+              - graylog.csnguyen.de
+            tls:
               - hosts:
                   - graylog.csnguyen.de
                 secretName: csnguyen-tls
