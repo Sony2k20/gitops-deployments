@@ -18,7 +18,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: {{ include "kubernetes-dashboard.fullname" . }}
+                name: kubernetes-dashboard-web
                 port:
                   number: {{ .Values.service.port }}
   tls:
