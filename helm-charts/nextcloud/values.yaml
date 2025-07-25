@@ -12,7 +12,7 @@ nextcloud:
       smtpHostKey: smtp-host
     extraInitContainers:
       - name: install-ffmpeg
-        image: debian:bookworm-slim 
+        image: alpine:latest
         command: ['sh', '-c', 'wget -q https://johnvansickle.com/ffmpeg/builds/ffmpeg-git-amd64-static.tar.xz && tar xf ffmpeg*.tar.xz && cp ffmpeg*/ffmpeg ffmpeg*/ffprobe /tmp/']
         volumeMounts:
           - name: ffmpeg-bin
