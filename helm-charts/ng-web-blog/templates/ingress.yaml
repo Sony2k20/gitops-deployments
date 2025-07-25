@@ -1,9 +1,9 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{ include "ng-web-blog.fullname" . }}
+  name: {{ include "helm-chart.fullname" . }}
   labels:
-    {{- include "ng-web-blog.labels" . | nindent 4 }}
+    {{- include "helm-chart.labels" . | nindent 4 }}
   {{- with .Values.ingress.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}
@@ -18,7 +18,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: {{ include "ng-web-blog.fullname" . }}
+                name: {{ include "helm-chart.fullname" . }}
                 port:
                   number: {{ .Values.service.port }}
   tls:

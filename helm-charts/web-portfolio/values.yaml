@@ -1,3 +1,5 @@
+fullnameOverride: web-portfolio
+
 replicaCount: 1
 
 image:

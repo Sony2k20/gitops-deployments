@@ -1,3 +1,5 @@
+fullnameOverride: ng-web-blog
+
 replicaCount: 1
 
 image:

@@ -163,6 +163,6 @@ persistentVolume:
     namespace: prod
     storage: 5Ti 
     disk: disk2
-    hostPath: /srv/dev-disk-by-uuid-1f2204f1-efe5-4e04-a2a2-b4598f7b17db/data
+    hostPath: /srv/dev-disk-by-uuid-1f2204f1-efe5-4e04-a2a2-b4598f7b17db/data/Media
     accessModes:
       - ReadWriteMany 

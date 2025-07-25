@@ -1,18 +1,23 @@
-fullnameOverride: ng-web-portfolio
+fullnameOverride: pigallery2
 
 replicaCount: 1
 
 image:
-  name: sony2k20/ng-web-portfolio
+  name: bpatrik/pigallery2
   pullPolicy: Always
   tag: latest
+
+env:
+  NODE_ENV: production 
+
+envSecrets: {}
 
 service:
   type: ClusterIP
   port: 80
 
 ingress:
-  host: katy.csnguyen.de
+  host: gallery.csnguyen.de
   path: /
   annotations:
     traefik.ingress.kubernetes.io/router.middlewares: |
