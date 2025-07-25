@@ -14,10 +14,17 @@ nextcloud:
       - name: install-ffmpeg
         image: alpine:latest
         command: ["/bin/sh", "-c"]
-        args: ["apk add --no-cache ffmpeg && cp /usr/bin/ffmpeg /usr/bin/ffprobe /tmp/"]
+        args:
+          - |
+            apk add --no-cache ffmpeg
+            mkdir -p /tmp/ffmpeg-bin /tmp/ffmpeg-lib
+            cp /usr/bin/ffmpeg /usr/bin/ffprobe /tmp/ffmpeg-bin/
+            cp /usr/lib/*.so* /tmp/ffmpeg-lib/
         volumeMounts:
           - name: ffmpeg-bin
-            mountPath: /tmp/
+            mountPath: /tmp/ffmpeg-bin
+          - name: ffmpeg-lib
+            mountPath: /tmp/ffmpeg-lib
     extraVolumeMounts:
       - name: ffmpeg-bin
         mountPath: /usr/bin/ffmpeg
@@ -25,9 +32,18 @@ nextcloud:
       - name: ffmpeg-bin
         mountPath: /usr/bin/ffprobe
         subPath: ffprobe
+      - name: ffmpeg-lib
+        mountPath: /usr/lib/ffmpeg
+        mountPropagation: Bidirectional
     extraVolumes:
       - name: ffmpeg-bin
         emptyDir: {}
+      - name: ffmpeg-lib
+        emptyDir: {}
+    extraEnv:
+      - name: LD_LIBRARY_PATH
+        value: /usr/lib/ffmpeg:/usr/lib/x86_64-linux-gnu
+
   ingress:
     enabled: true
     className: traefik
