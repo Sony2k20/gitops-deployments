@@ -109,7 +109,10 @@ data:
         - Upsnap:
             icon: upsnap.png
             href: https://upsnap.csnguyen.de
-
+        - Kubernetes:
+            icon: kubernetes.png
+            href: https://kubernetes.csnguyen.de
+            
     - Public Services:
         - Jellyfin:
             icon: jellyfin.png
@@ -123,7 +126,6 @@ data:
         - Flatnotes:
             icon: flatnotes.png
             href: https://notes.csnguyen.de
-
 
   widgets.yaml: |
     - greeting:

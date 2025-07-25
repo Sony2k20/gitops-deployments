@@ -1,0 +1,10 @@
+service:
+  type: ClusterIP
+  port: 8000
+
+ingress:
+  host: kubernetes.csnguyen.de
+  annotations:
+    # cert-manager.io/cluster-issuer: letsencrypt-prod
+    traefik.ingress.kubernetes.io/router.middlewares: |
+      kube-system-redirect-https@kubernetescrd
