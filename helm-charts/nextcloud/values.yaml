@@ -12,9 +12,8 @@ nextcloud:
       smtpHostKey: smtp-host
     extraInitContainers:
       - name: install-ffmpeg
-        image: alpine:latest
-        command: ["/bin/sh", "-c"]
-        args: ["apk add --no-cache ffmpeg && cp /usr/bin/ffmpeg /usr/bin/ffprobe /tmp/"]
+        image: debian:bookworm-slim 
+        command: ['sh', '-c', 'apt-get update && apt-get install -y ffmpeg && cp $(which ffmpeg) $(which ffprobe) /tmp/']
         volumeMounts:
           - name: ffmpeg-bin
             mountPath: /tmp/
