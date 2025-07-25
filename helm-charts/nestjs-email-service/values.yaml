@@ -42,11 +42,7 @@ ingress:
       hosts:
         - katy.csnguyen.de
 
-livenessProbe:
-  httpGet:
-    path: /health
-    port: 3000
-readinessProbe:
+startupProbe:
   httpGet:
     path: /health
     port: 3000

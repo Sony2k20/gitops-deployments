@@ -30,10 +30,8 @@ spec:
             - name: http
               containerPort: {{ .Values.service.port }}
               protocol: TCP
-          livenessProbe:
-            {{- toYaml .Values.livenessProbe | nindent 12 }}
-          readinessProbe:
-            {{- toYaml .Values.readinessProbe | nindent 12 }}
+          startupProbe:
+            {{- toYaml .Values.startupProbe | nindent 12 }}
           volumeMounts:
             - name: data
               mountPath: /app/pb_data

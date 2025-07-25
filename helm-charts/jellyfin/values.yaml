@@ -136,7 +136,7 @@ extraContainers: {}
 
 # Larger libraries may need to increase the readinessProbe and livenessProbe timeouts. Start by increasing the initialDelaySeconds.
 livenessProbe:
-  enabled: true
+  enabled: false
   # failureThreshold: 3
   initialDelaySeconds: 10
   # periodSeconds: 10
@@ -144,7 +144,7 @@ livenessProbe:
   # timeoutSeconds: 1
 
 readinessProbe:
-  enabled: true
+  enabled: false
   # failureThreshold: 3
   initialDelaySeconds: 10
   # periodSeconds: 10

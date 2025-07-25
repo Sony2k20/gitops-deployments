@@ -29,3 +29,23 @@ nextcloud:
     enabled: false
   readinessProbe:
     enabled: false
+  startupProbe:
+    enabled: true
+  extraInitContainers:
+    - name: install-ffmpeg
+      image: alpine:latest
+      command: ["/bin/sh", "-c"]
+      args: ["apk add --no-cache ffmpeg && cp /usr/bin/ffmpeg /usr/bin/ffprobe /tmp/"]
+      volumeMounts:
+        - name: ffmpeg-bin
+          mountPath: /tmp/
+  extraVolumeMounts:
+    - name: ffmpeg-bin
+      mountPath: /usr/bin/ffmpeg
+      subPath: ffmpeg
+    - name: ffmpeg-bin
+      mountPath: /usr/bin/ffprobe
+      subPath: ffprobe
+  extraVolumes:
+    - name: ffmpeg-bin
+      emptyDir: {}

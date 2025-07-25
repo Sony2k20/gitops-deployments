@@ -25,11 +25,7 @@ persistentVolume:
     accessModes:
       - ReadWriteMany 
 
-livenessProbe:
-  httpGet:
-    path: /
-    port: 8090
-readinessProbe:
+startupProbe:
   httpGet:
     path: /
     port: 8090

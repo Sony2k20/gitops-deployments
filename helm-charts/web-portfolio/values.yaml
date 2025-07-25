@@ -20,11 +20,7 @@ ingress:
     traefik.ingress.kubernetes.io/router.middlewares: |
       kube-system-redirect-https@kubernetescrd
 
-livenessProbe:
-  httpGet:
-    path: /
-    port: 80
-readinessProbe:
+startupProbe:
   httpGet:
     path: /
     port: 80
