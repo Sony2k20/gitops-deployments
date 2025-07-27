@@ -1,13 +1,11 @@
+fullnameOverride: ng-web-portfolio
+
 replicaCount: 1
 
 image:
   name: sony2k20/ng-web-portfolio
   pullPolicy: Always
   tag: latest
-
-github:
-  repo: "https://github.com/Sony2k20/ng-web-portfolio"
-  branch: "master"
 
 service:
   type: ClusterIP

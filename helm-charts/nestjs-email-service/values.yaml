@@ -1,3 +1,5 @@
+fullnameOverride: nestjs-email-service
+
 replicaCount: 1
 
 image:
