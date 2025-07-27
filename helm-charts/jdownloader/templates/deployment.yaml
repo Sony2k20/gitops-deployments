@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "helm-chart.fullname" . }}
+  labels:
+    {{- include "helm-chart.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "helm-chart.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      annotations:
+        deploymentTime: {{ now | date "2006-01-02 15:04:05" }}
+      labels:
+        {{- include "helm-chart.labels" . | nindent 8 }}
+        {{- with .Values.podLabels }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default "latest" }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: {{ .Values.service.port }}
+              protocol: TCP
+          {{- with .Values.startupProbe }}
+          startupProbe:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          envFrom:
+            {{- if .Values.env }}
+            - configMapRef:
+                name: {{ include "helm-chart.fullname" . }}
+            {{- end }}
+            {{- if .Values.envSecrets }}
+            - secretRef:
+                name: {{ include "helm-chart.fullname" . }}-secrets
+            {{- end }}
+          {{- if .Values.persistentVolume }}
+          volumeMounts:
+            {{- range .Values.persistentVolume }}
+            - name: {{ .name }}
+              mountPath: {{ .mountPath }}
+            {{- end }}
+          {{- end }}
+      {{- if .Values.persistentVolume }}
+      volumes:
+        {{- range .Values.persistentVolume }}
+        - name: {{ .name }}
+          persistentVolumeClaim:
+            claimName: {{ .name }}
+        {{- end }}
+      {{- end }}
