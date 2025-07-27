@@ -21,7 +21,7 @@ github:
 
 service:
   type: ClusterIP
-  port: 80
+  port: 5800
 
 ingress:
   host: jdownloader.csnguyen.de
@@ -33,7 +33,7 @@ ingress:
 startupProbe:
   httpGet:
     path: /
-    port: 80
+    port: 5800
 
 persistentVolume:
   - name: jdownloader-config
