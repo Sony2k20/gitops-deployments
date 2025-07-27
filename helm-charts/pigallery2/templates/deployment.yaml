@@ -47,3 +47,22 @@ spec:
               protocol: TCP
           startupProbe:
             {{- toYaml .Values.startupProbe | nindent 12 }}
+          volumeMounts:
+            {{- if .Values.persistentVolumes }}
+            {{- range .Values.persistentVolumes }}
+            - name: {{ .name }}
+              mountPath: {{ .mountPath }}
+              {{- if .readOnly }}
+              readOnly: true
+              {{- end }}
+            {{- end }}
+            {{- end }}
+      volumes:
+        {{- if .Values.persistentVolumes }}
+        {{- range .Values.persistentVolumes }}
+        - name: {{ .name }}
+          hostPath:
+            path: {{ .hostPath }}
+            type: DirectoryOrCreate
+        {{- end }}
+        {{- end }}

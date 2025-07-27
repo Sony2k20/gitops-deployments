@@ -27,3 +27,34 @@ startupProbe:
   httpGet:
     path: /
     port: 80
+
+persistentVolumes:
+  - name: pigallery2-config
+    namespace: prod
+    storage: 1Gi
+    disk: disk1
+    hostPath: /srv/dev-disk-by-uuid-1f2204f1-efe5-4e04-a2a2-b4598f7b17db/kubernetes/pigallery2/config
+    accessModes: ReadWriteMany
+    mountPath: /app/data/config
+  - name: pigallery2-db
+    namespace: prod
+    storage: 1Gi
+    disk: disk1
+    hostPath: /srv/dev-disk-by-uuid-1f2204f1-efe5-4e04-a2a2-b4598f7b17db/kubernetes/pigallery2/db
+    accessModes: ReadWriteMany
+    mountPath: /app/data/db
+  - name: pigallery2-images
+    namespace: prod
+    storage: 10Gi
+    disk: disk1
+    hostPath: /srv/dev-disk-by-uuid-1f2204f1-efe5-4e04-a2a2-b4598f7b17db/kubernetes/nextcloud/data/Sony2k/files/Photos
+    accessModes: ReadWriteMany
+    mountPath: /app/data/images
+    readOnly: true
+  - name: pigallery2-tmp
+    namespace: prod
+    storage: 1Gi
+    disk: disk1
+    hostPath: /srv/dev-disk-by-uuid-1f2204f1-efe5-4e04-a2a2-b4598f7b17db/kubernetes/pigallery2/tmp
+    accessModes: ReadWriteMany
+    mountPath: /app/data/tmp
