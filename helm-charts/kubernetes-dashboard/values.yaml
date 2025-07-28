@@ -1,6 +1,6 @@
 service:
   type: ClusterIP
-  port: 443
+  port: 8000
 
 ingress:
   host: kubernetes.csnguyen.de
