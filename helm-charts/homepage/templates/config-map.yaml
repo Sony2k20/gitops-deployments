@@ -112,7 +112,10 @@ data:
         - Kubernetes:
             icon: kubernetes.png
             href: https://kubernetes.csnguyen.de
-            
+        - JDownloader:
+            icon: Jdownloader.png
+            href: https://jdownloader.csnguyen.de   
+
     - Public Services:
         - Jellyfin:
             icon: jellyfin.png
