@@ -113,7 +113,7 @@ data:
             icon: kubernetes.png
             href: https://kubernetes.csnguyen.de
         - JDownloader:
-            icon: Jdownloader.png
+            icon: jdownloader.jpg
             href: https://jdownloader.csnguyen.de   
 
     - Public Services:
