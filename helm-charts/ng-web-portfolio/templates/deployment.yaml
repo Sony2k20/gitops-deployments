@@ -12,7 +12,7 @@ spec:
   template:
     metadata:
       annotations:
-        deploymentTime: "2025-07-17 21:59:14"
+        deploymentTime: "2025-07-28 21:57:40"
       labels:
         {{- include "helm-chart.labels" . | nindent 8 }}
         {{- with .Values.podLabels }}
