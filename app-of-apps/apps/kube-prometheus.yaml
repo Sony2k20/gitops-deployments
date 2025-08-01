@@ -6,9 +6,24 @@ metadata:
 spec:
   project: default
   source:
-    path: helm-charts/kube-prometheus
-    repoURL: https://github.com/Sony2k20/gitops-deployments.git
-    targetRevision: HEAD
+    repoURL: https://prometheus-community.github.io/helm-charts
+    targetRevision: 75.15.1
+    chart: kube-prometheus-stack
+    helm:
+      values: |
+        prometheus:
+          prometheusSpec:
+            serviceMonitorSelectorNilUsesHelmValues: false
+            serviceMonitorSelector: {}
+            serviceMonitorNamespaceSelector: {}
+        grafana:
+          sidecar:
+            datasources:
+              defaultDatasourceEnabled: true
+          additionalDataSources:
+            - name: Loki
+              type: loki
+              url: http://loki-loki-distributed-query-frontend.monitoring:3100
   destination:
     name: in-cluster
     namespace: monitoring
