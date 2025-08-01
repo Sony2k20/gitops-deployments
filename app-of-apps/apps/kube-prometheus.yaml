@@ -1,3 +1,39 @@
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: kube-prometheus
+#   namespace: argocd
+# spec:
+#   project: default
+#   source:
+#     repoURL: https://prometheus-community.github.io/helm-charts
+#     targetRevision: 75.15.1
+#     chart: kube-prometheus-stack
+#     helm:
+#       values: |
+#         prometheus:
+#           prometheusSpec:
+#             serviceMonitorSelectorNilUsesHelmValues: false
+#             serviceMonitorSelector: {}
+#             serviceMonitorNamespaceSelector: {}
+#         grafana:
+#           sidecar:
+#             datasources:
+#               defaultDatasourceEnabled: true
+#           additionalDataSources:
+#             - name: Loki
+#               type: loki
+#               url: http://loki-loki-distributed-query-frontend.monitoring:3100
+#   destination:
+#     name: in-cluster
+#     namespace: monitoring
+#   syncPolicy:
+#     automated:
+#       prune: true
+#       selfHeal: true
+#     syncOptions:
+#       - CreateNamespace=true
+#       - ServerSideApply=true
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -6,24 +42,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://prometheus-community.github.io/helm-charts
-    targetRevision: 75.15.1
-    chart: kube-prometheus-stack
-    helm:
-      values: |
-        prometheus:
-          prometheusSpec:
-            serviceMonitorSelectorNilUsesHelmValues: false
-            serviceMonitorSelector: {}
-            serviceMonitorNamespaceSelector: {}
-        grafana:
-          sidecar:
-            datasources:
-              defaultDatasourceEnabled: true
-          additionalDataSources:
-            - name: Loki
-              type: loki
-              url: http://loki-loki-distributed-query-frontend.monitoring:3100
+    path: helm-charts/kube-prometheus
+    repoURL: https://github.com/Sony2k20/gitops-deployments.git
+    targetRevision: HEAD
   destination:
     name: in-cluster
     namespace: monitoring
