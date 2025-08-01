@@ -12,7 +12,8 @@ spec:
     helm:
       values: |  
         config:
-          lokiAddress: "http://grafana-loki-loki-distributed-gateway:3100/loki/api/v1/push"
+          clients:
+            - url: "http://grafana-loki-loki-distributed-gateway:3100/loki/api/v1/push"
   destination:
     name: in-cluster
     namespace: monitoring
