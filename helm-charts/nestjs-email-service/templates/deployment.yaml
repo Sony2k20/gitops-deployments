@@ -20,7 +20,7 @@ spec:
         {{- end }}
     spec:
       containers:
-        - name: {{ .Chart.Name }}
+        - name: {{ include "helm-chart.fullname" . }}
           image: "{{ .Values.image.name }}:{{ .Values.image.tag | default "latest" }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:

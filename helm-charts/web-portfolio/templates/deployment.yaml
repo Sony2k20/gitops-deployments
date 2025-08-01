@@ -32,7 +32,7 @@ spec:
             - name: content
               mountPath: /usr/share/nginx/html
       containers:
-        - name: {{ .Chart.Name }}
+        - name: {{ include "helm-chart.fullname" . }}
           image: "{{ .Values.image.name }}:{{ .Values.image.tag | default "latest" }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:

@@ -32,7 +32,7 @@ spec:
       hostNetwork: true
     {{- end }}
       containers:
-        - name: {{ .Chart.Name }}
+        - name: {{ include "jellyfin.fullname" . }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
         {{ if .Values.extraEnvVars }}

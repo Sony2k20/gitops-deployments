@@ -23,7 +23,7 @@ spec:
     spec:
       hostNetwork: true
       containers:
-        - name: {{ .Chart.Name }}
+        - name: {{ include "jellyfin.fullname" . }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default "latest" }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
