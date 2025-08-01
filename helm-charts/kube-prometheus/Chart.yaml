@@ -28,8 +28,8 @@ dependencies:
   version: 75.15.1
   repository: https://prometheus-community.github.io/helm-charts
 - name: promtail
-  version: 9.3.0
+  version: 6.17.0
   repository: https://grafana.github.io/helm-charts
 - name: loki-distributed 
-  version: 9.3.0
+  version: 0.80.5
   repository: https://grafana.github.io/helm-charts
