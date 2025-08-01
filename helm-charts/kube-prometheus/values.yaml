@@ -1,4 +1,4 @@
-fullnameOverride: kube-prometheus
+# fullnameOverride: kube-prometheus
 
 kube-prometheus-stack:
   prometheus:
