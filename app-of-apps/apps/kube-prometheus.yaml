@@ -23,7 +23,7 @@ spec:
           additionalDataSources:
             - name: Loki
               type: loki
-              url: http://loki-loki-distributed-query-frontend.monitoring:3100
+              url: http://grafana-loki-loki-distributed-query-frontend:3100
   destination:
     name: in-cluster
     namespace: monitoring

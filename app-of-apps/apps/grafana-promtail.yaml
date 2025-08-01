@@ -8,7 +8,11 @@ spec:
   source:
     repoURL: https://grafana.github.io/helm-charts
     targetRevision: 6.17.0
-    chart: promtail        
+    chart: promtail      
+    helm:
+      values: |  
+        config:
+          lokiAddress: "http://grafana-loki-loki-distributed-gateway:3100/loki/api/v1/push"
   destination:
     name: in-cluster
     namespace: monitoring
