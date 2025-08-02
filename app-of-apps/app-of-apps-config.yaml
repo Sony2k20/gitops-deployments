@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: jdownloader
+  name: app-of-apps-config
   namespace: argocd
   labels:
     type: app
