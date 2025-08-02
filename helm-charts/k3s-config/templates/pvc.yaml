@@ -1,10 +1,11 @@
-{{- if .Values.persistentVolume }}
-{{- range .Values.persistentVolume }}
+{{- if .Values.persistentVolumeClaim }}
+{{- range .Values.persistentVolumeClaim }}
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: {{ .name }}
+  namespace: {{ .namespace }}
 spec:
   storageClassName: manual
   accessModes:
@@ -14,9 +15,5 @@ spec:
   resources:
     requests:
       storage: {{ .storage }} 
-  selector:
-    matchLabels:
-      disk: {{ .disk }} 
-      name: {{ .name }}
 {{- end }}
 {{- end }}
