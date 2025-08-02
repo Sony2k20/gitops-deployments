@@ -1,0 +1,6 @@
+fullnameOverride: k3s-config
+
+namespaces:
+  - prod
+
+persistentVolume:
