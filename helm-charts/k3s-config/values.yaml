@@ -17,6 +17,7 @@ persistentVolumeClaim:
     accessModes:
       - ReadWriteOnce 
   - name: jdownloader-downloads
+    namespace: prod
     storage: 300Gi
     accessModes:
       - ReadWriteOnce 
