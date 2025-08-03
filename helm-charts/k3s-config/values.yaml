@@ -51,3 +51,9 @@ persistentVolume:
     storage: 1Gi    
     accessModes:
       - ReadWriteOnce 
+  - name: homepage
+    hostPath: /srv/dev-disk-by-uuid-1f2204f1-efe5-4e04-a2a2-b4598f7b17db/data/Kubernetes/homepage
+    namespace: prod
+    storage: 1Gi    
+    accessModes:
+      - ReadWriteOnce 
