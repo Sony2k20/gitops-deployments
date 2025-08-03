@@ -28,7 +28,7 @@ data:
         columns: 4
       Public Services:
         style: row
-        columns: 4
+        columns: 3
       Private Services:
         style: row
         columns: 3
@@ -93,29 +93,6 @@ data:
               url: https://uptime-kuma.csnguyen.de
               slug: niesche
 
-    - Private Services:
-        - ArgoCD:
-            icon: argo-cd.png
-            href: https://argocd.csnguyen.de
-        - Openmediavault:
-            icon: openmediavault.png
-            href: https://omv.csnguyen.de
-        - Pi-hole:
-            icon: pi-hole.png
-            href: https://pihole.csnguyen.de/admin
-        - Rancher:
-            icon: rancher.png
-            href: https://rancher.csnguyen.de
-        - Upsnap:
-            icon: upsnap.png
-            href: https://upsnap.csnguyen.de
-        - Kubernetes:
-            icon: kubernetes.png
-            href: https://kubernetes.csnguyen.de
-        - JDownloader:
-            icon: jdownloader.png
-            href: https://jdownloader.csnguyen.de   
-
     - Public Services:
         - Jellyfin:
             icon: jellyfin.png
@@ -129,6 +106,35 @@ data:
         - Flatnotes:
             icon: flatnotes.png
             href: https://notes.csnguyen.de
+        - Upsnap:
+            icon: upsnap.png
+            href: https://upsnap.csnguyen.de
+        - Grafana:
+            icon: grafana.png
+            href: https://grafana.csnguyen.de
+
+    - Private Services:
+        - ArgoCD:
+            icon: argo-cd.png
+            href: https://argocd.csnguyen.de
+        - Openmediavault:
+            icon: openmediavault.png
+            href: https://omv.csnguyen.de
+        - Pi-hole:
+            icon: pi-hole.png
+            href: https://pihole.csnguyen.de/admin
+        - Rancher:
+            icon: rancher.png
+            href: https://rancher.csnguyen.de
+        - Kubernetes:
+            icon: kubernetes.png
+            href: http://192.168.178.100:9999
+        - JDownloader:
+            icon: jdownloader.png
+            href: https://jdownloader.csnguyen.de   
+        - Prometheus:
+            icon: prometheus.png
+            href: https://jdownloader.csnguyen.de   
 
   widgets.yaml: |
     - greeting:
