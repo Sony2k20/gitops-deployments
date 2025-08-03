@@ -5,8 +5,9 @@ apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: {{ .name }}
+  labels:
+    name: {{ .name }}
 spec:
-  storageClassName: manual
   capacity:
     storage: {{ .storage }} 
   accessModes:
@@ -15,6 +16,7 @@ spec:
     {{- end }}
   hostPath:
     path: {{ .hostPath }}
+  storageClassName: manual
   persistentVolumeReclaimPolicy: Retain
 {{- end }}
 {{- end }}
