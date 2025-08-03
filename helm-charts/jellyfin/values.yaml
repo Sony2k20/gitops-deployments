@@ -28,7 +28,7 @@ jellyfin:
     media:
       enabled: true
       existingClaim: jellyfin-media
-      subPath: /Media
+      subPath: Media
 
   resources: {}
     # limits:

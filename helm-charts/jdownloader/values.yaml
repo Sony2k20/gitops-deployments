@@ -41,7 +41,7 @@ persistentVolume:
     subPath: Kubernetes/jdownloader
   - name: jdownloader-downloads
     mountPath: /output
-    subPath: /Downloads
+    subPath: Downloads
 
 resources: 
   # limits:
