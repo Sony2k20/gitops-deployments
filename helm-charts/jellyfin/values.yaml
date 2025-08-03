@@ -1,168 +1,39 @@
-# Default values for jellyfin.
-# This is a YAML-formatted file.
-# Declare variables to be passed into your templates.
+jellyfin:
+  image:
+    tag: "10.10"
 
-replicaCount: 1
+  service:
+    port: 8096
+    nodePort: 30000
 
-image:
-  repository: docker.io/jellyfin/jellyfin
-  tag: "10.10"
-  pullPolicy: Always
-
-# Setting this to true enables DLNA which requires the pod to be attached to the
-# host network in order to be useful - this can break things like ingress to the service
-# https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#hosts-namespaces
-# https://jellyfin.org/docs/general/networking/dlna.html
-enableDLNA: false
-
-service:
-  type: ClusterIP
-  port: 8096
-  nodePort: 30000
-  ## Specify the nodePort value for the LoadBalancer and NodePort service types.
-  ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport
-  ##
-  # nodePort:
-  ## Provide any additional annotations which may be required. This can be used to
-  ## set the LoadBalancer service type to internal only.
-  ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#internal-load-balancer
-  ##
-  annotations: {}
-  labels: {}
-  ## Use loadBalancerIP to request a specific static IP,
-  ## otherwise leave blank
-  ##
-  loadBalancerIP:
-  # loadBalancerSourceRanges: []
-  ## Set the externalTrafficPolicy in the Service to either Cluster or Local
-  # externalTrafficPolicy: Cluster
-
-ingress:
-  enabled: true
-  annotations: 
-    # cert-manager.io/cluster-issuer: letsencrypt-prod
-    traefik.ingress.kubernetes.io/router.middlewares: |
-      kube-system-redirect-https@kubernetescrd
-  path: /
-  hosts:
-    - jellyfin.csnguyen.de
-  tls: 
-   - secretName: csnguyen-tls
-     hosts:
-       - jellyfin.csnguyen.de
-
-persistence:
-  config:
+  ingress:
     enabled: true
-    ## jellyfin configuration data Persistent Volume Storage Class
-    ## If defined, storageClassName: <storageClass>
-    ## If set to "-", storageClassName: "", which disables dynamic provisioning
-    ## If undefined (the default) or set to null, no storageClassName spec is
-    ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
-    ##   GKE, AWS & OpenStack)
-    ##
-    # storageClass: "-"
-    ##
-    ## If you want to reuse an existing claim, you can pass the name of the PVC using
-    ## the existingClaim variable
-    existingClaim: jellyfin-config
-    # subPath: some-subpath
-    # accessMode: ReadWriteOnce
-    # size: 1Gi
-  media:
-    enabled: true
-    ## Directory where media is persisted
-    ## If defined, storageClassName: <storageClass>
-    ## If set to "-", storageClassName: "", which disables dynamic provisioning
-    ## If undefined (the default) or set to null, no storageClassName spec is
-    ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
-    ##   GKE, AWS & OpenStack)
-    ##
-    # storageClass: "-"
-    ##
-    ## If you want to reuse an existing claim, you can pass the name of the PVC using
-    ## the existingClaim variable
-    existingClaim: jellyfin-media
-    # subPath: some-subpath
-    # accessMode: ReadWriteOnce
-    # size: 10Gi
-  extraExistingClaimMounts: []
-    # - name: external-mount
-    #   mountPath: /srv/external-mount
-    ## A manually managed Persistent Volume and Claim
-    ## If defined, PVC must be created manually before volume will be bound
-    #   existingClaim:
-    #   readOnly: true
+    annotations: 
+      # cert-manager.io/cluster-issuer: letsencrypt-prod
+      traefik.ingress.kubernetes.io/router.middlewares: |
+        kube-system-redirect-https@kubernetescrd
+    path: /
+    hosts:
+      - jellyfin.csnguyen.de
+    tls: 
+    - secretName: csnguyen-tls
+      hosts:
+        - jellyfin.csnguyen.de
 
-resources: {}
-  # We usually recommend not to specify default resources and to leave this as a conscious
-  # choice for the user. This also increases chances charts run on environments with little
-  # resources, such as Minikube. If you do want to specify resources, uncomment the following
-  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
-  # limits:
-  #  cpu: 100m
-  #  memory: 128Mi
-  # requests:
-  #  cpu: 100m
-  #  memory: 128Mi
+  persistence:
+    config:
+      enabled: true
+      existingClaim: jellyfin-config
+      subPath: /Kubernetes/jellyfin
+    media:
+      enabled: true
+      existingClaim: jellyfin-media
+      subPath: /Media
 
-nodeSelector: {}
-
-tolerations: []
-
-affinity: {}
-
-extraVolumes: []
-  #- name: renderD129
-  #  hostPath:
-  #    path: /dev/dri/renderD129
-
-extraVolumeMounts: []
-  #- mountPath: /dev/dri/renderD129
-  #  name: renderD129
-
-extraPodLabels: {}
-
-# extraEnvVars: 
-#   - name: JELLYFIN_FFmpeg__probesize
-#     value: "10G"
-#   - name: JELLYFIN_FFmpeg__analyzeduration
-#     value: "30M"
-
-# additional annotations applied to the pod
-extraPodAnnotations: {}
-
-extraContainers: {}
-
-# Larger libraries may need to increase the readinessProbe and livenessProbe timeouts. Start by increasing the initialDelaySeconds.
-livenessProbe:
-  enabled: false
-  # failureThreshold: 3
-  initialDelaySeconds: 10
-  # periodSeconds: 10
-  # successThreshold: 1
-  # timeoutSeconds: 1
-
-readinessProbe:
-  enabled: false
-  # failureThreshold: 3
-  initialDelaySeconds: 10
-  # periodSeconds: 10
-  # successThreshold: 1
-  # timeoutSeconds: 1
-
-persistentVolume:
-  - name: jellyfin-config
-    namespace: prod
-    storage: 1Gi
-    disk: disk1
-    hostPath: /srv/dev-disk-by-uuid-1f2204f1-efe5-4e04-a2a2-b4598f7b17db/data/kubernetes/jellyfin
-    accessModes:
-      - ReadWriteMany 
-  - name: jellyfin-media
-    namespace: prod
-    storage: 5Ti 
-    disk: disk2
-    hostPath: /srv/dev-disk-by-uuid-1f2204f1-efe5-4e04-a2a2-b4598f7b17db/data/Media
-    accessModes:
-      - ReadWriteMany 
+  resources: {}
+    # limits:
+    #  cpu: 100m
+    #  memory: 128Mi
+    # requests:
+    #  cpu: 100m
+    #  memory: 128Mi

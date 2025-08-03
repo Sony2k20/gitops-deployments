@@ -12,7 +12,7 @@ spec:
   template:
     metadata:
       annotations:
-        deploymentTime: {{ now | date "2006-01-02 15:04:05" }}
+        deploymentTime: {{ now }}
       labels:
         {{- include "helm-chart.labels" . | nindent 8 }}
         {{- with .Values.podLabels }}
@@ -40,11 +40,16 @@ spec:
             - secretRef:
                 name: {{ include "helm-chart.fullname" . }}-secrets
             {{- end }}
+          {{- with .Values.resources }}
+          resources:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
           {{- if .Values.persistentVolume }}
           volumeMounts:
             {{- range .Values.persistentVolume }}
             - name: {{ .name }}
               mountPath: {{ .mountPath }}
+              subPath: {{ .subPath }}
             {{- end }}
           {{- end }}
       {{- if .Values.persistentVolume }}
