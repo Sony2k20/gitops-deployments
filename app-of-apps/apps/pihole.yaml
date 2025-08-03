@@ -4,7 +4,7 @@ metadata:
   name: pihole
   namespace: argocd
   labels:
-    type: infra
+    type: app
 spec:
   destination:
     namespace: prod
