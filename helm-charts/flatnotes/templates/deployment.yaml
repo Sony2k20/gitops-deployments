@@ -50,7 +50,6 @@ spec:
           volumeMounts:
            - mountPath: /data
              name: data
-             subPath: /Kubernetes/flatnotes
       volumes:
         - name: data
           persistentVolumeClaim:
