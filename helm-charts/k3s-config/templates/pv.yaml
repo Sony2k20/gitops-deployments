@@ -6,6 +6,7 @@ kind: PersistentVolume
 metadata:
   name: {{ .name }}
 spec:
+  storageClassName: manual
   capacity:
     storage: {{ .storage }} 
   accessModes:

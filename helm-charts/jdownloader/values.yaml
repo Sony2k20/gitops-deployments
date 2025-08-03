@@ -38,10 +38,8 @@ startupProbe:
 persistentVolume:
   - name: jdownloader-config
     mountPath: /config
-    subPath: Kubernetes/jdownloader
   - name: jdownloader-downloads
     mountPath: /output
-    subPath: Downloads
 
 resources: 
   # limits:

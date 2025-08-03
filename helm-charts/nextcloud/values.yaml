@@ -1,7 +1,5 @@
 nextcloud:
   nextcloud:
-    persistence: 
-      subPath: Kubernetes/nextcloud
     host: nextcloud.csnguyen.de
     existingSecret:
       enabled: true

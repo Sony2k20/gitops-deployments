@@ -24,11 +24,9 @@ jellyfin:
     config:
       enabled: true
       existingClaim: jellyfin-config
-      subPath: Kubernetes/jellyfin
     media:
       enabled: true
       existingClaim: jellyfin-media
-      subPath: Media
 
   resources: {}
     # limits:

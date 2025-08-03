@@ -1,14 +1,7 @@
 uptime-kuma:
   volume:
-    enabled: false
-  additionalVolumes:
-    - name: storage
-      persistentVolumeClaim:
-        claimName: uptime-kuma
-  additionalVolumeMounts:
-    - mountPath: /app/data
-      subPath: Kubernetes/uptime-kuma
-      name: storage 
+    enabled: true
+    existingClaim: uptime-kuma
   ingress:
     enabled: true
     annotations:
