@@ -23,7 +23,7 @@ spec:
     spec:
       hostNetwork: true
       containers:
-        - name: {{ include "jellyfin.fullname" . }}
+        - name: {{ include "upsnap.fullname" . }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default "latest" }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
