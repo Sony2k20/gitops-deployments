@@ -19,6 +19,10 @@ spec:
             - admin  
           passwords:
             - admin
+        service:
+          nodePorts:
+            mongodb: "27017"
+
   destination:
     server: https://kubernetes.default.svc
     namespace: prod
