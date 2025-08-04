@@ -35,6 +35,9 @@ spec:
           httpGet:
             path: /
             port: 8090
+        persistentVolume:
+          - name: upsnap
+            mountPath: /app/pb_data        
   syncPolicy: 
     automated:
       selfHeal: true
