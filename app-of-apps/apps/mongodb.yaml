@@ -28,7 +28,7 @@ spec:
             enabled: true
   destination:
     server: https://kubernetes.default.svc
-    namespace: prod
+    namespace: mongodb
   syncPolicy:
     automated:
       prune: true
