@@ -20,7 +20,11 @@ spec:
 
         image:
           repository: sony2k20/ng-web-portfolio      
-
+        
+        service:
+          port: 80
+          nodePort: 30005
+          
         ingress:
           host: katy.csnguyen.de
 
