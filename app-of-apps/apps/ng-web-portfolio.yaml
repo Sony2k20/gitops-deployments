@@ -19,7 +19,7 @@ spec:
         fullnameOverride: ng-web-portfolio
 
         image:
-          name: sony2k20/ng-web-portfolio      
+          repository: sony2k20/ng-web-portfolio      
 
         ingress:
           host: katy.csnguyen.de
