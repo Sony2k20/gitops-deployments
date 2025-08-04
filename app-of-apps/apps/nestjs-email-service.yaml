@@ -22,13 +22,12 @@ spec:
         fullnameOverride: nestjs-email-service
 
         image:
-          name: sony2k20/nestjs-email-service
+          repository: sony2k20/nestjs-email-service
 
         service:
           port: 3000
 
-        envSecrets:
-          secretKeyRef: email-service-secrets
+        secretKeyRef: email-service-secrets
 
         ingress:
           host: katy.csnguyen.de
@@ -44,7 +43,6 @@ spec:
           httpGet:
             path: /health
             port: 3000
-
   syncPolicy:
     automated:
       selfHeal: true
