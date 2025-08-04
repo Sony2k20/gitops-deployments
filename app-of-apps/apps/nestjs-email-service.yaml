@@ -14,9 +14,37 @@ spec:
     name: in-cluster
   project: default
   source:
-    path: helm-charts/nestjs-email-service
-    repoURL: https://github.com/Sony2k20/gitops-deployments.git
-    targetRevision: HEAD
+    repoURL: https://sony2k20.github.io/service-deployer-helm
+    targetRevision: 1.0.0
+    chart: service-deployer
+    helm:
+      values: |
+        fullnameOverride: nestjs-email-service
+
+        image:
+          name: sony2k20/nestjs-email-service
+
+        service:
+          port: 3000
+
+        envSecrets:
+          secretKeyRef: email-service-secrets
+
+        ingress:
+          host: katy.csnguyen.de
+          annotations:
+            traefik.ingress.kubernetes.io/router.middlewares: |
+              kube-system-redirect-https@kubernetescrd,
+              kube-system-strip-api-prefix@kubernetescrd
+          path: /api
+          pathType: Prefix
+          tlsSecret: csnguyen-tls 
+
+        startupProbe:
+          httpGet:
+            path: /health
+            port: 3000
+
   syncPolicy:
     automated:
       selfHeal: true
