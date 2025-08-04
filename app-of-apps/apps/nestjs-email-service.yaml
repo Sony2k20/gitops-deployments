@@ -27,7 +27,7 @@ spec:
         service:
           port: 3000
 
-        secretKeyRef: email-service-secrets
+        secretRef: email-service-secrets
 
         ingress:
           host: katy.csnguyen.de
