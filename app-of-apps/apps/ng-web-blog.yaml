@@ -26,7 +26,7 @@ spec:
           nodePort: 30004
           
         ingress:
-          host: katy.csnguyen.de
+          host: blog.csnguyen.de
 
         startupProbe:
           httpGet:
