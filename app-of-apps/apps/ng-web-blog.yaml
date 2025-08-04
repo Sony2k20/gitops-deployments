@@ -11,9 +11,27 @@ spec:
     name: in-cluster
   project: default
   source:
-    path: helm-charts/ng-web-blog
-    repoURL: https://github.com/Sony2k20/gitops-deployments.git
-    targetRevision: HEAD
+    repoURL: https://sony2k20.github.io/service-deployer-helm
+    targetRevision: 1.0.0
+    chart: service-deployer
+    helm:
+      values: |
+        fullnameOverride: ng-web-blog
+
+        image:
+          repository: sony2k20/ng-web-blog   
+        
+        service:
+          port: 80
+          nodePort: 30004
+          
+        ingress:
+          host: katy.csnguyen.de
+
+        startupProbe:
+          httpGet:
+            path: /
+            port: 80
   syncPolicy:
     automated:
       selfHeal: true

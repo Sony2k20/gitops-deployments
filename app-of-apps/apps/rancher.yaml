@@ -8,9 +8,22 @@ metadata:
 spec:
   project: default
   source:
-    path: helm-charts/rancher
-    repoURL: https://github.com/Sony2k20/gitops-deployments.git
-    targetRevision: HEAD
+    repoURL: https://releases.rancher.com/server-charts/latest
+    targetRevision: 2.11.3
+    chart: rancher      
+    helm:
+      values: |  
+        replicas: 1
+        hostname: rancher.csnguyen.de
+        ingress:
+          enabled: true
+          includeDefaultExtraAnnotations: false
+          extraAnnotations: 
+            traefik.ingress.kubernetes.io/router.middlewares: kube-system-redirect-https@kubernetescrd
+          ingressClassName: traefik
+          tls:
+            source: secret
+            secretName: csnguyen-tls
   destination:
     server: "https://kubernetes.default.svc"
     namespace: cattle-system
