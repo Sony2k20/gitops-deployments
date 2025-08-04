@@ -20,8 +20,12 @@ spec:
           passwords:
             - admin
         service:
-          nodePorts:
-            mongodb: "27017"
+          type: LoadBalancer
+          port: 27017
+        externalAccess:
+          enabled: true
+          autoDiscovery:
+            enabled: true
   destination:
     server: https://kubernetes.default.svc
     namespace: prod
