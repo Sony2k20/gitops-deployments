@@ -11,9 +11,30 @@ spec:
     name: in-cluster
   project: default
   source:
-    path: helm-charts/upsnap
-    repoURL: https://github.com/Sony2k20/gitops-deployments.git
-    targetRevision: HEAD
+    repoURL: https://sony2k20.github.io/service-deployer-helm
+    targetRevision: 1.0.0
+    chart: service-deployer
+    helm:
+      values: |
+        fullnameOverride: upsnap
+
+        image:
+          repository: ghcr.io/seriousm4x/upsnap
+          tag: 5
+        
+        hostNetwork: true
+
+        service:
+          port: 8090
+          nodePort: 30102
+          
+        ingress:
+          host: upsnap.csnguyen.de
+
+        startupProbe:
+          httpGet:
+            path: /
+            port: 8090
   syncPolicy: 
     automated:
       selfHeal: true
