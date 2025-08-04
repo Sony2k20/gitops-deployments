@@ -35,7 +35,7 @@ spec:
           nodePort: 30007
           
         ingress:
-          host: flatnotes.csnguyen.de
+          host: notes.csnguyen.de
 
         startupProbe:
           httpGet:
