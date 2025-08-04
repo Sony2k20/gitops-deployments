@@ -1,6 +1,0 @@
-cert-manager:
-  namespace: cert-manager
-  crds:
-    enabled: true
-
-email: "cong.son.nguyen90@gmail.com"
