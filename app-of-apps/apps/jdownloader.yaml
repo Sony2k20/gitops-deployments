@@ -11,9 +11,32 @@ spec:
     name: in-cluster
   project: default
   source:
-    path: helm-charts/jdownloader
-    repoURL: https://github.com/Sony2k20/gitops-deployments.git
-    targetRevision: HEAD
+    repoURL: https://sony2k20.github.io/service-deployer-helm
+    targetRevision: 1.0.0
+    chart: service-deployer
+    helm:
+      values: |
+        fullnameOverride: jdownloader
+
+        image:
+          repository: jlesage/jdownloader-2  
+        
+        service:
+          port: 5800
+          
+        ingress:
+          host: jdownloader.csnguyen.de
+
+        startupProbe:
+          httpGet:
+            path: /
+            port: 5800
+
+        persistentVolume:
+          - name: jdownloader-config
+            mountPath: /config
+          - name: jdownloader-downloads
+            mountPath: /output
   syncPolicy:
     automated:
       selfHeal: true
