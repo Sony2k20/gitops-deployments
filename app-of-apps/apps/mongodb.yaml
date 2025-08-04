@@ -17,7 +17,8 @@ spec:
             - katy-coaching
           usernames:
             - admin  
-          existingSecret: mongodb-secret
+          passwords:
+            - admin
   destination:
     server: https://kubernetes.default.svc
     namespace: prod
