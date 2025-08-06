@@ -14,6 +14,11 @@ spec:
     helm:
       values: |
         prometheus:
+          server: 
+            retention: "90d"
+            persistentVolume:
+              enabled: true
+              existingClaim: prometheus
           prometheusSpec:
             serviceMonitorSelectorNilUsesHelmValues: false
             serviceMonitorSelector: {}
@@ -30,6 +35,9 @@ spec:
                   - prometheus.csnguyen.de
                 secretName: csnguyen-tls
         grafana:
+          persistence:
+            enabled: true
+            volumeName: grafana
           ingress:
             enabled: true
             ingressClassName: traefik
