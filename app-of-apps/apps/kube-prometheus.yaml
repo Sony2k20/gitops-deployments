@@ -35,8 +35,6 @@ spec:
                   - prometheus.csnguyen.de
                 secretName: csnguyen-tls
         grafana:
-          initChownData:
-            enabled: false
           persistence:
             enabled: true
             volumeName: grafana
