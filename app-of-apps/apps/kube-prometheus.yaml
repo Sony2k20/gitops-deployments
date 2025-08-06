@@ -37,7 +37,7 @@ spec:
         grafana:
           persistence:
             enabled: true
-            volumeName: grafana
+            existingClaim: grafana
           ingress:
             enabled: true
             ingressClassName: traefik
