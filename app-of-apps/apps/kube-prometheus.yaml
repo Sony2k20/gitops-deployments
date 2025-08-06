@@ -14,12 +14,8 @@ spec:
     helm:
       values: |
         prometheus:
-          server: 
-            retention: "90d"
-            persistentVolume:
-              enabled: true
-              existingClaim: prometheus
           prometheusSpec:
+            retention: "90d"
             serviceMonitorSelectorNilUsesHelmValues: false
             serviceMonitorSelector: {}
             serviceMonitorNamespaceSelector: {}

@@ -61,9 +61,3 @@ persistentVolume:
     storage: 10Gi    
     accessModes:
       - ReadWriteOnce 
-  - name: prometheus
-    hostPath: /srv/dev-disk-by-uuid-1f2204f1-efe5-4e04-a2a2-b4598f7b17db/data/Kubernetes/prometheus
-    namespace: prod
-    storage: 10Gi    
-    accessModes:
-      - ReadWriteOnce 
