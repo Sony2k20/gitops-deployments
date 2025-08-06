@@ -31,11 +31,15 @@ spec:
                   - prometheus.csnguyen.de
                 secretName: csnguyen-tls
         grafana:
-          initChownData:
-            enabled: false
-          persistence:
-            enabled: true
-            existingClaim: grafana
+          # initChownData:
+          #   enabled: false
+          # persistence:
+          #   enabled: true
+          #   existingClaim: grafana
+          admin:
+            existingSecret:	grafana-secret
+            userKey: username
+            passwordKey: password
           ingress:
             enabled: true
             ingressClassName: traefik
