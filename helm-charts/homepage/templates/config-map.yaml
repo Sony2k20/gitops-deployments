@@ -130,7 +130,7 @@ data:
             icon: kubernetes.png
             href: http://192.168.178.100:9999
         - JDownloader:
-            icon: jdownloader.png
+            icon: jdownloader3.png
             href: https://jdownloader.csnguyen.de   
         - Prometheus:
             icon: prometheus.png
