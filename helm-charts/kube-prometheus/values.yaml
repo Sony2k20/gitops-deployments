@@ -1,0 +1,41 @@
+kube-prometheus-stack:
+  prometheus:
+    prometheusSpec:
+      retention: "90d"
+      serviceMonitorSelectorNilUsesHelmValues: false
+      serviceMonitorSelector: {}
+      serviceMonitorNamespaceSelector: {}
+    ingress:
+      enabled: true
+      ingressClassName: traefik
+      annotations:
+        traefik.ingress.kubernetes.io/router.middlewares: "kube-system-redirect-https@kubernetescrd"
+      hosts:
+        - prometheus.csnguyen.de
+      tls:
+        - hosts:
+            - prometheus.csnguyen.de
+          secretName: csnguyen-tls
+  grafana:
+    admin:
+      existingSecret:	grafana-secret
+      userKey: username
+      passwordKey: password
+    ingress:
+      enabled: true
+      ingressClassName: traefik
+      annotations:
+        traefik.ingress.kubernetes.io/router.middlewares: "kube-system-redirect-https@kubernetescrd"
+      hosts:
+        - grafana.csnguyen.de
+      tls:
+        - hosts:
+            - grafana.csnguyen.de
+          secretName: csnguyen-tls
+    sidecar:
+      datasources:
+        defaultDatasourceEnabled: true
+    additionalDataSources:
+      - name: Loki
+        type: loki
+        url: http://grafana-loki-loki-distributed-query-frontend:3100
