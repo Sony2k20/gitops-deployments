@@ -168,8 +168,8 @@
       {
         "allValue": ".+",
         "current": {
-          "text": "argocd",
-          "value": "argocd"
+          "text": "prod",
+          "value": "prod"
         },
         "datasource": {
           "type": "loki",
@@ -217,8 +217,8 @@
       },
       {
         "current": {
-          "text": "error|fatal",
-          "value": "error|fatal"
+          "text": "warn|error|fatal",
+          "value": "warn|error|fatal"
         },
         "includeAll": false,
         "label": "Search Term",
