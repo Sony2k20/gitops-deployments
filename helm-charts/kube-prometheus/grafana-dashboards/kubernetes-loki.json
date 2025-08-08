@@ -217,8 +217,8 @@
       },
       {
         "current": {
-          "text": "warn|error|fatal",
-          "value": "warn|error|fatal"
+          "text": ".+",
+          "value": ".+"
         },
         "includeAll": false,
         "label": "Search Term",
