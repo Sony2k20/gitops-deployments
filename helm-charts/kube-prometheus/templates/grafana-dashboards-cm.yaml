@@ -8,3 +8,5 @@ metadata:
 data:
   kubernetes.json: |
 {{ .Files.Get "grafana-dashboards/kubernetes.json" | indent 4 }}
+  kubernetes-loki.json: |
+{{ .Files.Get "grafana-dashboards/kubernetes-loki.json" | indent 4 }}
