@@ -17,6 +17,24 @@ kube-prometheus-stack:
             - prometheus.csnguyen.de
           secretName: csnguyen-tls
   grafana:
+    defaultDashboardsEnabled: false
+
+    dashboardProviders:
+      dashboardproviders.yaml:
+        apiVersion: 1
+        providers:
+        - name: 'kubernetes-dashboard'
+          orgId: 1
+          folder: ''
+          type: file
+          updateIntervalSeconds: 10
+          disableDeletion: true
+          editable: true
+          options:
+            path: /var/lib/grafana/dashboards/grafana-dashboards-cm
+    dashboardsConfigMaps: 
+      kubernetes-dashboard: grafana-dashboards-cm
+      
     admin:
       existingSecret:	grafana-secret
       userKey: username

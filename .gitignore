@@ -4,3 +4,5 @@
 *.cer
 *.key
 *.tgz
+**/charts
+Chart.lock
