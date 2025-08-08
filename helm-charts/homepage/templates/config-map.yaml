@@ -131,7 +131,7 @@ data:
             href: https://rancher.csnguyen.de
         - Kubernetes:
             icon: kubernetes.png
-            href: http://192.168.178.100:9999
+            href: https://192.168.178.100:9999
         - JDownloader:
             icon: /icons/jdownloader3.png
             href: https://jdownloader.csnguyen.de   
