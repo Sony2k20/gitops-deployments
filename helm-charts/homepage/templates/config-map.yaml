@@ -99,7 +99,7 @@ data:
             href: https://grafana.csnguyen.de/d/k8s_views_nodes/kubernetes-views-nodes?orgId=1&from=now-1h&to=now&timezone=browser&var-datasource=prometheus&var-cluster=&var-resolution=30s&var-node=debian&var-instance=192.168.178.100:9100&refresh=30s
         - Grafana Loki:
             icon: grafana.png
-            href: https://grafana.csnguyen.de/d/ae3ec2c4-1c19-4450-9403-226270fe0c4f/kubernetes-logs-from-loki?orgId=1&from=now-15m&to=now&timezone=browser&var-namespace=prod&var-pod=$__all&var-search=warn%7Cerror%7Cfatal
+            href: https://grafana.csnguyen.de/d/ae3ec2c4-1c19-4450-9403-226270fe0c4f/kubernetes-logs-from-loki?orgId=1&from=now-15m&to=now&timezone=browser&var-namespace=prod&var-pod=$__all&var-search=.%2B
         - Jellyfin:
             icon: jellyfin.png
             href: https://jellyfin.csnguyen.de
