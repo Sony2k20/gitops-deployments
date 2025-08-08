@@ -31,10 +31,10 @@ kube-prometheus-stack:
           disableDeletion: true
           editable: true
           options:
-            path: /var/lib/grafana/dashboards/grafana-dashboards-cm
+            path: /var/lib/grafana/dashboards/kubernetes-dashboard
     dashboardsConfigMaps: 
       kubernetes-dashboard: grafana-dashboards-cm
-      
+
     admin:
       existingSecret:	grafana-secret
       userKey: username
