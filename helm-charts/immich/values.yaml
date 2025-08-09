@@ -24,11 +24,7 @@ ingress:
     traefik.ingress.kubernetes.io/router.middlewares: |
       kube-system-redirect-https@kubernetescrd
   path: /
-  hosts:
-    - host: immich.csnguyen.de
-      paths:
-        - path: /
-          pathType: Prefix
+  host: immich.csnguyen.de
   tls: 
   - secretName: csnguyen-tls
     hosts:
