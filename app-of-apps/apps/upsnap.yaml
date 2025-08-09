@@ -12,11 +12,13 @@ spec:
   project: default
   source:
     repoURL: https://sony2k20.github.io/service-deployer-helm
-    targetRevision: 1.0.2
+    targetRevision: 1.0.3
     chart: service-deployer
     helm:
       values: |
         fullnameOverride: upsnap
+
+        updateStrategy: Recreate
 
         image:
           repository: ghcr.io/seriousm4x/upsnap
