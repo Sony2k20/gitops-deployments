@@ -10,17 +10,16 @@ spec:
   source:
     repoURL: https://charts.bitnami.com/bitnami
     chart: mongodb
-    targetRevision: 16.5.33
+    targetRevision: 16.5.40
     helm:
       values: |
         auth:
           enabled: true
           databases: 
             - katy-coaching
-          usernames:
-            - admin  
-          passwords:
-            - admin
+          existingSecret: mongodb-secret
+        persistence:
+          existingClaim: mongodb
         service:
           type: LoadBalancer
           port: 27017
