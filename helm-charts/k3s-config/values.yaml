@@ -55,15 +55,3 @@ persistentVolume:
     storage: 1Gi    
     accessModes:
       - ReadWriteOnce 
-  - name: mongodb
-    hostPath: /srv/dev-disk-by-uuid-1f2204f1-efe5-4e04-a2a2-b4598f7b17db/data/Kubernetes/mongodb
-    namespace: mongodb
-    storage: 10Gi    
-    accessModes:
-      - ReadWriteOnce 
-  - name: postgresql
-    hostPath: /srv/dev-disk-by-uuid-1f2204f1-efe5-4e04-a2a2-b4598f7b17db/data/Kubernetes/postgresql
-    namespace: postgresql
-    storage: 10Gi    
-    accessModes:
-      - ReadWriteOnce 
