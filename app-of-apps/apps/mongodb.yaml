@@ -15,20 +15,15 @@ spec:
       values: |
         auth:
           enabled: true
-          # databases: 
-          #   - katy-coaching
-          existingSecret: mongodb-secret
-        persistence:
-          existingClaim: mongodb
+          databases: 
+            - katy-coaching
+          usernames:
+            - admin  
+          passwords:
+            - admin
         service:
           type: LoadBalancer
           port: 27017
-        containerSecurityContext:
-          runAsUser: 0
-          runAsNonRoot: false
-          privileged: true
-          readOnlyRootFilesystem: false
-          allowPrivilegeEscalation: true
         externalAccess:
           enabled: true
           autoDiscovery:
