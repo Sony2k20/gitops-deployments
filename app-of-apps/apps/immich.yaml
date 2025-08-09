@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: immich
+  namespace: argocd
+  labels:
+    type: app
+spec:
+  project: default
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: cattle-system
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false
+    syncOptions:
+      - PruneLast=true
+      - CreateNamespace=true
+      - SkipHooks=true

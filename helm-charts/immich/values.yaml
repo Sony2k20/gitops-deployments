@@ -1,0 +1,35 @@
+immich:
+  immich:
+    metrics:
+      # Enabling this will create the service monitors needed to monitor immich with the prometheus operator
+      enabled: false
+    persistence:
+      library:
+        existingClaim: immich
+  redis:
+    enabled: true
+  env:
+    DB_HOSTNAME: "postgresql.postgresql.svc.cluster.local"
+    DB_USERNAME: "admin"
+    DB_DATABASE_NAME: "immich"
+    DB_PASSWORD: "admin"
+
+service:
+  nodePort: 30009
+ingress:
+  className: traefik
+  annotations: 
+    traefik.ingress.kubernetes.io/client-max-body-size: "0"
+    traefik.ingress.kubernetes.io/router.middlewares: |
+      kube-system-redirect-https@kubernetescrd
+  path: /
+  hosts:
+    - host: immich.csnguyen.de
+      paths:
+        - path: /
+          pathType: Prefix
+  tls: 
+  - secretName: csnguyen-tls
+    hosts:
+      - immich.csnguyen.de
+
