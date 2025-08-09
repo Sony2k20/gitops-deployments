@@ -27,7 +27,7 @@ spec:
           runAsUser: 0
           runAsNonRoot: false
           privileged: true
-          readOnlyRootFilesystem: true
+          readOnlyRootFilesystem: false
           allowPrivilegeEscalation: true
         externalAccess:
           enabled: true
