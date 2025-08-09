@@ -26,6 +26,9 @@ spec:
         containerSecurityContext:
           runAsUser: 0
           runAsNonRoot: false
+          privileged: true
+          readOnlyRootFilesystem: true
+          allowPrivilegeEscalation: true
         externalAccess:
           enabled: true
           autoDiscovery:
