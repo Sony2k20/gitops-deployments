@@ -16,7 +16,7 @@ spec:
         image: 
           registry: docker.io
           repository: pixil/bitnami-postgresql-pgvecto-rs
-          tag: your-tag
+          tag: 16.6.0
         global:
           postgresql:
             auth:
