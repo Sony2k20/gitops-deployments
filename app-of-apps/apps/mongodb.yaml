@@ -23,10 +23,9 @@ spec:
         service:
           type: LoadBalancer
           port: 27017
-        securityContext:
-          enabled: true
-          fsGroup: 1001
-          runAsUser: 1001
+        containerSecurityContext:
+          runAsUser: 0
+          runAsNonRoot: false
         externalAccess:
           enabled: true
           autoDiscovery:
