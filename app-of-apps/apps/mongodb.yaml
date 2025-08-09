@@ -15,8 +15,8 @@ spec:
       values: |
         auth:
           enabled: true
-          databases: 
-            - katy-coaching
+          # databases: 
+          #   - katy-coaching
           existingSecret: mongodb-secret
         persistence:
           existingClaim: mongodb
