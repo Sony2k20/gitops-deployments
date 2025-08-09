@@ -15,6 +15,7 @@ immich:
     DB_PASSWORD: "admin"
 
 service:
+  port: 2283
   nodePort: 30009
 ingress:
   className: traefik
