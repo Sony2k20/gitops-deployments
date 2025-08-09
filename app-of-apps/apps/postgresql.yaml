@@ -18,6 +18,8 @@ spec:
           repository: pixil/bitnami-postgresql-pgvecto-rs
           tag: 16.6.0
         global:
+          security:
+            allowInsecureImages: true
           postgresql:
             auth:
               username:	admin
