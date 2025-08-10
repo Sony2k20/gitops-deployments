@@ -15,12 +15,21 @@ spec:
       values: |
         image: 
           registry: docker.io
-          repository: pixil/bitnami-postgresql-pgvecto-rs
-          tag: 16.6.0
-        postgresqlSharedPreloadLibraries: vector
+          repository: tensorchord/pgvecto-rs
+          tag: pg16-v0.3.0
+        # postgresqlSharedPreloadLibraries: vector
+        primary:
+          containerSecurityContext:
+            readOnlyRootFilesystem: false
+          initdb:
+            scripts:
+              create-extensions.sql: |
+                CREATE EXTENSION cube;
+                CREATE EXTENSION earthdistance;
+                CREATE EXTENSION vectors;        
         global:
-          security:
-            allowInsecureImages: true
+          # security:
+          #   allowInsecureImages: true
           postgresql:
             auth:
               username:	admin
