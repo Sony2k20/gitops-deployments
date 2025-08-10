@@ -10,16 +10,17 @@ spec:
   source:
     repoURL: https://charts.bitnami.com/bitnami
     chart: postgresql
-    targetRevision: 16.7.24
+    targetRevision: 15.5.38
     helm:
       values: |
-        # image: 
-        #   registry: docker.io
-        #   repository: pixil/bitnami-postgresql-pgvecto-rs
-        #   tag: 16.4.0
+        image: 
+          registry: docker.io
+          repository: pixil/bitnami-postgresql-pgvecto-rs
+          tag: 16.6.0
+        postgresqlSharedPreloadLibraries: vector
         global:
-          # security:
-          #   allowInsecureImages: true
+          security:
+            allowInsecureImages: true
           postgresql:
             auth:
               username:	admin
