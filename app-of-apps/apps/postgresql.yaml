@@ -14,10 +14,8 @@ spec:
     helm:
       values: |
         image: 
-          # registry: docker.io
           repository: tensorchord/pgvecto-rs
           tag: pg16-v0.3.0
-        # postgresqlSharedPreloadLibraries: vector
         primary:
           containerSecurityContext:
             readOnlyRootFilesystem: false
@@ -28,8 +26,6 @@ spec:
                 CREATE EXTENSION earthdistance;
                 CREATE EXTENSION vectors;        
         global:
-          # security:
-          #   allowInsecureImages: true
           postgresql:
             auth:
               username:	admin
