@@ -9,7 +9,7 @@ immich:
   redis:
     enabled: true
   env:
-    DB_HOSTNAME: "postgresql.postgresql.svc.cluster.local:5432"
+    DB_HOSTNAME: postgresql:5432
     DB_USERNAME: test
     DB_DATABASE_NAME: my_new_db
     DB_PASSWORD: test
