@@ -25,12 +25,6 @@ spec:
                 CREATE EXTENSION cube;
                 CREATE EXTENSION earthdistance;
                 CREATE EXTENSION vectors;        
-        global:
-          postgresql:
-            auth:
-              username:	admin
-              password: admin
-              database: immich
   destination:
     server: https://kubernetes.default.svc
     namespace: postgresql
