@@ -64,7 +64,7 @@ spec:
       volumes:
         - name: init-scripts
           configMap:
-            name: {{ .Release.Name }}-init-scripts
+            name: {{ include "helm-chart.fullname" . }}-initdb
         {{- range .Values.persistentVolume }}
         - name: {{ .name }}
           persistentVolumeClaim:
