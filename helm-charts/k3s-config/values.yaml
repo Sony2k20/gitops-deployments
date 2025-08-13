@@ -56,7 +56,7 @@ persistentVolume:
     accessModes:
       - ReadWriteOnce 
   - name: immich
-    hostPath: /srv/dev-disk-by-uuid-1f2204f1-efe5-4e04-a2a2-b4598f7b17db/data/Media/Bilder
+    hostPath: /srv/dev-disk-by-uuid-1f2204f1-efe5-4e04-a2a2-b4598f7b17db/data/Kubernetes/immich
     namespace: prod
     storage: 200Gi    
     accessModes:
