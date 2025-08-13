@@ -13,9 +13,8 @@ immich:
     DB_USERNAME: immich_user
     DB_DATABASE_NAME: immich
     IMMICH_IGNORE_MOUNT_CHECK_ERRORS: true
-
-image:
-  tag: v1.137.3
+  image:
+    tag: v1.137.3
 
 
 service:
