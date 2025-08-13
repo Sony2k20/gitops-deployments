@@ -9,14 +9,14 @@ immich:
   redis:
     enabled: true
   env:
-    # DB_HOSTNAME: "postgresql.postgresql.svc.cluster.local:5432"
-    # DB_USERNAME: immich
-    # DB_DATABASE_NAME: immich
-  persistence:
-    config:
-      enabled: true
-      type: secret
-      name: immich-secret
+    DB_HOSTNAME: "postgresql.postgresql.svc.cluster.local:5432"
+    DB_USERNAME: immich
+    DB_DATABASE_NAME: immich
+  # persistence:
+  #   config:
+  #     enabled: true
+  #     type: secret
+  #     name: immich-secret
 
 service:
   port: 2283
