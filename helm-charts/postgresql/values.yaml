@@ -1,0 +1,19 @@
+fullnameOverride: postgresql
+
+image:
+  repository: tensorchord/pgvecto-rs  
+  tag: pg16-v0.3.0
+
+service:
+  port: 5432
+  # nodePort: 30004
+  
+env: 
+  POSTGRES_USER: immich
+  POSTGRES_DB: immich
+
+secretRef: postgresql-secret
+
+persistentVolume:
+  - name: postgresql
+    mountPath: /var/lib/postgresql/data

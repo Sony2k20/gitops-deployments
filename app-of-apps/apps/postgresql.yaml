@@ -8,23 +8,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://charts.bitnami.com/bitnami
-    chart: postgresql
-    targetRevision: 15.5.38
-    helm:
-      values: |
-        image: 
-          repository: tensorchord/pgvecto-rs
-          tag: pg16-v0.3.0
-        primary:
-          containerSecurityContext:
-            readOnlyRootFilesystem: false
-          initdb:
-            scripts:
-              create-extensions.sql: |
-                CREATE EXTENSION cube;
-                CREATE EXTENSION earthdistance;
-                CREATE EXTENSION vectors;        
+    path: helm-charts/postgresql
+    repoURL: https://github.com/Sony2k20/gitops-deployments.git
+    targetRevision: HEAD      
   destination:
     server: https://kubernetes.default.svc
     namespace: postgresql
