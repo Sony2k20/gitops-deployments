@@ -9,7 +9,7 @@ service:
   # nodePort: 30004
   
 env: 
-  POSTGRES_USER: immich
+  POSTGRES_USER: immich_user
   POSTGRES_DB: immich
 
 secretRef: postgresql-secret

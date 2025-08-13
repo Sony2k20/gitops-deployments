@@ -10,14 +10,8 @@ immich:
     enabled: true
   env:
     DB_HOSTNAME: "postgresql.postgresql.svc.cluster.local:5432"
-    DB_USERNAME: test_user
-    DB_PASSWORD: test
-    # DB_DATABASE_NAME: immich
-  # persistence:
-  #   config:
-  #     enabled: true
-  #     type: secret
-  #     name: immich-secret
+    DB_USERNAME: immich_user
+    DB_DATABASE_NAME: immich
 
 service:
   port: 2283
