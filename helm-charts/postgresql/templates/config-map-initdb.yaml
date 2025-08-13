@@ -6,6 +6,6 @@ metadata:
     {{- include "helm-chart.labels" . | nindent 4 }}
 data:
   01-init-extensions.sql: |
-    CREATE EXTENSION IF NOT EXISTS cube;
-    CREATE EXTENSION IF NOT EXISTS earthdistance;
-    CREATE EXTENSION IF NOT EXISTS vectorchord;
+    CREATE EXTENSION IF NOT EXISTS cube CASCADE;
+    CREATE EXTENSION IF NOT EXISTS earthdistance CASCADE;
+    CREATE EXTENSION IF NOT EXISTS vchord CASCADE;
