@@ -9,4 +9,5 @@ spec:
       targetPort: http
       nodePort: {{ .Values.service.nodePort }}
   selector:
-    {{- include "immich.selectorLabels" . | nindent 4 }}
+    app.kubernetes.io/instance: immich
+    app.kubernetes.io/name: server
