@@ -12,6 +12,7 @@ immich:
     DB_HOSTNAME: "postgresql.postgresql.svc.cluster.local"
     DB_USERNAME: immich_user
     DB_DATABASE_NAME: immich
+    IMMICH_IGNORE_MOUNT_CHECK_ERRORS: true
 
 service:
   port: 2283
