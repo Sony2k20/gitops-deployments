@@ -16,7 +16,7 @@ immich:
     config:
       enabled: true
       type: secret
-      name: postgresql
+      name: immich-secret
 
 service:
   port: 2283
