@@ -13,8 +13,19 @@ immich:
     DB_USERNAME: immich_user
     DB_DATABASE_NAME: immich
     IMMICH_IGNORE_MOUNT_CHECK_ERRORS: true
+  envFrom:
+    - secretRef:
+        name: immich-secret
   image:
     tag: v1.137.3
+  resources:
+    requests:
+      memory: "128Mi"
+      cpu: "250m"
+    limits:
+      memory: "8Gi"
+      cpu: "2500m"
+
 
 
 service:

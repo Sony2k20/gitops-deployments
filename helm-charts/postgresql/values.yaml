@@ -1,8 +1,8 @@
 fullnameOverride: postgresql
 
 image:
-  repository: tensorchord/pgvecto-rs  
-  tag: pg16-v0.3.0
+  repository: docker pull ghcr.io/immich-app/postgres
+  tag: 15-vectorchord0.4.2-pgvectors0.3.0
 
 service:
   port: 5432
@@ -17,3 +17,11 @@ secretRef: postgresql-secret
 persistentVolume:
   - name: postgresql
     mountPath: /var/lib/postgresql/data
+
+resources: 
+  limits:
+   cpu: 2000m
+   memory: 4Gi
+  requests:
+   cpu: 100m
+   memory: 128Mi
