@@ -10,14 +10,14 @@ immich:
     enabled: true
   env:
     DB_HOSTNAME: "postgresql.postgresql.svc.cluster.local"
-    DB_USERNAME: immich
-    DB_DATABASE_NAME: immich
+    # DB_USERNAME: immich
+    # DB_DATABASE_NAME: immich
     IMMICH_IGNORE_MOUNT_CHECK_ERRORS: true
   envFrom:
     - secretRef:
         name: immich-secret
   image:
-    tag: v1.137.3
+    tag: v1.138.0
   resources:
     requests:
       memory: "128Mi"
@@ -25,6 +25,12 @@ immich:
     limits:
       memory: "8Gi"
       cpu: "2500m"
+  postgresql:
+    global:
+      postgresql:
+        auth:
+          existingSecret: immich-secret
+
 
 service:
   port: 2283
