@@ -20,8 +20,7 @@ spec:
             - katy-coaching
           usernames:
             - admin  
-          passwords:
-            - admin
+        existingSecret: mongodb-secret
         service:
           type: LoadBalancer
           port: 27017
