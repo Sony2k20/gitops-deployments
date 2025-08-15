@@ -13,6 +13,7 @@ spec:
     targetRevision: 16.5.40
     helm:
       values: |
+        extraEnvVarsSecret: 
         auth:
           enabled: true
           databases: 
