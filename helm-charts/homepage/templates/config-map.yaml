@@ -166,4 +166,13 @@ data:
     - search:
         provider: google
         target: _blank
+    - openweathermap:
+        latitude: 51.05089
+        longitude: 13.73832
+        units: metric
+        provider: openweathermap
+        apiKey: f6a706cd7353e28372de397ee950260c
+        cache: 30
+        format: 
+          maximumFractionDigits: 1
   docker.yaml: ''
