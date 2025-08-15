@@ -103,6 +103,9 @@ data:
         - Jellyfin:
             icon: jellyfin.png
             href: https://jellyfin.csnguyen.de
+        - Immich:
+            icon: immich.png
+            href: https://immich.csnguyen.de
         - Nextcloud:
             icon: nextcloud.png
             href: https://nextcloud.csnguyen.de
