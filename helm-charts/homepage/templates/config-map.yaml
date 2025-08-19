@@ -150,19 +150,10 @@ data:
         expanded: true
         cpu: true
         memory: true
-        uptime: false
-        refresh: 1000
-        # disk: /
-    - resources:
-        expanded: true
-        disk:
-          - /disk1
-    - resources:
-        expanded: false
-        cpu: false
-        memory: false
         uptime: true
         refresh: 1000
+        disk:
+          - /disk1
     - search:
         provider: google
         target: _blank
