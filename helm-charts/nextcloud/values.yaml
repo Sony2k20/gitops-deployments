@@ -1,4 +1,6 @@
 nextcloud:
+  # image:
+  #   tag: 
   nextcloud:
     host: nextcloud.csnguyen.de
     existingSecret:

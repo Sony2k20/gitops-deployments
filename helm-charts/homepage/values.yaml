@@ -3,7 +3,7 @@ namespace: prod
 service:
   port: 3000
 
-image: ghcr.io/gethomepage/homepage:v1.3.2
+image: ghcr.io/gethomepage/homepage:v1.3
 
 env:
   HOMEPAGE_ALLOWED_HOSTS: homepage.csnguyen.de
