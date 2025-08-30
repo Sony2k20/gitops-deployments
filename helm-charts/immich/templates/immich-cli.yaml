@@ -20,8 +20,8 @@ spec:
         - name: immich-cli
           image: ghcr.io/immich-app/immich-cli:latest
           imagePullPolicy: IfNotPresent
-          command: ["sleep"]
-          args: ["infinity"]
+          command: ["/bin/sh"]
+          args: ["-c", "echo 'Container is running. Use: kubectl exec -it <pod> -- immich <command>'; sleep infinity"]
           env: 
             - name: IMMICH_INSTANCE_URL
               value: https://immich.csnguyen.de/api
