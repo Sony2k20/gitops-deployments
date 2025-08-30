@@ -1,5 +1,5 @@
 apiVersion: apps/v1
-kind: Deplyoment
+kind: Deployment
 metadata:
   name: {{ include "immich.fullname" . }}
   labels:
