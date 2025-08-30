@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deplyoment
+metadata:
+  name: {{ include "immich.fullname" . }}
+  labels:
+    app.kubernetes.io/name: immich-cli
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: immich-cli
+  template:
+    metadata:
+      annotations:
+        deploymentTime: {{ now }}
+      labels:
+        app.kubernetes.io/name: immich-cli
+    spec:
+      containers:
+        - name: immich-cli
+          image: ghcr.io/immich-app/immich-cli:latest
+          imagePullPolicy: IfNotPresent
+          env: 
+            - name: IMMICH_INSTANCE_URL=
+              value: https://immich.csnguyen.de/api
+            - name: IMMICH_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: immich-secret
+                  key: API_KEY
