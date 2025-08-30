@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "immich.fullname" . }}
+  name: immich-cli
   labels:
     app.kubernetes.io/name: immich-cli
 spec:
@@ -20,6 +20,8 @@ spec:
         - name: immich-cli
           image: ghcr.io/immich-app/immich-cli:latest
           imagePullPolicy: IfNotPresent
+          command: ["sleep"]
+          args: ["infinity"]
           env: 
             - name: IMMICH_INSTANCE_URL
               value: https://immich.csnguyen.de/api
