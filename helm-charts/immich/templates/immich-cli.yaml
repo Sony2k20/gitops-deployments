@@ -21,8 +21,7 @@ spec:
           image: ghcr.io/immich-app/immich-cli:latest
           imagePullPolicy: IfNotPresent
           command: ["/bin/sh"]
-          args: ["-c", "echo 'alias immich=\"node /usr/src/app/dist\"' >> /root/.bashrc && echo 'alias immich=\"node /usr/src/app/dist\"' >> /root/.profile && /bin/sh"]
-          env: 
+          args: ["-c", "echo '#!/bin/sh\nnode /usr/src/app/dist \"$@\"' > /usr/local/bin/immich && chmod +x /usr/local/bin/immich && sleep infinity"]          env: 
             - name: IMMICH_INSTANCE_URL
               value: https://immich.csnguyen.de/api
             - name: IMMICH_API_KEY
