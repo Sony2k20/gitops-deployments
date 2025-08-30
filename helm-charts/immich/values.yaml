@@ -18,7 +18,7 @@ immich:
     - secretRef:
         name: immich-secret
   image:
-    tag: v1.139.4
+    tag: v1.140.0
   resources:
     requests:
       memory: "128Mi"
