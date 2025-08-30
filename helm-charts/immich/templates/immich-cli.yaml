@@ -21,7 +21,7 @@ spec:
           image: ghcr.io/immich-app/immich-cli:latest
           imagePullPolicy: IfNotPresent
           env: 
-            - name: IMMICH_INSTANCE_URL=
+            - name: IMMICH_INSTANCE_URL
               value: https://immich.csnguyen.de/api
             - name: IMMICH_API_KEY
               valueFrom:
