@@ -5,7 +5,6 @@ metadata:
   labels:
     app.kubernetes.io/name: immich-cli
 spec:
-  replicas: 1
   selector:
     matchLabels:
       app.kubernetes.io/name: immich-cli
@@ -29,7 +28,7 @@ spec:
               sleep infinity
           env: 
             - name: IMMICH_INSTANCE_URL
-              value: https://immich.csnguyen.de/api
+              value: http://immich-server:2283/api
             - name: IMMICH_API_KEY
               valueFrom:
                 secretKeyRef:
