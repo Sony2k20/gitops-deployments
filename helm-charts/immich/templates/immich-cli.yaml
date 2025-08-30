@@ -18,10 +18,10 @@ spec:
     spec:
       containers:
         - name: immich-cli
-          image: ghcr.io/immich-app/immich-cli:latest
+          image: ghcr.io/immich-app/immich-cli:2.2.79
           imagePullPolicy: IfNotPresent
-          command: ["/bin/sh"]
-          args: ["-c", "echo '#!/bin/sh\nnode /usr/src/app/dist \"$@\"' > /usr/local/bin/immich && chmod +x /usr/local/bin/immich && sleep infinity"]
+          command: ["/bin/sh", "-c"]
+          args: ["echo 'alias immich=\"node /usr/src/app/dist/\"' >> ~/.bashrc && sleep infinity"]
           env: 
             - name: IMMICH_INSTANCE_URL
               value: https://immich.csnguyen.de/api
