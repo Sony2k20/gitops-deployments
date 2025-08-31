@@ -18,14 +18,14 @@ immich:
     - secretRef:
         name: immich-secret
   image:
-    tag: v1.140.0
+    tag: v1.140.1
   resources:
     requests:
       memory: "128Mi"
       cpu: "250m"
     limits:
       memory: "8Gi"
-      cpu: "2500m"
+      cpu: "4000m"
   postgresql:
     global:
       postgresql:
