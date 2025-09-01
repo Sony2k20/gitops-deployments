@@ -118,6 +118,13 @@ data:
         - Upsnap:
             icon: upsnap.png
             href: https://upsnap.csnguyen.de
+        - IT-Tools:
+            icon: it-tools.png
+            href: https://it-tools.csnguyen.de            
+        - Stirling PDF:
+            icon: stirling-pdf.png
+            href: https://pdf.csnguyen.de
+
 
     - Private Services:
         - ArgoCD:
