@@ -1,0 +1,40 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: it-tools
+  namespace: argocd
+  labels:
+    type: app
+spec:
+  destination:
+    namespace: prod
+    name: in-cluster
+  project: default
+  source:
+    repoURL: https://sony2k20.github.io/service-deployer-helm
+    targetRevision: 1.0.7
+    chart: service-deployer
+    helm:
+      values: |
+        fullnameOverride: it-tools
+
+        image:
+          repository: ghcr.io/corentinth/it-tools:latest
+   
+        service:
+          port: 80
+          nodePort: 30010
+          
+        ingress:
+          host: it-tools.csnguyen.de
+
+        startupProbe:
+          httpGet:
+            path: /
+            port: 80
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+      - CreateNamespace=true
