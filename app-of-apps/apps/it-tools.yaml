@@ -19,7 +19,8 @@ spec:
         fullnameOverride: it-tools
 
         image:
-          repository: ghcr.io/corentinth/it-tools:latest
+          repository: ghcr.io/corentinth/it-tools
+          tag: latest
    
         service:
           port: 80
