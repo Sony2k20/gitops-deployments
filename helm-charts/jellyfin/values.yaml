@@ -33,9 +33,9 @@ jellyfin:
       existingClaim: jellyfin-media
 
   resources: {}
-    # limits:
-    #  cpu: 100m
-    #  memory: 128Mi
-    # requests:
-    #  cpu: 100m
-    #  memory: 128Mi
+    limits:
+     cpu: 6000m
+     memory: 8Gi
+    requests:
+     cpu: 100m
+     memory: 128Mi
