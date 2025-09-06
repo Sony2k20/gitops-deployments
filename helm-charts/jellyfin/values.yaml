@@ -31,15 +31,3 @@ jellyfin:
     media:
       enabled: true
       existingClaim: jellyfin-media
-
-  # volumes: 
-  #   - name: dri
-  #     hostPath:
-  #       path: /dev/dri
-
-  # volumeMounts: 
-  #   - name: dri
-  #     mountPath: /dev/dri
-  
-  # securityContext:
-  #   privileged: true
