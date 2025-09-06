@@ -150,7 +150,7 @@ data:
             href: https://prometheus.csnguyen.de   
         - ComfyUI:
             icon: comfy-ui.png
-            href: https://comfyui.csnguyen.de   
+            href: https://comfyui.csnguyen.de
 
   widgets.yaml: |
     - greeting:
