@@ -12,7 +12,7 @@ spec:
   project: default
   source:
     repoURL: https://sony2k20.github.io/service-deployer-helm
-    targetRevision: 1.0.7
+    targetRevision: 1.0.8
     chart: service-deployer
     helm:
       values: |
@@ -40,6 +40,14 @@ spec:
         persistentVolume:
           - name: upsnap
             mountPath: /app/pb_data        
+
+        volumes: 
+          - name: ssh
+            hostPath:
+              path: /root/.ssh
+        volumeMounts: 
+          - name: ssh
+            mountPath: /root/.ssh
   syncPolicy: 
     automated:
       selfHeal: true
