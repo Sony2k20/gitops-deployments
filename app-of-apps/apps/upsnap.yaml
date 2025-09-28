@@ -28,7 +28,7 @@ spec:
 
         service:
           port: 8090
-          nodePort: 30102
+          nodePort: 30012
           
         ingress:
           host: upsnap.csnguyen.de
