@@ -8,7 +8,7 @@ immich:
         existingClaim: immich
   redis:
     enabled: true
-  env: 
+  env:
     DB_HOSTNAME: "postgresql.postgresql.svc.cluster.local"
     DB_USERNAME: immich
     DB_DATABASE_NAME: immich
@@ -18,7 +18,7 @@ immich:
     - secretRef:
         name: immich-secret
   image:
-    tag: v1.140.1
+    tag: v2.0.1
   resources:
     requests:
       memory: "128Mi"
@@ -32,20 +32,18 @@ immich:
         auth:
           existingSecret: immich-secret
 
-
 service:
   port: 2283
   nodePort: 30009
 ingress:
   className: traefik
-  annotations: 
+  annotations:
     traefik.ingress.kubernetes.io/client-max-body-size: "0"
     traefik.ingress.kubernetes.io/router.middlewares: |
       kube-system-redirect-https@kubernetescrd
   path: /
   host: immich.csnguyen.de
-  tls: 
-  - secretName: csnguyen-tls
-    hosts:
-      - immich.csnguyen.de
-
+  tls:
+    - secretName: csnguyen-tls
+      hosts:
+        - immich.csnguyen.de
