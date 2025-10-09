@@ -149,7 +149,7 @@ postgres:
     # PostgreSQL image repository
     repository: postgres
     # PostgreSQL image tag
-    tag: "alpine"
+    tag: "16-alpine"
     # Image pull policy
     pullPolicy: IfNotPresent
 
