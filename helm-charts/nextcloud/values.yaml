@@ -1,6 +1,6 @@
 nextcloud:
-  # image:
-  #   tag: 
+  image:
+    tag: "31.0.9"
   nextcloud:
     host: nextcloud.csnguyen.de
     existingSecret:
@@ -15,7 +15,12 @@ nextcloud:
     extraInitContainers:
       - name: install-ffmpeg
         image: alpine:latest
-        command: ['sh', '-c', 'wget -q https://johnvansickle.com/ffmpeg/builds/ffmpeg-git-amd64-static.tar.xz && tar xf ffmpeg*.tar.xz && cp ffmpeg*/ffmpeg ffmpeg*/ffprobe /tmp/']
+        command:
+          [
+            "sh",
+            "-c",
+            "wget -q https://johnvansickle.com/ffmpeg/builds/ffmpeg-git-amd64-static.tar.xz && tar xf ffmpeg*.tar.xz && cp ffmpeg*/ffmpeg ffmpeg*/ffprobe /tmp/",
+          ]
         volumeMounts:
           - name: ffmpeg-bin
             mountPath: /tmp/
@@ -30,11 +35,10 @@ nextcloud:
       - name: ffmpeg-bin
         emptyDir: {}
 
-      
   ingress:
     enabled: true
     className: traefik
-    annotations: 
+    annotations:
       traefik.ingress.kubernetes.io/redirect-entry-point: "web"
       # cert-manager.io/cluster-issuer: letsencrypt-prod
       traefik.ingress.kubernetes.io/router.middlewares: |
