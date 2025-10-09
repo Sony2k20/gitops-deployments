@@ -521,7 +521,7 @@ opencloud:
       # Internal MinIO instance
       internal:
         # Enable internal test MinIO instance (default: true)
-        enabled: true
+        enabled: false
         # MinIO image settings
         image:
           # MinIO image registry
