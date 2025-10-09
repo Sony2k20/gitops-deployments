@@ -4,63 +4,63 @@ persistentVolume:
   - name: jdownloader-config
     hostPath: /srv/dev-disk-by-uuid-1f2204f1-efe5-4e04-a2a2-b4598f7b17db/data/Kubernetes/jdownloader
     namespace: prod
-    storage: 1Gi    
+    storage: 1Gi
     accessModes:
-      - ReadWriteOnce 
+      - ReadWriteOnce
   - name: jdownloader-downloads
     hostPath: /srv/dev-disk-by-uuid-1f2204f1-efe5-4e04-a2a2-b4598f7b17db/data/Downloads
     namespace: prod
     storage: 300Gi
     accessModes:
-      - ReadWriteOnce 
+      - ReadWriteOnce
   - name: flatnotes
     hostPath: /srv/dev-disk-by-uuid-1f2204f1-efe5-4e04-a2a2-b4598f7b17db/data/Kubernetes/flatnotes
     namespace: prod
-    storage: 1Gi    
+    storage: 1Gi
     accessModes:
-      - ReadWriteOnce 
+      - ReadWriteOnce
   - name: nextcloud
     hostPath: /srv/dev-disk-by-uuid-1f2204f1-efe5-4e04-a2a2-b4598f7b17db/data/Kubernetes/nextcloud
     namespace: prod
-    storage: 1Ti    
+    storage: 1Ti
     accessModes:
-      - ReadWriteOnce 
+      - ReadWriteOnce
   - name: uptime-kuma
     hostPath: /srv/dev-disk-by-uuid-1f2204f1-efe5-4e04-a2a2-b4598f7b17db/data/Kubernetes/uptime-kuma
     namespace: prod
     storage: 1Gi
     accessModes:
-      - ReadWriteOnce 
+      - ReadWriteOnce
   - name: jellyfin-config
     hostPath: /srv/dev-disk-by-uuid-1f2204f1-efe5-4e04-a2a2-b4598f7b17db/data/Kubernetes/jellyfin
     namespace: prod
-    storage: 1Gi    
+    storage: 1Gi
     accessModes:
-      - ReadWriteOnce 
+      - ReadWriteOnce
   - name: jellyfin-media
     hostPath: /srv/dev-disk-by-uuid-1f2204f1-efe5-4e04-a2a2-b4598f7b17db/data/Media
     namespace: prod
-    storage: 5Ti    
+    storage: 5Ti
     accessModes:
-      - ReadWriteOnce 
+      - ReadWriteOnce
   - name: upsnap
     hostPath: /srv/dev-disk-by-uuid-1f2204f1-efe5-4e04-a2a2-b4598f7b17db/data/Kubernetes/upsnap
     namespace: prod
-    storage: 1Gi    
+    storage: 1Gi
     accessModes:
-      - ReadWriteOnce 
+      - ReadWriteOnce
   - name: homepage
     hostPath: /srv/dev-disk-by-uuid-1f2204f1-efe5-4e04-a2a2-b4598f7b17db/data/Kubernetes/homepage
     namespace: prod
-    storage: 1Gi    
+    storage: 1Gi
     accessModes:
-      - ReadWriteOnce 
+      - ReadWriteOnce
   - name: immich
     hostPath: /srv/dev-disk-by-uuid-1f2204f1-efe5-4e04-a2a2-b4598f7b17db/data/Kubernetes/immich
     namespace: prod
-    storage: 200Gi    
+    storage: 200Gi
     accessModes:
-      - ReadWriteOnce 
+      - ReadWriteOnce
   - name: immich-cli
     hostPath: /srv/dev-disk-by-uuid-1f2204f1-efe5-4e04-a2a2-b4598f7b17db/data/Kubernetes/nextcloud/data/Sony2k/files
     namespace: prod
@@ -70,6 +70,37 @@ persistentVolume:
   - name: postgresql
     hostPath: /srv/dev-disk-by-uuid-1f2204f1-efe5-4e04-a2a2-b4598f7b17db/data/Kubernetes/postgresql
     namespace: postgresql
-    storage: 20Gi    
+    storage: 20Gi
     accessModes:
-      - ReadWriteOnce 
+      - ReadWriteOnce
+
+  - name: opencloud-postgresql
+    hostPath: /srv/dev-disk-by-uuid-1f2204f1-efe5-4e04-a2a2-b4598f7b17db/data/Kubernetes/opencloud/postgresql
+    namespace: opencloud
+    storage: 10Gi
+    accessModes:
+      - ReadWriteOnce
+  - name: opencloud-config
+    hostPath: /srv/dev-disk-by-uuid-1f2204f1-efe5-4e04-a2a2-b4598f7b17db/data/Kubernetes/opencloud/opencloud-config
+    namespace: opencloud
+    storage: 4Gi
+    accessModes:
+      - ReadWriteOnce
+  - name: opencloud-data
+    hostPath: /srv/dev-disk-by-uuid-1f2204f1-efe5-4e04-a2a2-b4598f7b17db/data/Kubernetes/opencloud/opencloud-data
+    namespace: opencloud
+    storage: 10Gi
+    accessModes:
+      - ReadWriteOnce
+  - name: opencloud-onlyoffice
+    hostPath: /srv/dev-disk-by-uuid-1f2204f1-efe5-4e04-a2a2-b4598f7b17db/data/Kubernetes/opencloud/onlyoffice
+    namespace: opencloud
+    storage: 4Gi
+    accessModes:
+      - ReadWriteOnce
+  - name: opencloud-minio
+    hostPath: /srv/dev-disk-by-uuid-1f2204f1-efe5-4e04-a2a2-b4598f7b17db/data/Kubernetes/opencloud/data
+    namespace: opencloud
+    storage: 30Gi
+    accessModes:
+      - ReadWriteOnce

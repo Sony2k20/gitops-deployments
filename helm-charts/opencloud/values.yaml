@@ -171,13 +171,7 @@ postgres:
   persistence:
     enabled: true
     # Name of existing PVC to use (overrides all other persistence values)
-    existingClaim: ""
-    # Size of the persistent volume
-    size: 1Gi
-    # Storage class
-    storageClass: ""
-    # Access mode
-    accessMode: ReadWriteOnce
+    existingClaim: opencloud-postgresql
 
 # =====================================================================
 # EXTENSIONS
@@ -306,9 +300,7 @@ onlyoffice:
     # Enable persistence
     enabled: true
     # Name of existing PVC to use (overrides all other persistence values)
-    existingClaim: ""
-    # Size of the persistent volume
-    size: 2Gi
+    existingClaim: opencloud-onlyoffice
   # Resources allocation
   resources:
     requests:
@@ -337,7 +329,7 @@ onlyoffice:
     # RabbitMQ settings
     rabbitmq:
       # Use existing secret for onlyoffice rabbitmq credentials (Note: secretKeyName must be url)
-      existingSecret: pencloud-onlyoffice
+      existingSecret: opencloud-onlyoffice
 
     # File converter settings
     fileConverter:
@@ -426,24 +418,12 @@ opencloud:
       # Enable persistence
       enabled: true
       # Name of existing PVC to use (overrides all other persistence values)
-      existingClaim: ""
-      # Size of the persistent volume for config
-      size: 5Gi
-      # Storage class
-      storageClass: ""
-      # Access mode (ReadWriteOnce or ReadWriteMany for multiple replicas)
-      accessMode: ReadWriteOnce
+      existingClaim: opencloud-config
     data:
       # Enable persistence
       enabled: true
       # Name of existing PVC to use (overrides all other persistence values)
-      existingClaim: ""
-      # Size of the persistent volume for data
-      size: 30Gi
-      # Storage class
-      storageClass: ""
-      # Access mode (ReadWriteOnce or ReadWriteMany for multiple replicas)
-      accessMode: ReadWriteOnce
+      existingClaim: opencloud-data
   # Configuration files
   config:
     theme: "owncloud"
@@ -576,13 +556,7 @@ opencloud:
         persistence:
           enabled: true
           # Name of existing PVC to use (overrides all other persistence values)
-          existingClaim: ""
-          # Size of the persistent volume
-          size: 30Gi
-          # Storage class
-          storageClass: ""
-          # Access mode
-          accessMode: ReadWriteOnce
+          existingClaim: opencloud-minio
       # External S3 (can be S3, Ceph, or external MinIO)
       external:
         # Enable external S3
