@@ -112,15 +112,7 @@ keycloak:
     replicas: 1
 
     # Use existing secret for keycloak credentials (Note: secretKeyName must be adminUser and adminPassword)
-    existingSecret: ""
-
-    # Admin user
-    # ignored if keycloak.internal.existingSecret is set
-    adminUser: admin
-
-    # Admin password
-    # ignored if keycloak.internal.existingSecret is set
-    adminPassword: admin
+    existingSecret: opencloud-keycloak
 
     # Keycloak realm
     realm: "openCloud"
@@ -165,15 +157,7 @@ postgres:
   database: keycloak
 
   # Use existing secret for postgres credentials (Note: secretKeyName must be username and password)
-  existingSecret: ""
-
-  # Database user
-  # ignored if postgres.existingSecret is set
-  user: keycloak
-
-  # Database password
-  # ignored if postgres.existingSecret is set
-  password: keycloak
+  existingSecret: opencloud-postgres
 
   # Resources allocation
   resources:
@@ -277,14 +261,7 @@ collabora:
     verification: true
 
   # Use existing secret for collabora credentials (Note: secretKeyName must be username and password)
-  existingSecret: ""
-
-  admin:
-    # ignored if collabora.existingSecret is set
-    username: admin
-
-    # ignored if collabora.existingSecret is set
-    password: admin
+  existingSecret: opencloud-collabora
 
   resources:
     requests:
@@ -321,7 +298,7 @@ onlyoffice:
   # Database configuration
   db:
     # Use existing secret for database password
-    existingSecret: ""
+    existingSecret: opencloud-onlyoffice
     # Key in the existing secret that contains the password
     secretKeyName: "password"
   # Persistence configuration
@@ -355,18 +332,13 @@ onlyoffice:
       # Secret settings
       secret:
         # Use existing secret for onlyoffice credentials (Note: secretKeyName must be sessionSecret)
-        existingSecret: ""
+        existingSecret: opencloud-onlyoffice
 
-        # ignored if onlyoffice.config.coAuthoring.secret.existingSecret is set
-        session:
-          string: "Dd0SXIe1k9oCfdffgrfNmA0TK1bb1B1d38OFSb"
     # RabbitMQ settings
     rabbitmq:
       # Use existing secret for onlyoffice rabbitmq credentials (Note: secretKeyName must be url)
-      existingSecret: ""
+      existingSecret: pencloud-onlyoffice
 
-      # ignored if onlyoffice.config.rabbitmq.existingSecret is set
-      url: "amqp://guest:Dd0SXIe1k9osdfjkmA0TK1bb1B1d38OFSb@localhost"
     # File converter settings
     fileConverter:
       converter:
@@ -430,11 +402,7 @@ opencloud:
   insecure: true
 
   # Use existing secret for opencloud admin credentials (Note: secretKeyName must be adminPassword)
-  existingSecret: ""
-
-  # Admin password
-  # ignored if opencloud.existingSecret is set
-  adminPassword: admin
+  existingSecret: opencloud
 
   # Create demo users
   createDemoUsers: false
@@ -590,15 +558,7 @@ opencloud:
           enabled: false
 
         # Use existing secret for minio credentials (Note: secretKeyName must be rootUser and rootPassword)
-        existingSecret: ""
-
-        # Minio Root user
-        # ignored if opencloud.storage.s3.internal.existingSecret is set
-        rootUser: opencloud
-
-        # Minio Root password
-        # ignored if opencloud.storage.s3.internal.existingSecret is set
-        rootPassword: opencloud-secret-key
+        existingSecret: opencloud-minio
 
         # Bucket name
         bucketName: opencloud-bucket
