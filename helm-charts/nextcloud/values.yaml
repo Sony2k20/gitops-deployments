@@ -4,13 +4,13 @@ nextcloud:
   externalDatabase:
     enabled: true
     type: postgresql
-    host: "postgresql.postgresql.svc.cluster.local"
-    database: nextcloud
     existingSecret:
       enabled: true
       secretName: nextcloud-secret
       usernameKey: db-username
       passwordKey: db-password
+      hostKey: db-host
+      databaseKey: db-name
   redis:
     enabled: true
     auth:
