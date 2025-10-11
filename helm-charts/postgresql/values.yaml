@@ -2,15 +2,13 @@ fullnameOverride: postgresql
 
 image:
   repository: ghcr.io/immich-app/postgres
-  tag: 17-vectorchord0.4.3-pgvectors0.3.0
+  tag: 17-vectorchord0.5.3-pgvector0.8.1 #17-vectorchord0.4.3-pgvectors0.3.0
 
 service:
   port: 5432
-  # nodePort: 30004
-  
-env: 
-  POSTGRES_USER: immich
-  POSTGRES_DB: immich
+
+env:
+  POSTGRES_USER: admin
 
 secretRef: postgresql-secret
 
@@ -18,10 +16,10 @@ persistentVolume:
   - name: postgresql
     mountPath: /var/lib/postgresql/data
 
-resources: 
+resources:
   limits:
-   cpu: 2000m
-   memory: 4Gi
+    cpu: 2000m
+    memory: 4Gi
   requests:
-   cpu: 100m
-   memory: 128Mi
+    cpu: 100m
+    memory: 128Mi

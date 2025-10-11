@@ -1,4 +1,8 @@
 nextcloud:
+  redis:
+    enabled: true
+    auth:
+      enabled: false
   image:
     tag: "31.0.9"
   nextcloud:
