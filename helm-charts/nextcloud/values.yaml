@@ -25,7 +25,7 @@ nextcloud:
           hosts:
             - office.csnguyen.de
     collabora:
-      extra_params: "--o:ssl.enabled=true"
+      extra_params: "extra_params=--o:ssl.enable=false --o:ssl.termination=true"
       aliasgroups:
         - host: "https://nextcloud.csnguyen.de"
         - host: "https://office.csnguyen.de"
