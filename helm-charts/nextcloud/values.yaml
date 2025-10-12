@@ -1,4 +1,8 @@
 nextcloud:
+  imaginary:
+    enabled: true
+  collabora:
+    enabled: true
   internalDatabase:
     enabled: false
   externalDatabase:
@@ -21,6 +25,10 @@ nextcloud:
   # image:
   #   tag: "31.0.9"
   nextcloud:
+    defaultConfigs:
+      imaginary:
+        config:
+          php: true
     mail:
       enabled: true
       fromAddress: kontakt
