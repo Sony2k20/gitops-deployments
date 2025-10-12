@@ -1,8 +1,4 @@
 nextcloud:
-  image:
-    flavor: fpm
-  nginx:
-    enabled: true
   imaginary:
     enabled: true
   collabora:
@@ -26,10 +22,10 @@ nextcloud:
             - office.csnguyen.de
     collabora:
       extra_params: "--o:ssl.enable=false --o:ssl.termination=true"
-      aliasgroups:
-        - host: "https://nextcloud.csnguyen.de"
-        - host: "https://office.csnguyen.de"
-      server_name: office.csnguyen.de
+      # aliasgroups:
+      #   - host: "https://nextcloud.csnguyen.de"
+      #   - host: "https://office.csnguyen.de"
+      # server_name: office.csnguyen.de
       existingSecret:
         enabled: true
         secretName: nextcloud-secret
