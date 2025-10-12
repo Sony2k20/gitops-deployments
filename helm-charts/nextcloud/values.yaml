@@ -11,7 +11,11 @@ nextcloud:
         # cert-manager.io/cluster-issuer: letsencrypt-prod
         traefik.ingress.kubernetes.io/router.middlewares: |
           kube-system-redirect-https@kubernetescrd
-      hosts: office.csnguyen.de
+      hosts:
+        - host: office.csnguyen.de
+          paths:
+            - path: /
+              pathType: ImplementationSpecific
       tls:
         - secretName: csnguyen-tls
           hosts:
@@ -62,9 +66,21 @@ nextcloud:
           'overwriteprotocol' => 'https',
           'overwritehost' => 'nextcloud.csnguyen.de',
           'overwrite.cli.url' => 'https://nextcloud.csnguyen.de',
-          'enabledPreviewProviders' => 
-          array (
-            0 => 'OC\\Preview\\Imaginary',
+          'enable_previews' => true,
+          'enabledPreviewProviders' => array (
+            'OC\Preview\Imaginary',
+            'OC\Preview\HEIC',
+            'OC\Preview\Movie',
+            'OC\Preview\PNG',
+            'OC\Preview\JPEG',
+            'OC\Preview\GIF',
+            'OC\Preview\BMP',
+            'OC\Preview\XBitmap',
+            'OC\Preview\MP3',
+            'OC\Preview\MP4',
+            'OC\Preview\TXT',
+            'OC\Preview\MarkDown',
+            'OC\Preview\PDF'
           ),
           'preview_imaginary_url' => 'nextcloud-imaginary.prod.svc.cluster.local',
           'custom_worker_domain' => 'office.csnguyen.de', 
