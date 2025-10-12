@@ -26,8 +26,8 @@ nextcloud:
             - office.csnguyen.de
     collabora:
       aliasgroups:
-        - nextcloud.csnguyen.de
-        - office.csnguyen.de
+        - "https://nextcloud.csnguyen.de"
+        - "https://office.csnguyen.de"
       server_name: office.csnguyen.de
       existingSecret:
         enabled: true
