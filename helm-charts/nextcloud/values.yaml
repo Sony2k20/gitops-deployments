@@ -21,6 +21,12 @@ nextcloud:
   # image:
   #   tag: "31.0.9"
   nextcloud:
+    mail:
+      enabled: true
+      fromAddress: kontakt@csnguyen.de
+      domain: csnguyen.de
+      secure: ssl
+      port: 465
     host: nextcloud.csnguyen.de
     existingSecret:
       enabled: true
