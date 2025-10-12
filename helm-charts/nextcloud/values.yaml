@@ -1,4 +1,8 @@
 nextcloud:
+  image:
+    flavor: fpm
+  nginx:
+    enabled: true
   imaginary:
     enabled: true
   collabora:
@@ -48,6 +52,8 @@ nextcloud:
   # image:
   #   tag: "31.0.9"
   nextcloud:
+    defaultConfigs:
+      imaginary.config.php: true
     mail:
       enabled: true
       fromAddress: kontakt

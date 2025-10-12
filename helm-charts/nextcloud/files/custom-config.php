@@ -32,4 +32,5 @@ $CONFIG = array (
     ),
     'preview_imaginary_url' => 'nextcloud-imaginary.prod.svc.cluster.local',
     'custom_worker_domain' => 'office.csnguyen.de', 
+    'default_phone_region' => 'DE',
 );
