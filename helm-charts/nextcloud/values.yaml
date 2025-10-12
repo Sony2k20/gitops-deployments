@@ -3,6 +3,25 @@ nextcloud:
     enabled: true
   collabora:
     enabled: true
+    ingress:
+      enabled: true
+      className: traefik
+      annotations:
+        traefik.ingress.kubernetes.io/redirect-entry-point: "web"
+        # cert-manager.io/cluster-issuer: letsencrypt-prod
+        traefik.ingress.kubernetes.io/router.middlewares: |
+          kube-system-redirect-https@kubernetescrd
+      hosts: office.csnguyen.de
+      tls:
+        - secretName: csnguyen-tls
+          hosts:
+            - nextcloud.csnguyen.de
+    collabora:
+      existingSecret:
+        enabled: true
+        secretName: nextcloud-secret
+        usernameKey: collabora-username
+        passwordKey: collabora-password
   internalDatabase:
     enabled: false
   externalDatabase:
@@ -25,10 +44,31 @@ nextcloud:
   # image:
   #   tag: "31.0.9"
   nextcloud:
-    defaultConfigs:
-      imaginary:
-        config:
-          php: true
+    configs:
+      config.php: |
+        <?php
+        $CONFIG = array (
+          'trusted_domains' => 
+          array (
+            0 => 'localhost',
+            1 => 'nextcloud.csnguyen.de',
+            2 => 'office.csnguyen.de',
+            3 => 'son-server.tail1334c6.ts.net',
+          ),
+          'trusted_proxies' => 
+          array (
+            0 => '10.0.0.0/0',
+          ),
+          'overwriteprotocol' => 'https',
+          'overwritehost' => 'nextcloud.csnguyen.de',
+          'overwrite.cli.url' => 'https://nextcloud.csnguyen.de',
+          'enabledPreviewProviders' => 
+          array (
+            0 => 'OC\\Preview\\Imaginary',
+          ),
+          'preview_imaginary_url' => 'nextcloud-imaginary.prod.svc.cluster.local',
+          'custom_worker_domain' => 'office.csnguyen.de', 
+        );
     mail:
       enabled: true
       fromAddress: kontakt
