@@ -19,7 +19,7 @@ nextcloud:
       tls:
         - secretName: csnguyen-tls
           hosts:
-            - nextcloud.csnguyen.de
+            - office.csnguyen.de
     collabora:
       existingSecret:
         enabled: true
