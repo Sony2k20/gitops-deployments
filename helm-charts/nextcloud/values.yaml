@@ -23,7 +23,7 @@ nextcloud:
   nextcloud:
     mail:
       enabled: true
-      fromAddress: kontakt@csnguyen.de
+      fromAddress: kontakt
       domain: csnguyen.de
       secure: ssl
       port: 465
