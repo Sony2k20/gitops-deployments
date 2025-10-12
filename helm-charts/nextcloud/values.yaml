@@ -41,10 +41,15 @@ nextcloud:
       - name: install-ffmpeg
         image: alpine:latest
         command:
+          # [
+          #   "sh",
+          #   "-c",
+          #   "echo 'Starting FFmpeg installation...' && wget -q https://johnvansickle.com/ffmpeg/builds/ffmpeg-git-amd64-static.tar.xz && tar xf ffmpeg*.tar.xz && cp ffmpeg*/ffmpeg ffmpeg*/ffprobe /tmp/ && echo 'FFmpeg installation completed successfully'",
+          # ]
           [
             "sh",
             "-c",
-            "echo 'Starting FFmpeg installation...' && wget -q https://johnvansickle.com/ffmpeg/builds/ffmpeg-git-amd64-static.tar.xz && tar xf ffmpeg*.tar.xz && cp ffmpeg*/ffmpeg ffmpeg*/ffprobe /tmp/ && echo 'FFmpeg installation completed successfully'",
+            "apk update && apk add --no-cache ffmpeg && cp $(which ffmpeg) $(which ffprobe) /tmp/ && echo 'FFmpeg installation completed successfully'",
           ]
         volumeMounts:
           - name: ffmpeg-bin
