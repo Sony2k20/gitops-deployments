@@ -25,6 +25,8 @@ nextcloud:
           hosts:
             - office.csnguyen.de
     collabora:
+      aliasgroups: nextcloud.csnguyen.de
+      server_name: office.csnguyen.de
       existingSecret:
         enabled: true
         secretName: nextcloud-secret
