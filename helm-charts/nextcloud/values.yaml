@@ -21,7 +21,7 @@ nextcloud:
           hosts:
             - office.csnguyen.de
     collabora:
-      extra_params: "--o:ssl.enable=false --o:ssl.termination=true --o:security.capability=false --o:storage.wopi.lock_expiry_secs=0"
+      extra_params: "--o:ssl.enable=false --o:ssl.termination=true"
       existingSecret:
         enabled: true
         secretName: nextcloud-secret

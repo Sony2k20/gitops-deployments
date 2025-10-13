@@ -10,6 +10,5 @@ spec:
       targetPort: 9980
       nodePort: 30013
   selector:
-    app.kubernetes.io/component: app
-    app.kubernetes.io/instance: nextcloud-collabora  
-    app.kubernetes.io/name: nextcloud-collabora  
+    app.kubernetes.io/instance: nextcloud
+    app.kubernetes.io/name: collabora
