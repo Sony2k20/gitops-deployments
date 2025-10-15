@@ -18,7 +18,7 @@ data:
     layout:
       Websites:
         style: row
-        columns: 4
+        columns: 3
       Data:
         style: row
         columns: 2
@@ -76,14 +76,6 @@ data:
               fields: ["up","uptime"]
               url: https://uptime-kuma.csnguyen.de
               slug: blog
-        - katy.csnguyen.de:
-            icon: /icons/katy.ico
-            href: https://katy.csnguyen.de
-            widget:
-              type: uptimekuma
-              fields: ["up","uptime"]
-              url: https://uptime-kuma.csnguyen.de
-              slug: katy
         - katharinaniesche.de:
             icon: /icons/katy.ico
             href: https://katharinaniesche.de
