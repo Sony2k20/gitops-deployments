@@ -10,7 +10,17 @@ spec:
   source:
     repoURL: https://grafana.github.io/helm-charts
     targetRevision: 0.80.5
-    chart: loki-distributed    
+    chart: loki-distributed
+    helm:
+      values: |
+        loki:
+          config: |
+            chunk_store_config:
+              max_look_back_period: 744h
+
+            table_manager:
+              retention_deletes_enabled: true
+              retention_period: 744h
   destination:
     name: in-cluster
     namespace: monitoring
