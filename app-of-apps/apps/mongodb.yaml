@@ -13,7 +13,8 @@ spec:
     targetRevision: 16.5.40
     helm:
       values: |
-        extraEnvVarsSecret: 
+        persistence:
+          existingClaim: mongodb
         auth:
           enabled: true
           databases: 
