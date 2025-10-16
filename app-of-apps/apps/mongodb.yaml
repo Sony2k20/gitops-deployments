@@ -29,6 +29,16 @@ spec:
           enabled: true
           autoDiscovery:
             enabled: true
+        # Add security context settings here
+        containerSecurityContext:
+          enabled: true
+          runAsUser: 1001
+          runAsNonRoot: true
+        podSecurityContext:
+          enabled: true
+          fsGroup: 1001
+          runAsUser: 1001
+          runAsNonRoot: true
   destination:
     server: https://kubernetes.default.svc
     namespace: mongodb
