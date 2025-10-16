@@ -19,8 +19,10 @@ spec:
           enabled: true
           databases: 
             - katy-coaching
+            - graylog
           usernames:
             - admin  
+            - admin
           existingSecret: mongodb-secret
         service:
           type: LoadBalancer
