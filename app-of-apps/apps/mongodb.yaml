@@ -22,6 +22,7 @@ spec:
             - graylog
           usernames:
             - root
+            - root
           existingSecret: mongodb-secret
         service:
           type: LoadBalancer
