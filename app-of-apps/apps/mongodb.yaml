@@ -20,9 +20,7 @@ spec:
           databases: 
             - katy-coaching
             - graylog
-          usernames:
-            - admin  
-            - admin
+          usernames: admin  
           existingSecret: mongodb-secret
         service:
           type: LoadBalancer
