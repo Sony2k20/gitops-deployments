@@ -18,10 +18,8 @@ spec:
         auth:
           enabled: true
           databases: 
-            - katy
             - graylog
           usernames:
-            - root
             - root
           existingSecret: mongodb-secret
         service:
