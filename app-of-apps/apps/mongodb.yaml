@@ -21,8 +21,7 @@ spec:
             - katy
             - graylog
           usernames:
-            - katy
-            - graylog
+            - root
           existingSecret: mongodb-secret
         service:
           type: LoadBalancer
