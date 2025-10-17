@@ -116,7 +116,9 @@ data:
         - Stirling PDF:
             icon: stirling-pdf.png
             href: https://pdf.csnguyen.de
-
+        - ComfyUI:
+            icon: comfy-ui.png
+            href: https://comfyui.csnguyen.de
 
     - Private Services:
         - ArgoCD:
@@ -140,9 +142,9 @@ data:
         - Prometheus:
             icon: prometheus.png
             href: https://prometheus.csnguyen.de   
-        - ComfyUI:
-            icon: comfy-ui.png
-            href: https://comfyui.csnguyen.de
+        - MongoDB Compass:
+            icon: mongodb.png
+            href: https://mongodb-compass.csnguyen.de 
 
   widgets.yaml: |
     - greeting:
