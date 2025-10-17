@@ -35,7 +35,7 @@ spec:
 
         persistentVolume:
           - name: cloudbeaver
-            mountPath: /opt/cloudbeaver/
+            mountPath: /opt/cloudbeaver/workspace
   syncPolicy:
     automated:
       selfHeal: true
