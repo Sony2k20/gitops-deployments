@@ -145,6 +145,9 @@ data:
         - MongoDB Compass:
             icon: mongodb.png
             href: https://mongodb-compass.csnguyen.de 
+        - Cloudbeaver:
+            icon: cloudbeaver.png
+            href: https://cloudbeaver.csnguyen.de 
 
   widgets.yaml: |
     - greeting:

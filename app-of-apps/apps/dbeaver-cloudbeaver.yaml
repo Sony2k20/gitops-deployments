@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: dbeaver-cloudbeaver
+  name: cloudbeaver
   namespace: argocd
   labels:
     type: app
@@ -16,7 +16,7 @@ spec:
     chart: service-deployer
     helm:
       values: |
-        fullnameOverride: dbeaver-cloudbeaver
+        fullnameOverride: cloudbeaver
 
         image:
           repository: dbeaver/cloudbeaver
