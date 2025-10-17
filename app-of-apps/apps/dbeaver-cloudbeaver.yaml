@@ -32,6 +32,10 @@ spec:
           httpGet:
             path: /
             port: 8978
+
+        persistentVolume:
+          - name: cloudbeaver
+            mountPath: /opt/cloudbeaver/
   syncPolicy:
     automated:
       selfHeal: true
