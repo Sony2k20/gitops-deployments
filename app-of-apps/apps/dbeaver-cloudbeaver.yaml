@@ -1,0 +1,40 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: dbeaver-cloudbeaver
+  namespace: argocd
+  labels:
+    type: app
+spec:
+  destination:
+    namespace: postgresql
+    name: in-cluster
+  project: default
+  source:
+    repoURL: https://sony2k20.github.io/service-deployer-helm
+    targetRevision: 1.0.7
+    chart: service-deployer
+    helm:
+      values: |
+        fullnameOverride: dbeaver-cloudbeaver
+
+        image:
+          repository: dbeaver/cloudbeaver
+          tag: latest
+
+        service:
+          port: 8978
+
+        ingress:
+          host: cloudbeaver.csnguyen.de
+
+        startupProbe:
+          httpGet:
+            path: /
+            port: 8978
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+      - CreateNamespace=true
