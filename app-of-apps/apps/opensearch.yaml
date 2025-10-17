@@ -11,6 +11,11 @@ spec:
     repoURL: https://opensearch-project.github.io/helm-charts/
     targetRevision: 3.3.0
     chart: opensearch
+    helm:
+      values: |
+        envFrom: 
+         - secretRef:
+             name: opensearch-secret
   destination:
     name: in-cluster
     namespace: monitoring
