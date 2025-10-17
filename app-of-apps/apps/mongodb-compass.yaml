@@ -1,0 +1,42 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: mongodb-compass
+  namespace: argocd
+  labels:
+    type: app
+spec:
+  destination:
+    namespace: mongodb
+    name: in-cluster
+  project: default
+  source:
+    repoURL: https://sony2k20.github.io/service-deployer-helm
+    targetRevision: 1.0.7
+    chart: service-deployer
+    helm:
+      values: |
+        fullnameOverride: mongodb-compass
+
+        image:
+          repository: haohanyang/compass-web
+          tag: latest
+
+        service:
+          port: 8080
+
+        secretRef: mongodb-compass-secret
+
+        ingress:
+          host: mongodb-compass.csnguyen.de
+
+        startupProbe:
+          httpGet:
+            path: /
+            port: 80
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+      - CreateNamespace=true
