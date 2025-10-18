@@ -13,6 +13,9 @@ spec:
     chart: graylog
     helm:
       values: |
+        tags:
+        install-opensearch: false
+        install-mongodb: false
         graylog:
           mongodb:
             uriSecretName: graylog-secret
