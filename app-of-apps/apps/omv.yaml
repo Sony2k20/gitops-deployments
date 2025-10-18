@@ -11,10 +11,20 @@ spec:
     name: in-cluster
   project: default
   source:
-    path: helm-charts/omv
-    repoURL: https://github.com/Sony2k20/gitops-deployments.git
-    targetRevision: HEAD
-  syncPolicy: 
+    repoURL: https://sony2k20.github.io/endpoint-deployer-helm
+    targetRevision: 0.0.5
+    chart: endpoint-deployer
+    helm:
+      values: |
+        service:
+          port: 8888
+
+        endpoint:
+          ip: "192.168.178.100"
+
+        ingress:
+          host: omv.csnguyen.de
+  syncPolicy:
     automated:
       prune: true
       selfHeal: true
