@@ -11,9 +11,44 @@ spec:
     name: in-cluster
   project: default
   source:
-    path: helm-charts/jellyfin
-    repoURL: https://github.com/Sony2k20/gitops-deployments.git
-    targetRevision: HEAD
+    repoURL: https://jellyfin.github.io/jellyfin-helm
+    targetRevision: 2.3.0
+    chart: jellyfin
+    helm:
+      values: |
+        image:
+          tag: "10.10"
+
+        service:
+          type: NodePort
+          port: 8096
+          nodePort: 30000
+
+        ingress:
+          enabled: true
+          className: traefik
+          annotations: 
+            # cert-manager.io/cluster-issuer: letsencrypt-prod
+            traefik.ingress.kubernetes.io/router.middlewares: |
+              kube-system-redirect-https@kubernetescrd
+          path: /
+          hosts:
+            - host: jellyfin.csnguyen.de
+              paths:
+                - path: /
+                  pathType: Prefix
+          tls: 
+          - secretName: csnguyen-tls
+            hosts:
+              - jellyfin.csnguyen.de
+
+        persistence:
+          config:
+            enabled: true
+            existingClaim: jellyfin-config
+          media:
+            enabled: true
+            existingClaim: jellyfin-media
   syncPolicy:
     automated:
       selfHeal: true
