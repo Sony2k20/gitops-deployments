@@ -12,10 +12,12 @@ spec:
   project: default
   source:
     repoURL: https://sony2k20.github.io/endpoint-deployer-helm
-    targetRevision: 1.0.1
+    targetRevision: 1.0.2
     chart: endpoint-deployer
     helm:
       values: |
+        fullnameOverride: omv
+
         service:
           port: 8888
 
