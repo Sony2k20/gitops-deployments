@@ -17,8 +17,8 @@ spec:
           mongodb:
             uriSecretName: graylog-secret
             uriSecretKey: mongo-uri
-          opensearch
-            hosts=http://opensearch-cluster-master-headless.monitoring.svc.cluster.local:9200
+          opensearch:
+            hosts: http://opensearch-cluster-master-headless.monitoring.svc.cluster.local:9200
   destination:
     name: in-cluster
     namespace: monitoring
