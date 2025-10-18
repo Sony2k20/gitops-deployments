@@ -16,6 +16,9 @@ spec:
         tags:
           install-opensearch: false
           install-mongodb: false
+        mongodb:
+          community:
+            install: false
         graylog:
           mongodb:
             uriSecretName: graylog-secret
