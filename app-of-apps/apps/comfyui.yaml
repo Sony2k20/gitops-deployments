@@ -11,10 +11,20 @@ spec:
     name: in-cluster
   project: default
   source:
-    path: helm-charts/comfyui
-    repoURL: https://github.com/Sony2k20/gitops-deployments.git
-    targetRevision: HEAD
-  syncPolicy: 
+    repoURL: https://sony2k20.github.io/endpoint-deployer-helm
+    targetRevision: 1.0.1
+    chart: endpoint-deployer
+    helm:
+      values: |
+        service:
+          port: 8188
+
+        endpoint:
+          ip: "192.168.178.36"
+
+        ingress:
+          host: comfyui.csnguyen.de
+  syncPolicy:
     automated:
       prune: true
       selfHeal: true

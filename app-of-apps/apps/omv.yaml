@@ -12,7 +12,7 @@ spec:
   project: default
   source:
     repoURL: https://sony2k20.github.io/endpoint-deployer-helm
-    targetRevision: 0.0.5
+    targetRevision: 1.0.1
     chart: endpoint-deployer
     helm:
       values: |
