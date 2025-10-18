@@ -12,7 +12,7 @@ spec:
   project: default
   source:
     repoURL: https://sony2k20.github.io/service-deployer-helm
-    targetRevision: 1.0.8
+    targetRevision: 1.0.11
     chart: service-deployer
     helm:
       values: |
@@ -23,7 +23,7 @@ spec:
         image:
           repository: ghcr.io/seriousm4x/upsnap
           tag: 5
-        
+
         hostNetwork: true
 
         service:
@@ -48,7 +48,7 @@ spec:
         volumeMounts: 
           - name: ssh
             mountPath: /root/.ssh
-  syncPolicy: 
+  syncPolicy:
     automated:
       selfHeal: true
       prune: true
