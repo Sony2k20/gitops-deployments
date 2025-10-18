@@ -14,8 +14,8 @@ spec:
     helm:
       values: |
         tags:
-        install-opensearch: false
-        install-mongodb: false
+          install-opensearch: false
+          install-mongodb: false
         graylog:
           mongodb:
             uriSecretName: graylog-secret
