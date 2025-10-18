@@ -13,6 +13,7 @@ spec:
     chart: opensearch
     helm:
       values: |
+        singleNode: true
         envFrom: 
          - secretRef:
              name: opensearch-secret
