@@ -16,7 +16,7 @@ spec:
     chart: endpoint-deployer
     helm:
       values: |
-        fullnameOverride: pihole
+        fullnameOverride: comfyui
 
         service:
           port: 8188
