@@ -18,6 +18,8 @@ spec:
       values: |
         fullnameOverride: mongodb-compass
 
+        updateStrategy: Recreate
+
         image:
           repository: haohanyang/compass-web
           tag: latest

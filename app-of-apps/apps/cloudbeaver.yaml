@@ -18,6 +18,8 @@ spec:
       values: |
         fullnameOverride: cloudbeaver
 
+        updateStrategy: Recreate
+
         image:
           repository: dbeaver/cloudbeaver
           tag: latest
