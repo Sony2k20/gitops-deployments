@@ -12,13 +12,15 @@ spec:
   project: default
   source:
     repoURL: https://sony2k20.github.io/service-deployer-helm
-    targetRevision: 1.0.11
+    targetRevision: 1.0.12
     chart: service-deployer
     helm:
       values: |
         fullnameOverride: jdownloader
 
-        dailyRestart: true
+        dailyRestart:
+          enabled: true
+          schedule: "0 5 * * *"
 
         image:
           repository: jlesage/jdownloader-2
@@ -40,6 +42,14 @@ spec:
             mountPath: /config
           - name: jdownloader-downloads
             mountPath: /output
+
+        resources:
+          limits:
+           cpu: 1000m
+           memory: 1Gi
+          requests:
+           cpu: 100m
+           memory: 128Mi
   syncPolicy:
     automated:
       selfHeal: true
