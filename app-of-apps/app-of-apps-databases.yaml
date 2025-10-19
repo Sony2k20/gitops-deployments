@@ -10,11 +10,8 @@ spec:
     name: in-cluster
     namespace: argocd
   source:
-    path: app-of-apps/apps
+    path: app-of-apps/databases
     repoURL: "https://github.com/Sony2k20/gitops-deployments.git"
     targetRevision: HEAD
   project: default
-  syncPolicy:
-    automated:
-      selfHeal: true
-      prune: true
+  syncPolicy: {}
