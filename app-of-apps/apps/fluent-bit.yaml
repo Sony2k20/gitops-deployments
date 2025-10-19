@@ -97,9 +97,9 @@ spec:
                 Port 12222
                 Mode udp
                 Compress false
-                Gelf_Short_Message_Key log
-                Gelf_Timestamp_Key @timestamp
-                Gelf_Host_Key kubernetes.pod_name
+                Gelf_Short_Message_Key log,message,MESSAGE,msg
+                Gelf_Timestamp_Key @timestamp,time
+                Gelf_Host_Key kubernetes.pod_name,host,_HOSTNAME
 
             [OUTPUT]
                 Name gelf
