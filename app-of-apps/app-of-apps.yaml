@@ -1,17 +1,30 @@
 apiVersion: argoproj.io/v1alpha1
-kind: Application
+kind: ApplicationSet
 metadata:
   name: app-of-apps
   namespace: argocd
-  labels:
-    type: config
 spec:
-  destination:
-    name: in-cluster
-    namespace: argocd
-  source:
-    path: app-of-apps/apps
-    repoURL: 'https://github.com/Sony2k20/gitops-deployments.git'
-    targetRevision: HEAD
-  project: default
-  syncPolicy: {}
+  generators:
+    - git:
+        repoURL: https://github.com/Sony2k20/gitops-deployments.git
+        revision: HEAD
+        directories:
+          - path: app-of-apps/apps/*
+  template:
+    metadata:
+      name: "{{path.basename}}"
+      labels:
+        type: config
+    spec:
+      project: default
+      source:
+        repoURL: "https://github.com/Sony2k20/gitops-deployments.git"
+        targetRevision: HEAD
+        path: "{{path}}"
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: argocd
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
