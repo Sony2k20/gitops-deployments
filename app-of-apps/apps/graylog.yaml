@@ -28,16 +28,12 @@ spec:
           ingress:
             enabled: true
             ingressClassName: traefik
-            port: 9000
             annotations:
               # cert-manager.io/cluster-issuer: letsencrypt-prod
               traefik.ingress.kubernetes.io/router.middlewares: |
                 kube-system-redirect-https@kubernetescrd
             hosts:
               - host: graylog.csnguyen.de
-                paths:
-                  - path: /
-                    pathType: Prefix
             tls: 
               - secretName: csnguyen-tls
                 hosts:
