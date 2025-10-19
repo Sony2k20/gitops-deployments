@@ -93,7 +93,7 @@ spec:
             [OUTPUT]
                 Name gelf
                 Match kube.*
-                Host graylog-master.monitoring.svc.cluster.local 
+                Host graylog-web.monitoring.svc.cluster.local 
                 Port 12201
                 Mode tcp
                 Compress false
@@ -104,7 +104,7 @@ spec:
             [OUTPUT]
                 Name gelf
                 Match host.*
-                Host graylog-master.monitoring.svc.cluster.local 
+                Host graylog-web.monitoring.svc.cluster.local 
                 Port 12201
                 Mode tcp
                 Compress false
