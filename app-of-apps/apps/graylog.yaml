@@ -13,14 +13,6 @@ spec:
     chart: graylog
     helm:
       values: |
-        service:
-          ports:
-            - name: gelf
-              port: 12222
-              protocol: UDP
-            - name: syslog
-              port: 5410
-              protocol: UDP
         tags:
           install-opensearch: false
           install-mongodb: false
