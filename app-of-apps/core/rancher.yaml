@@ -10,9 +10,9 @@ spec:
   source:
     repoURL: https://releases.rancher.com/server-charts/latest
     targetRevision: 2.11.3
-    chart: rancher      
+    chart: rancher
     helm:
-      values: |  
+      values: |
         replicas: 1
         hostname: rancher.csnguyen.de
         ingress:
@@ -29,9 +29,7 @@ spec:
     namespace: cattle-system
   syncPolicy:
     automated:
-      prune: false
+      prune: true
       selfHeal: false
     syncOptions:
-      - PruneLast=true
       - CreateNamespace=true
-      - SkipHooks=true
