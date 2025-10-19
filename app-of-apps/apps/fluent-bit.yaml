@@ -68,7 +68,7 @@ spec:
             [OUTPUT]
                 Name es
                 Match kube.*
-                Host http://opensearch-cluster-master-headless.monitoring.svc.cluster.local
+                Host opensearch-cluster-master-headless.monitoring.svc.cluster.local
                 Port 9200
                 Logstash_Format On
                 Retry_Limit False
@@ -77,7 +77,7 @@ spec:
             [OUTPUT]
                 Name es
                 Match host.*
-                Host http://opensearch-cluster-master-headless.monitoring.svc.cluster.local
+                Host opensearch-cluster-master-headless.monitoring.svc.cluster.local
                 Port 9200
                 Logstash_Format On
                 Logstash_Prefix node
