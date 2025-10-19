@@ -1,0 +1,36 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: graylog
+  namespace: argocd
+  labels:
+    type: app
+spec:
+  project: default
+  source:
+    repoURL: https://charts.kong-z.com
+    targetRevision: 3.0.1
+    chart: graylog
+    helm:
+      values: |
+        tags:
+          install-opensearch: false
+          install-mongodb: false
+        mongodb:
+          community:
+            install: false
+        graylog:
+          mongodb:
+            uriSecretName: graylog-secret
+            uriSecretKey: mongo-uri
+          opensearch:
+            hosts: http://opensearch-cluster-master-headless.monitoring.svc.cluster.local:9200
+  destination:
+    name: in-cluster
+    namespace: monitoring
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
