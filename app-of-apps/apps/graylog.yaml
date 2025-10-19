@@ -25,6 +25,13 @@ spec:
             uriSecretKey: mongo-uri
           opensearch:
             hosts: http://opensearch-cluster-master-headless.monitoring.svc.cluster.local:9200
+          resources:
+            limits:
+              cpu: "1"
+              memory: "8Gi"
+            requests:
+              cpu: "200m"
+              memory: "512Mi"
           ingress:
             enabled: true
             ingressClassName: traefik
@@ -33,7 +40,7 @@ spec:
               traefik.ingress.kubernetes.io/router.middlewares: |
                 kube-system-redirect-https@kubernetescrd
             hosts:
-              - host: graylog.csnguyen.de
+              - graylog.csnguyen.de
             tls: 
               - secretName: csnguyen-tls
                 hosts:
