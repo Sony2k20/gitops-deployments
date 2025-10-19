@@ -65,30 +65,50 @@ spec:
 
           ## https://docs.fluentbit.io/manual/pipeline/outputs
           outputs: |
-            [OUTPUT]
-                Name es
-                Match kube.*
-                Host opensearch-cluster-master-headless.monitoring.svc.cluster.local
-                Port 9200
-                Logstash_Format On
-                Retry_Limit False
-                Buffer_Size 1MB
-                # OpenSearch compatibility fixes
-                Suppress_Type_Name On
-                Generate_Id On
+            # opsensearch
+            # [OUTPUT]
+            #     Name es
+            #     Match kube.*
+            #     Host opensearch-cluster-master-headless.monitoring.svc.cluster.local
+            #     Port 9200
+            #     Logstash_Format On
+            #     Retry_Limit False
+            #     Buffer_Size 1MB
+            #     # OpenSearch compatibility fixes
+            #     Suppress_Type_Name On
+            #     Generate_Id On
+            # [OUTPUT]
+            #     Name es
+            #     Match host.*
+            #     Host opensearch-cluster-master-headless.monitoring.svc.cluster.local
+            #     Port 9200
+            #     Logstash_Format On
+            #     Logstash_Prefix node
+            #     Retry_Limit False
+            #     Buffer_Size 1MB
+            #     # OpenSearch compatibility fixes
+            #     Suppress_Type_Name On
+            #     Generate_Id On
 
             [OUTPUT]
-                Name es
+                Name gelf
+                Match kube.*
+                Host graylog-master.monitoring.svc.cluster.local 
+                Port 12222
+                Mode udp
+                Compress false
+                Gelf_Short_Message_Key log
+                Gelf_Timestamp_Key @timestamp
+                Gelf_Host_Key kubernetes.pod_name
+
+            [OUTPUT]
+                Name gelf
                 Match host.*
-                Host opensearch-cluster-master-headless.monitoring.svc.cluster.local
-                Port 9200
-                Logstash_Format On
-                Logstash_Prefix node
-                Retry_Limit False
-                Buffer_Size 1MB
-                # OpenSearch compatibility fixes
-                Suppress_Type_Name On
-                Generate_Id On
+                Host graylog-master.monitoring.svc.cluster.local 
+                Port 12222
+                Mode udp
+                Compress false
+                Gelf_Short_Message_Key MESSAGE
 
           ## https://docs.fluentbit.io/manual/pipeline/parsers
           customParsers: |
