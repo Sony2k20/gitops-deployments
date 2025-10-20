@@ -6,14 +6,29 @@ metadata:
     name: utils
 spec:
   containers:
-  - name: node
-    image: node:22-alpine
-    command: ["sleep", "infinity"]
-    volumeMounts:
-    - mountPath: /home/data
-      name: data
-  volumes:
-  - name: data
-    hostPath:
-      path: /srv/dev-disk-by-uuid-1f2204f1-efe5-4e04-a2a2-b4598f7b17db/data/Kubernetes/utils
-      type: Directory 
+    - name: node
+      image: node:22-alpine
+      env: 
+        - name: IMMICH_INSTANCE_URL
+          value: http://immich-server.prod.svc.cluster.local:2283/api
+        - name: IMMICH_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: immich-secret
+              key: API_KEY
+      command: 
+        - /bin/sh
+        - -c
+        - |
+          apk update
+          apk add dnsutils curl iputils-ping jq yq telnet vim wget
+          npm i -g @immich/cli
+          sleep infinity
+      volumeMounts:
+        - mountPath: /home/data
+          name: data
+    volumes:
+      - name: data
+        hostPath:
+          path: /srv/dev-disk-by-uuid-1f2204f1-efe5-4e04-a2a2-b4598f7b17db/data/Kubernetes/utils
+          type: Directory

@@ -33,17 +33,51 @@ immich:
           existingSecret: immich-secret
 
 service:
-  port: 2283
-  nodePort: 30009
-ingress:
-  className: traefik
-  annotations:
-    traefik.ingress.kubernetes.io/client-max-body-size: "0"
-    traefik.ingress.kubernetes.io/router.middlewares: |
-      kube-system-redirect-https@kubernetescrd
-  path: /
-  host: immich.csnguyen.de
-  tls:
-    - secretName: csnguyen-tls
+  main:
+    enabled: true
+    controller: main
+    primary: true
+    type: NodePort
+    ports:
+      http:
+        enabled: true
+        primary: true
+        nodePort: 30009
+        port: 2283
+        targetPort: http
+        protocol: HTTP
+
+  # service:
+  #   port: 2283
+  #   nodePort: 30009
+  # ingress:
+  #   className: traefik
+  #   annotations:
+  #     traefik.ingress.kubernetes.io/client-max-body-size: "0"
+  #     traefik.ingress.kubernetes.io/router.middlewares: |
+  #       kube-system-redirect-https@kubernetescrd
+  #   path: /
+  #   host: immich.csnguyen.de
+  #   tls:
+  #     - secretName: csnguyen-tls
+  #       hosts:
+  #         - immich.csnguyen.de
+
+  ingress:
+    main:
+      enabled: true
+      className: traefik
+      annotations:
+        traefik.ingress.kubernetes.io/client-max-body-size: "0"
+        traefik.ingress.kubernetes.io/router.middlewares: |
+          kube-system-redirect-https@kubernetescrd
       hosts:
-        - immich.csnguyen.de
+        - host: immich.csnguyen.de
+          paths:
+            - path: /
+              service:
+                identifier: main
+      tls:
+        - secretName: csnguyen-tls
+          hosts:
+            - immich.csnguyen.de
