@@ -1,4 +1,9 @@
 argo-cd:
+  logging:
+    # -- Set the global logging format. Either: `text` or `json`
+    format: text
+    # -- Set the global logging level. One of: `debug`, `info`, `warn` or `error`
+    level: warn
   dex:
     enabled: false
   global:
