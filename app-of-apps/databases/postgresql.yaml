@@ -10,13 +10,13 @@ spec:
   source:
     path: helm-charts/postgresql
     repoURL: https://github.com/Sony2k20/gitops-deployments.git
-    targetRevision: HEAD      
+    targetRevision: HEAD
   destination:
     server: https://kubernetes.default.svc
     namespace: postgresql
   syncPolicy:
     automated:
-      prune: true
+      prune: false
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
