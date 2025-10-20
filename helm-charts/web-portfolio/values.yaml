@@ -5,14 +5,15 @@ replicaCount: 1
 image:
   name: nginx
   pullPolicy: IfNotPresent
-  tag: ""
+  tag: latest
 
 github:
   repo: "https://github.com/Sony2k20/web-portfolio"
   branch: "master"
 
 service:
-  type: ClusterIP
+  type: NodePort
+  nodePort: 30002
   port: 80
 
 ingress:
