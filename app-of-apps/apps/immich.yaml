@@ -8,9 +8,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://jellyfin.github.io/jellyfin-helm
-    targetRevision: 2.3.0
-    chart: jellyfin
+    repoURL: https://immich-app.github.io/immich-charts
+    targetRevision: 0.9.3
+    chart: immich
     helm:
       values: |
         immich:
