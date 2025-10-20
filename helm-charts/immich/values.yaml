@@ -1,7 +1,6 @@
 immich:
   immich:
     metrics:
-      # Enabling this will create the service monitors needed to monitor immich with the prometheus operator
       enabled: false
     persistence:
       library:
@@ -32,36 +31,13 @@ immich:
         auth:
           existingSecret: immich-secret
 
-service:
-  main:
-    enabled: true
-    controller: main
-    primary: true
-    type: NodePort
-    ports:
-      http:
-        enabled: true
-        primary: true
-        nodePort: 30009
-        port: 2283
-        targetPort: http
-        protocol: HTTP
-
-  # service:
-  #   port: 2283
-  #   nodePort: 30009
-  # ingress:
-  #   className: traefik
-  #   annotations:
-  #     traefik.ingress.kubernetes.io/client-max-body-size: "0"
-  #     traefik.ingress.kubernetes.io/router.middlewares: |
-  #       kube-system-redirect-https@kubernetescrd
-  #   path: /
-  #   host: immich.csnguyen.de
-  #   tls:
-  #     - secretName: csnguyen-tls
-  #       hosts:
-  #         - immich.csnguyen.de
+  server:
+    service:
+      main:
+        type: NodePort
+        ports:
+          http:
+            nodePort: 30009
 
   ingress:
     main:
@@ -75,7 +51,8 @@ service:
           paths:
             - path: /
               service:
-                identifier: main
+                name: immich-server
+                port: 2283
       tls:
         - secretName: csnguyen-tls
           hosts:
