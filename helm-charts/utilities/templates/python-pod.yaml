@@ -3,7 +3,7 @@ kind: Pod
 metadata:
   name: python
   labels:
-    name: python
+    name: utils
 spec:
   containers:
   - name: python
