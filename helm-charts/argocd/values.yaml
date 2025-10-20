@@ -5,7 +5,8 @@ argo-cd:
     domain: argocd.csnguyen.de
   server:
     service:
-      servicePortHttp: 80
+      type: ClusterIP
+      nodePortHttp: 30100
     ingress:
       enabled: true
       ingressClassName: traefik
@@ -74,8 +75,6 @@ argo-cd:
           - BackgroundScanReport
           - ClusterBackgroundScanReport
           - UpdateRequest
-
-
 
 argocd-image-updater:
   config:

@@ -8,9 +8,69 @@ metadata:
 spec:
   project: default
   source:
-    path: helm-charts/immich
-    repoURL: https://github.com/Sony2k20/gitops-deployments.git
-    targetRevision: HEAD
+    repoURL: https://jellyfin.github.io/jellyfin-helm
+    targetRevision: 2.3.0
+    chart: jellyfin
+    helm:
+      values: |
+        immich:
+          metrics:
+            enabled: false
+          persistence:
+            library:
+              existingClaim: immich
+        redis:
+          enabled: true
+        env:
+          DB_HOSTNAME: "postgresql.postgresql.svc.cluster.local"
+          DB_USERNAME: immich
+          DB_DATABASE_NAME: immich
+          DB_PASSWORD: null
+          IMMICH_IGNORE_MOUNT_CHECK_ERRORS: true
+        envFrom:
+          - secretRef:
+              name: immich-secret
+        image:
+          tag: v2.1.0
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "250m"
+          limits:
+            memory: "8Gi"
+            cpu: "4000m"
+        postgresql:
+          global:
+            postgresql:
+              auth:
+                existingSecret: immich-secret
+
+        server:
+          service:
+            main:
+              type: NodePort
+              ports:
+                http:
+                  nodePort: 30009
+
+          ingress:
+            main:
+              enabled: true
+              className: traefik
+              annotations:
+                traefik.ingress.kubernetes.io/client-max-body-size: "0"
+                traefik.ingress.kubernetes.io/router.middlewares: kube-system-redirect-https@kubernetescrd
+              hosts:
+                - host: immich.csnguyen.de
+                  paths:
+                    - path: /
+                      service:
+                        name: immich-server
+                        port: 2283
+              tls:
+                - secretName: csnguyen-tls
+                  hosts:
+                    - immich.csnguyen.de
   destination:
     server: "https://kubernetes.default.svc"
     namespace: prod

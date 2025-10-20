@@ -5,11 +5,12 @@ metadata:
     labels:
         app.kubernetes.io/name: {{ include "homepage.fullname" . }}
 spec:
-    type: ClusterIP
+    type: NodePort
     ports:
         - port: 3000
           targetPort: http
           protocol: TCP
           name: http
+          nodePort: 30003
     selector:
         app.kubernetes.io/name: {{ include "homepage.fullname" . }}

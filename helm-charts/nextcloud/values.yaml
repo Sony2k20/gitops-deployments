@@ -1,4 +1,7 @@
 nextcloud:
+  service:
+    type: NodePort
+    nodePort: 30001
   imaginary:
     enabled: true
   collabora:
@@ -51,7 +54,7 @@ nextcloud:
       repository: bitnamilegacy/redis
       tag: 8.2
   # image:
-  #   tag: "31.0.9"
+  #   tag: ""
   nextcloud:
     defaultConfigs:
       imaginary.config.php: true

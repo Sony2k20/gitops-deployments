@@ -1,4 +1,7 @@
 uptime-kuma:
+  service:
+    type: NodePort
+    nodePort: 30006
   volume:
     enabled: true
     existingClaim: uptime-kuma
