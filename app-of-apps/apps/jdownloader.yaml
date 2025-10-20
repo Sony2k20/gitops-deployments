@@ -18,6 +18,8 @@ spec:
       values: |
         fullnameOverride: jdownloader
 
+        updateStrategy: Recreate
+
         dailyRestart:
           enabled: true
           schedule: "0 5 * * *"
