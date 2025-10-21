@@ -49,7 +49,7 @@ spec:
         write:
           replicas: 0
 
-        canary:
+        lokiCanary:
           enabled: false
         gateway:
           enabled: false
