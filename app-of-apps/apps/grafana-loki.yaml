@@ -9,102 +9,21 @@ spec:
   project: default
   source:
     repoURL: https://grafana.github.io/helm-charts
-    targetRevision: 0.80.5
-    chart: loki-distributed
+    targetRevision: 6.43.0
+    chart: loki
     helm:
       values: |
         loki:
-          config: |
-            chunk_store_config:
-              max_look_back_period: 744h
-
-            table_manager:
-              retention_deletes_enabled: true
-              retention_period: 744h
-
-            auth_enabled: false
-            common:
-              compactor_address: http://grafana-loki-loki-distributed-compactor:3100
-            compactor:
-              shared_store: filesystem
-              working_directory: /var/loki/compactor
-            distributor:
-              ring:
-                kvstore:
-                  store: memberlist
-            frontend:
-              compress_responses: true
-              log_queries_longer_than: 5s
-              tail_proxy_url: http://grafana-loki-loki-distributed-querier:3100
-            frontend_worker:
-              frontend_address: grafana-loki-loki-distributed-query-frontend-headless:9095
-            ingester:
-              chunk_block_size: 262144
-              chunk_encoding: snappy
-              chunk_idle_period: 30m
-              chunk_retain_period: 1m
-              lifecycler:
-                ring:
-                  kvstore:
-                    store: memberlist
-                  replication_factor: 1
-              max_transfer_retries: 0
-              wal:
-                dir: /var/loki/wal
-            ingester_client:
-              grpc_client_config:
-                grpc_compression: gzip
-            limits_config:
-              enforce_metric_name: false
-              max_cache_freshness_per_query: 10m
-              reject_old_samples: true
-              reject_old_samples_max_age: 168h
-              split_queries_by_interval: 15m
-            memberlist:
-              cluster_label: grafana-loki.default
-              join_members:
-              - grafana-loki-loki-distributed-memberlist
-            query_range:
-              align_queries_with_step: true
-              cache_results: true
-              max_retries: 5
-              results_cache:
-                cache:
-                  embedded_cache:
-                    enabled: true
-                    ttl: 24h
-            ruler:
-              alertmanager_url: https://alertmanager.xx
-              external_url: https://alertmanager.xx
-              ring:
-                kvstore:
-                  store: memberlist
-              rule_path: /tmp/loki/scratch
-              storage:
-                local:
-                  directory: /etc/loki/rules
-                type: local
-            runtime_config:
-              file: /var/loki-distributed-runtime/runtime.yaml
-            schema_config:
-              configs:
-              - from: "2020-09-07"
-                index:
-                  period: 24h
-                  prefix: loki_index_
-                object_store: filesystem
-                schema: v11
-                store: boltdb-shipper
-            server:
-              http_listen_port: 3100
-            storage_config:
-              boltdb_shipper:
-                active_index_directory: /var/loki/index
-                cache_location: /var/loki/cache
-                cache_ttl: 168h
-                shared_store: filesystem
-              filesystem:
-                directory: /var/loki/chunks
+          readinessProbe:: {}
+          persistence:
+            enabled: true
+            storageClassName: local-path
+          config:
+          storage:
+            type: filesystem
+        table_manager:
+          retention_deletes_enabled: true
+          retention_period: 720h
   destination:
     name: in-cluster
     namespace: monitoring

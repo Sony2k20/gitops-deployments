@@ -56,11 +56,10 @@ nextcloud:
   # image:
   #   tag: ""
   nextcloud:
-    extraEnv:
-      - name: IMAGINARY_LOG_LEVEL
-        value: warn
     defaultConfigs:
-      imaginary.config.php: true
+      imaginary:
+        config:
+          php: true
     mail:
       enabled: true
       fromAddress: kontakt
