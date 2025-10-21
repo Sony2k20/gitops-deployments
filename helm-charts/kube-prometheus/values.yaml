@@ -22,27 +22,27 @@ kube-prometheus-stack:
       dashboardproviders.yaml:
         apiVersion: 1
         providers:
-        - name: 'kubernetes-dashboard'
-          orgId: 1
-          folder: ''
-          type: file
-          disableDeletion: true
-          editable: true
-          options:
-            path: /var/lib/grafana/dashboards/kubernetes-dashboard
-        - name: 'kubernetes-loki'
-          orgId: 1
-          folder: ''
-          type: file
-          disableDeletion: true
-          editable: true
-          options:
-            path: /var/lib/grafana/dashboards/kubernetes-loki
-    dashboardsConfigMaps: 
+          - name: "kubernetes-dashboard"
+            orgId: 1
+            folder: ""
+            type: file
+            disableDeletion: true
+            editable: true
+            options:
+              path: /var/lib/grafana/dashboards/kubernetes-dashboard
+          - name: "kubernetes-loki"
+            orgId: 1
+            folder: ""
+            type: file
+            disableDeletion: true
+            editable: true
+            options:
+              path: /var/lib/grafana/dashboards/kubernetes-loki
+    dashboardsConfigMaps:
       kubernetes-dashboard: grafana-dashboards-cm
 
     admin:
-      existingSecret:	grafana-secret
+      existingSecret: grafana-secret
       userKey: username
       passwordKey: password
     ingress:
@@ -62,4 +62,4 @@ kube-prometheus-stack:
     additionalDataSources:
       - name: Loki
         type: loki
-        url: http://grafana-loki-loki-distributed-query-frontend:3100
+        url: http://grafana-loki.monitoring.svc.cluster.local:3100
