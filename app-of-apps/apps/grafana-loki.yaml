@@ -19,7 +19,6 @@ spec:
           persistence:
             enabled: true
             storageClassName: local-path
-          config:
           storage:
             type: filesystem
         table_manager:
