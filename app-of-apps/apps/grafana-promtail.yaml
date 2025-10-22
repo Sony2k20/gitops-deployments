@@ -20,7 +20,7 @@ spec:
             pipelineStages:
               - cri: {}
               - match:
-                  selector: '{app_kubernetes_io_name="nextcloud", app_kubernetes_io_component="imaginary"}'
+                  selector: '{container="imaginary"}'
                   action: drop
   destination:
     name: in-cluster
