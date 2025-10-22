@@ -20,7 +20,7 @@ spec:
             pipelineStages:
               - cri: {}
               - match:
-                  selector: '{container="imaginary"}'
+                  selector: '{container="imaginary",namespace="prod"}'
                   action: drop
   destination:
     name: in-cluster
