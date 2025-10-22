@@ -13,6 +13,10 @@ spec:
     chart: loki
     helm:
       values: |
+        test:
+          enabled: false
+        lokiCanary:
+          enabled: false
         deploymentMode: SingleBinary
         singleBinary:
           replicas: 1

@@ -16,6 +16,12 @@ spec:
         config:
           clients:
             - url: "http://grafana-loki.monitoring.svc.cluster.local:3100/loki/api/v1/push"
+          snippets:
+            pipelineStages:
+              - cri: {}
+              - match:
+                  selector: '{app_kubernetes_io_name="nextcloud", app_kubernetes_io_component="imaginary"}'
+                  action: drop
   destination:
     name: in-cluster
     namespace: monitoring
