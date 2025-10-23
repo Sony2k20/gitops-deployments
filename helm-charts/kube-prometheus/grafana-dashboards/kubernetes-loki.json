@@ -404,9 +404,10 @@
         "showLabels": false,
         "showTime": true,
         "sortOrder": "Descending",
-        "wrapLogMessage": false
+        "wrapLogMessage": true
       },
       "pluginVersion": "12.1.0",
+      "repeatDirection": "h",
       "targets": [
         {
           "datasource": "Loki",
@@ -523,5 +524,5 @@
   "timezone": "",
   "title": "Venturenox Kubernetes Logs",
   "uid": "venturenox-kubernetes-logs",
-  "version": 1
+  "version": 2
 }
