@@ -5,7 +5,7 @@ replicaCount: 1
 image:
   name: nginx
   pullPolicy: IfNotPresent
-  tag: latest
+  tag: stable
 
 github:
   repo: "https://github.com/Sony2k20/web-portfolio"
