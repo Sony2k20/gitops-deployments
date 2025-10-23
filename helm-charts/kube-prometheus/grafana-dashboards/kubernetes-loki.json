@@ -25,7 +25,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 10,
+  "id": 11,
   "links": [],
   "panels": [
     {
@@ -397,12 +397,12 @@
       "id": 26,
       "options": {
         "dedupStrategy": "none",
-        "enableInfiniteScrolling": false,
+        "enableInfiniteScrolling": true,
         "enableLogDetails": true,
         "prettifyLogMessage": true,
         "showCommonLabels": false,
         "showLabels": false,
-        "showTime": false,
+        "showTime": true,
         "sortOrder": "Descending",
         "wrapLogMessage": false
       },
@@ -410,6 +410,7 @@
       "targets": [
         {
           "datasource": "Loki",
+          "direction": "backward",
           "editorMode": "code",
           "expr": "{namespace=\"$namespace\", container=~\"$container\", pod=~\"$pod\"} |~ \"$search\"",
           "legendFormat": "",
@@ -522,5 +523,5 @@
   "timezone": "",
   "title": "Venturenox Kubernetes Logs",
   "uid": "venturenox-kubernetes-logs",
-  "version": 3
+  "version": 1
 }
