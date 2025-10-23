@@ -424,7 +424,7 @@
     }
   ],
   "preload": false,
-  "refresh": "off",
+  "refresh": "5m",
   "schemaVersion": 41,
   "tags": [],
   "templating": {
