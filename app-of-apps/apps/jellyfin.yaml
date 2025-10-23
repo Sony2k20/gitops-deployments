@@ -17,7 +17,7 @@ spec:
     helm:
       values: |
         image:
-          tag: "10.10"
+          tag: "10.11"
 
         service:
           type: NodePort
