@@ -21,7 +21,7 @@ spec:
         - -c
         - |
           apk update
-          apk add dnsutils curl iputils-ping jq yq telnet vim wget
+          apk add bind-tools curl iputils jq yq busybox-extras vim wget
           npm i -g @immich/cli
           sleep infinity
       volumeMounts:
