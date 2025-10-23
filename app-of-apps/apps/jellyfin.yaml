@@ -19,6 +19,9 @@ spec:
         image:
           tag: "10.11"
 
+        deploymentStrategy:
+          type: Recreate
+
         service:
           type: NodePort
           port: 8096
