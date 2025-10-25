@@ -20,7 +20,7 @@ spec:
 
         image:
           repository: sony2k20/ng-web-blog
-          tag:    
+          tag: latest   
 
         service:
           port: 80
