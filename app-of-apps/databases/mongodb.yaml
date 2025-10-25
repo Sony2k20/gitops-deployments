@@ -45,7 +45,7 @@ spec:
     namespace: mongodb
   syncPolicy:
     automated:
-      prune: false
-      selfHeal: true
+      prune: true
+      selfHeal: false
     syncOptions:
       - CreateNamespace=true
