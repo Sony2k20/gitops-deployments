@@ -20,6 +20,7 @@ spec:
 
         image:
           repository: sony2k20/ng-web-portfolio      
+          tag: 555e917
 
         service:
           port: 80
@@ -33,7 +34,7 @@ spec:
             port: 80
   syncPolicy:
     automated:
-      selfHeal: true
+      selfHeal: false
       prune: true
     syncOptions:
       - CreateNamespace=true

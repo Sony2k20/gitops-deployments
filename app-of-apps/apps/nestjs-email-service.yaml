@@ -45,7 +45,7 @@ spec:
             port: 3000
   syncPolicy:
     automated:
-      selfHeal: true
+      selfHeal: false
       prune: true
     syncOptions:
       - CreateNamespace=true
