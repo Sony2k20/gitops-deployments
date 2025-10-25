@@ -20,7 +20,7 @@ spec:
 
         image:
           repository: sony2k20/ng-web-portfolio      
-          tag: latest
+          tag: 555e917
 
         service:
           port: 80
