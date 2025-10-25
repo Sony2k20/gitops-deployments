@@ -22,6 +22,9 @@ spec:
               - match:
                   selector: '{container="imaginary",namespace="prod"}'
                   action: drop
+              - match:
+                  selector: '{container="web-portfolio",namespace="prod"}'
+                  action: drop
   destination:
     name: in-cluster
     namespace: monitoring
