@@ -19,7 +19,8 @@ spec:
         fullnameOverride: ng-web-blog
 
         image:
-          repository: sony2k20/ng-web-blog   
+          repository: sony2k20/ng-web-blog
+          tag:    
 
         service:
           port: 80
