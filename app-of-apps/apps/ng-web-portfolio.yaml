@@ -34,7 +34,7 @@ spec:
             port: 80
   syncPolicy:
     automated:
-      selfHeal: false
+      selfHeal: true
       prune: true
     syncOptions:
       - CreateNamespace=true
