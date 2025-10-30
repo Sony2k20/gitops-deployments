@@ -22,12 +22,15 @@ spec:
               - match:
                   selector: '{container="imaginary",namespace="prod"}'
                   action: drop
+              - match:
+                  selector: '{container="web-portfolio",namespace="prod"}'
+                  action: drop
   destination:
     name: in-cluster
     namespace: monitoring
   syncPolicy:
     automated:
       prune: true
-      selfHeal: false
+      selfHeal: true
     syncOptions:
       - CreateNamespace=true

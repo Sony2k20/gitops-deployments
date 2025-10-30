@@ -7,7 +7,7 @@ argo-cd:
       level: warn
   server:
     service:
-      type: ClusterIP
+      type: NodePort
       nodePortHttp: 30100
     ingress:
       enabled: true
