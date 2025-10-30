@@ -15,7 +15,7 @@ spec:
   project: default
   source:
     repoURL: https://sony2k20.github.io/service-deployer-helm
-    targetRevision: 1.0.11
+    targetRevision: 1.0.17
     chart: service-deployer
     helm:
       values: |
