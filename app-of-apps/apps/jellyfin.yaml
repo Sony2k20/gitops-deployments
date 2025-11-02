@@ -16,6 +16,8 @@ spec:
     chart: jellyfin
     helm:
       values: |
+        deploymentStrategy:
+          type: Recreate
         image:
           tag: "10.11"
 
