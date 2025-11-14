@@ -32,6 +32,10 @@ spec:
           port: 5800
           
         ingress:
+          annotations:
+            traefik.ingress.kubernetes.io/router.middlewares: |
+              kube-system-redirect-https@kubernetescrd
+              kube-system-authentik-auth@kubernetescrd
           host: jdownloader.csnguyen.de
 
         startupProbe:
