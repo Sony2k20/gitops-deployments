@@ -30,11 +30,11 @@ spec:
 
         service:
           port: 5800
+          nodePort: 30015
           
         ingress:
           annotations:
             traefik.ingress.kubernetes.io/router.middlewares: |
-              kube-system-redirect-https@kubernetescrd
               kube-system-authentik-auth@kubernetescrd
           host: jdownloader.csnguyen.de
 
