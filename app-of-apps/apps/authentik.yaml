@@ -17,6 +17,7 @@ spec:
     helm:
       values: |
         authentik:
+          secret_key: authentik_csn
           postgresql:
             host: postgresql.postgresql.svc.cluster.local
             user: file:///postgres-creds/username
