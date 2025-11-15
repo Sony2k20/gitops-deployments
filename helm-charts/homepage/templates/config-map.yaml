@@ -25,10 +25,10 @@ data:
         header: false
       Public Services:
         style: row
-        columns: 3
+        columns: 5
       Private Services:
         style: row
-        columns: 3
+        columns: 5
       Social:
         style: row
         columns: 3
@@ -122,7 +122,7 @@ data:
             icon: argo-cd.png
             href: https://argocd.csnguyen.de
         - Authentik:
-            icon: /icons/authentik.png
+            icon: authentik.png
             href: https://authentik.csnguyen.de   
         - Cloudbeaver:
             icon: cloudbeaver.png

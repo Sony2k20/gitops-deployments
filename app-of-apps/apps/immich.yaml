@@ -31,7 +31,7 @@ spec:
           - secretRef:
               name: immich-secret
         image:
-          tag: v2.2.1
+          tag: v2
         resources:
           requests:
             memory: "128Mi"
