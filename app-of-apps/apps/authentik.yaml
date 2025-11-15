@@ -24,6 +24,10 @@ spec:
             password: file:///postgres-creds/password
 
         server:
+          service:
+            type: NodePort
+            nodePortHttp: 30014
+            nodePortHttps: 30099
           ingress:
             enabled: true
             ingressClassName: traefik
