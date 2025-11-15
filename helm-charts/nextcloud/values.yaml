@@ -54,7 +54,7 @@ nextcloud:
       repository: bitnamilegacy/redis
       tag: 8.2
   image:
-    tag: 32
+    tag: "32"
   nextcloud:
     defaultConfigs:
       imaginary:
