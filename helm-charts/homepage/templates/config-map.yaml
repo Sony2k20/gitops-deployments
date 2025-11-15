@@ -42,6 +42,7 @@ data:
     statusStyle: "dot"
     disableCollapse: true
     headerStyle: clean
+  proxmox.yaml: ''
   custom.css: ''
   custom.js: ''
   bookmarks.yaml: |
