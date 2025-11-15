@@ -33,9 +33,6 @@ spec:
           nodePort: 30015
           
         ingress:
-          annotations:
-            traefik.ingress.kubernetes.io/router.middlewares: |
-              kube-system-authentik-auth@kubernetescrd
           host: jdownloader.csnguyen.de
 
         startupProbe:
