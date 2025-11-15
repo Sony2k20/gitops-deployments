@@ -23,9 +23,6 @@ data:
         style: row
         columns: 2
         header: false
-      Services:
-        style: row
-        columns: 4
       Public Services:
         style: row
         columns: 3
@@ -68,14 +65,6 @@ data:
               fields: ["up","uptime"]
               url: https://uptime-kuma.csnguyen.de
               slug: portfolio
-        - blog.csnguyen.de:
-            icon: /icons/angular.png
-            href: https://blog.csnguyen.de
-            widget:
-              type: uptimekuma
-              fields: ["up","uptime"]
-              url: https://uptime-kuma.csnguyen.de
-              slug: blog
         - katharinaniesche.de:
             icon: /icons/katy.ico
             href: https://katharinaniesche.de
@@ -84,70 +73,81 @@ data:
               fields: ["up","uptime"]
               url: https://uptime-kuma.csnguyen.de
               slug: niesche
+        - blog.csnguyen.de:
+            icon: /icons/angular.png
+            href: https://blog.csnguyen.de
+            widget:
+              type: uptimekuma
+              fields: ["up","uptime"]
+              url: https://uptime-kuma.csnguyen.de
+              slug: blog
 
     - Public Services:
+        - ComfyUI:
+            icon: comfy-ui.png
+            href: https://comfyui.csnguyen.de
+        - Flatnotes:
+            icon: flatnotes.png
+            href: https://notes.csnguyen.de
         - Grafana:
             icon: grafana.png
             href: https://grafana.csnguyen.de/d/k8s_views_nodes/kubernetes-views-nodes?orgId=1&from=now-1h&to=now&timezone=browser&var-datasource=prometheus&var-cluster=&var-resolution=30s&var-node=debian&var-instance=192.168.178.100:9100&refresh=30s
         - Grafana Loki:
             icon: grafana.png
             href: https://grafana.csnguyen.de/d/venturenox-kubernetes-logs/venturenox-kubernetes-logs?orgId=1&from=now-30m&to=now&timezone=browser&var-namespace=prod&var-container=$__all&var-pod=$__all&var-search=&refresh=5m
-        - Jellyfin:
-            icon: jellyfin.png
-            href: https://jellyfin.csnguyen.de
         - Immich:
             icon: immich.png
             href: https://immich.csnguyen.de
+        - IT-Tools:
+            icon: it-tools.png
+            href: https://it-tools.csnguyen.de       
+        - Jellyfin:
+            icon: jellyfin.png
+            href: https://jellyfin.csnguyen.de
         - Nextcloud:
             icon: nextcloud.png
             href: https://nextcloud.csnguyen.de
-        - Uptime Kuma:
-            icon: uptime-kuma.png
-            href: https://uptime-kuma.csnguyen.de
-        - Flatnotes:
-            icon: flatnotes.png
-            href: https://notes.csnguyen.de
-        - Upsnap:
-            icon: upsnap.png
-            href: https://upsnap.csnguyen.de
-        - IT-Tools:
-            icon: it-tools.png
-            href: https://it-tools.csnguyen.de            
         - Stirling PDF:
             icon: stirling-pdf.png
             href: https://pdf.csnguyen.de
-        - ComfyUI:
-            icon: comfy-ui.png
-            href: https://comfyui.csnguyen.de
+        - Upsnap:
+            icon: upsnap.png
+            href: https://upsnap.csnguyen.de            
+        - Uptime Kuma:
+            icon: uptime-kuma.png
+            href: https://uptime-kuma.csnguyen.de     
 
     - Private Services:
         - ArgoCD:
             icon: argo-cd.png
             href: https://argocd.csnguyen.de
+        - Authentik:
+            icon: /icons/authentik.png
+            href: https://authentik.csnguyen.de   
+        - Cloudbeaver:
+            icon: cloudbeaver.png
+            href: https://cloudbeaver.csnguyen.de 
+        - JDownloader:
+            icon: /icons/jdownloader3.png
+            href: https://jdownloader.csnguyen.de   
+        - Kubernetes:
+            icon: kubernetes.png
+            href: https://192.168.178.100:9999
+        - MongoDB Compass:
+            icon: mongodb.png
+            href: https://mongodb-compass.csnguyen.de 
         - Openmediavault:
             icon: openmediavault.png
             href: https://omv.csnguyen.de
         - Pi-hole:
             icon: pi-hole.png
             href: https://pihole.csnguyen.de/admin
-        - Rancher:
-            icon: rancher.png
-            href: https://rancher.csnguyen.de
-        - Kubernetes:
-            icon: kubernetes.png
-            href: https://192.168.178.100:9999
-        - JDownloader:
-            icon: /icons/jdownloader3.png
-            href: https://jdownloader.csnguyen.de   
         - Prometheus:
             icon: prometheus.png
             href: https://prometheus.csnguyen.de   
-        - MongoDB Compass:
-            icon: mongodb.png
-            href: https://mongodb-compass.csnguyen.de 
-        - Cloudbeaver:
-            icon: cloudbeaver.png
-            href: https://cloudbeaver.csnguyen.de 
+        - Rancher:
+            icon: rancher.png
+            href: https://rancher.csnguyen.de
 
   widgets.yaml: |
     - greeting:
