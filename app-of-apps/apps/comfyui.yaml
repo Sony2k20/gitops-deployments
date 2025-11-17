@@ -22,7 +22,7 @@ spec:
           port: 8188
 
         endpoint:
-          ip: "192.168.178.36"
+          ip: "192.168.178.21"
 
         ingress:
           host: comfyui.csnguyen.de
