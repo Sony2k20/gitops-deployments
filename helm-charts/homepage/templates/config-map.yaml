@@ -84,6 +84,9 @@ data:
               slug: blog
 
     - Public Services:
+        - Authentik:
+            icon: authentik.png
+            href: https://authentik.csnguyen.de   
         - ComfyUI:
             icon: comfy-ui.png
             href: https://comfyui.csnguyen.de
@@ -122,9 +125,6 @@ data:
         - ArgoCD:
             icon: argo-cd.png
             href: https://argocd.csnguyen.de
-        - Authentik:
-            icon: authentik.png
-            href: https://authentik.csnguyen.de   
         - Cloudbeaver:
             icon: cloudbeaver.png
             href: https://cloudbeaver.csnguyen.de 
