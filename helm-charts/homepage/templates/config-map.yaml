@@ -144,7 +144,7 @@ data:
             icon: pi-hole.png
             href: https://pihole.csnguyen.de/admin
         - Portainer:
-            icon: portainer.png
+            icon: portainer-alt.png
             href: https://portainer.csnguyen.de
         - Prometheus:
             icon: prometheus.png
