@@ -16,7 +16,7 @@ spec:
     chart: home-assistant
     helm:
       values: |
-        configuration: true
+        configuration:
           enabled: true
         hostNetwork: true
         ingress:
