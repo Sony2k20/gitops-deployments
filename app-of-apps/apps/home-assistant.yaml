@@ -34,7 +34,8 @@ spec:
             - secretName: csnguyen-tls
               hosts:
                 - home-assistant.csnguyen.de
-
+        persistence:
+          existingClaim: home-assistant
   syncPolicy:
     automated:
       selfHeal: false
