@@ -128,6 +128,9 @@ data:
         - Cloudbeaver:
             icon: cloudbeaver.png
             href: https://cloudbeaver.csnguyen.de 
+        - Home Assistant:
+            icon: home-assistant.png
+            href: https://home-assistant.csnguyen.de 
         - JDownloader:
             icon: /icons/jdownloader3.png
             href: https://jdownloader.csnguyen.de   
