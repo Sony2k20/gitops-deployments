@@ -36,6 +36,7 @@ spec:
               hosts:
                 - home-assistant.csnguyen.de
         persistence:
+          enabled: true
           existingClaim: home-assistant
   syncPolicy:
     automated:
