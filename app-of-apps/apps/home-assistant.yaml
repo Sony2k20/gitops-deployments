@@ -16,6 +16,9 @@ spec:
     chart: home-assistant
     helm:
       values: |
+        addons:
+          codeserver:
+            enabled: true
         configuration:
           enabled: true
           trusted_proxies:
