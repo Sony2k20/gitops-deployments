@@ -24,18 +24,18 @@ spec:
               existingSecret: codeserver-secret
             ingress:
               enabled: true
-            annotations:
-              traefik.ingress.kubernetes.io/router.middlewares: |
-                kube-system-redirect-https@kubernetescrd
-            hosts:
-              - host: codeserver.csnguyen.de
-                paths:
-                  - path: /
-                    pathType: ImplementationSpecific
-            tls: 
-              - secretName: csnguyen-tls
-                hosts:
-                  - codeserver.csnguyen.de
+              annotations:
+                traefik.ingress.kubernetes.io/router.middlewares: |
+                  kube-system-redirect-https@kubernetescrd
+              hosts:
+                - host: codeserver.csnguyen.de
+                  paths:
+                    - path: /
+                      pathType: ImplementationSpecific
+              tls: 
+                - secretName: csnguyen-tls
+                  hosts:
+                    - codeserver.csnguyen.de
         configuration:
           enabled: true
           trusted_proxies:
