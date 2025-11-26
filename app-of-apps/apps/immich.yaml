@@ -30,13 +30,8 @@ spec:
         envFrom:
           - secretRef:
               name: immich-secret
-        controllers:
-          main:
-            containers:
-              main:
-                image:
-                  tag: v2
-                  pullPolicy: Always
+        image:
+          tag: v2
         resources:
           requests:
             memory: "128Mi"
@@ -51,13 +46,19 @@ spec:
                 existingSecret: immich-secret
 
         server:
+          controllers:
+            main:
+              containers:
+                main:
+                  image:
+                    repository: ghcr.io/immich-app/immich-server
+                    pullPolicy: Always
           service:
             main:
               type: NodePort
               ports:
                 http:
                   nodePort: 30009
-
           ingress:
             main:
               enabled: true
@@ -76,6 +77,15 @@ spec:
                 - secretName: csnguyen-tls
                   hosts:
                     - immich.csnguyen.de
+
+        machine-learning:
+          controllers:
+            main:
+              containers:
+                main:
+                  image:
+                    repository: ghcr.io/immich-app/immich-machine-learning
+                    pullPolicy: Always
   destination:
     server: "https://kubernetes.default.svc"
     namespace: prod
