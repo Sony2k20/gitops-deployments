@@ -55,6 +55,7 @@ nextcloud:
       tag: 8.2
   image:
     tag: "32"
+    pullPolicy: Always
   nextcloud:
     defaultConfigs:
       imaginary:

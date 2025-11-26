@@ -32,6 +32,7 @@ spec:
               name: immich-secret
         image:
           tag: v2
+          pullPolicy: Always
         resources:
           requests:
             memory: "128Mi"
