@@ -46,13 +46,9 @@ spec:
                 existingSecret: immich-secret
 
         server:
-          controllers:
-            main:
-              containers:
-                main:
-                  image:
-                    repository: ghcr.io/immich-app/immich-server
-                    pullPolicy: Always
+          image:
+            repository: ghcr.io/immich-app/immich-server
+            pullPolicy: Always
           service:
             main:
               type: NodePort
@@ -79,13 +75,9 @@ spec:
                     - immich.csnguyen.de
 
         machine-learning:
-          controllers:
-            main:
-              containers:
-                main:
-                  image:
-                    repository: ghcr.io/immich-app/immich-machine-learning
-                    pullPolicy: Always
+          image:
+            repository: ghcr.io/immich-app/immich-machine-learning
+            pullPolicy: Always
   destination:
     server: "https://kubernetes.default.svc"
     namespace: prod
