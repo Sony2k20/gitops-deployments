@@ -21,6 +21,7 @@ spec:
         image:
           repository: ghcr.io/corentinth/it-tools
           tag: latest
+          pullPolicy: Always
 
         service:
           port: 80

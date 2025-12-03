@@ -99,6 +99,9 @@ data:
         - Grafana Loki:
             icon: loki.png
             href: https://grafana.csnguyen.de/d/venturenox-kubernetes-logs/venturenox-kubernetes-logs?orgId=1&from=now-30m&to=now&timezone=browser&var-namespace=prod&var-container=$__all&var-pod=$__all&var-search=&refresh=5m
+        - Home Assistant:
+            icon: home-assistant.png
+            href: https://home-assistant.csnguyen.de 
         - Immich:
             icon: immich.png
             href: https://immich.csnguyen.de

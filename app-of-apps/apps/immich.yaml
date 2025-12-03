@@ -46,13 +46,15 @@ spec:
                 existingSecret: immich-secret
 
         server:
+          image:
+            repository: ghcr.io/immich-app/immich-server
+            pullPolicy: Always
           service:
             main:
               type: NodePort
               ports:
                 http:
                   nodePort: 30009
-
           ingress:
             main:
               enabled: true
@@ -71,6 +73,11 @@ spec:
                 - secretName: csnguyen-tls
                   hosts:
                     - immich.csnguyen.de
+
+        machine-learning:
+          image:
+            repository: ghcr.io/immich-app/immich-machine-learning
+            pullPolicy: Always
   destination:
     server: "https://kubernetes.default.svc"
     namespace: prod

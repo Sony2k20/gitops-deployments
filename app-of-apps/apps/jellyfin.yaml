@@ -20,6 +20,7 @@ spec:
           type: Recreate
         image:
           tag: "10.11"
+          pullPolicy: Always
 
         deploymentStrategy:
           type: Recreate

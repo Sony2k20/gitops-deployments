@@ -16,9 +16,36 @@ spec:
     chart: home-assistant
     helm:
       values: |
+        addons:
+          codeserver:
+            enabled: true
+            auth:
+              enabled: true
+              existingSecret: codeserver-secret
+            ingress:
+              enabled: true
+              annotations:
+                traefik.ingress.kubernetes.io/router.middlewares: |
+                  kube-system-redirect-https@kubernetescrd
+              hosts:
+                - host: codeserver.csnguyen.de
+                  paths:
+                    - path: /
+                      pathType: ImplementationSpecific
+              tls: 
+                - secretName: csnguyen-tls
+                  hosts:
+                    - codeserver.csnguyen.de
         configuration:
           enabled: true
+          trusted_proxies:
+            - 10.0.0.0/8
+            - 172.16.0.0/12
+            - 192.168.0.0/16
+            - 127.0.0.0/8
+            - 100.116.219.0/24
         hostNetwork: true
+        dnsPolicy: ClusterFirstWithHostNet 
         ingress:
           enabled: true
           className: traefik
@@ -34,7 +61,9 @@ spec:
             - secretName: csnguyen-tls
               hosts:
                 - home-assistant.csnguyen.de
-
+        persistence:
+          enabled: true
+          existingClaim: home-assistant
   syncPolicy:
     automated:
       selfHeal: false

@@ -21,6 +21,7 @@ spec:
         image:
           repository: dullage/flatnotes 
           tag: v5
+          pullPolicy: Always
 
         env:
           FLATNOTES_PORT: "80"

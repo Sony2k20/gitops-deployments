@@ -13,6 +13,9 @@ spec:
     chart: uptime-kuma
     helm:
       values: |
+        image:
+          pullPolicy: Always
+          tag: "2"
         service:
           type: NodePort
           nodePort: 30006
