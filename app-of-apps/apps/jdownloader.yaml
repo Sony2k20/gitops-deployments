@@ -40,10 +40,10 @@ spec:
         ingress:
           host: jdownloader.csnguyen.de
 
-        # startupProbe:
-        #   httpGet:
-        #     path: /
-        #     port: 5800
+        startupProbe:
+          httpGet:
+            path: /
+            port: 5800
 
         persistentVolume:
           - name: jdownloader-config
