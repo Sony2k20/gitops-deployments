@@ -25,10 +25,10 @@ spec:
           schedule: "0 5 * * *"
 
         env:
-          DISPLAY_WIDTH: 3840
-          DISPLAY_HEIGHT: 2160
-          KEEP_APP_RUNNING:	1
-          JDOWNLOADER_HEADLESS: 1
+          DISPLAY_WIDTH: "3840"
+          DISPLAY_HEIGHT: "2160"
+          KEEP_APP_RUNNING:	"1"
+          JDOWNLOADER_HEADLESS: "1"
 
         image:
           repository: jlesage/jdownloader-2
