@@ -39,7 +39,7 @@ spec:
               port: 9666
               targetPort: 9666
               protocol: TCP
-              nodePort: 9666
+              nodePort: 30016
           
         ingress:
           host: pyload.csnguyen.de
