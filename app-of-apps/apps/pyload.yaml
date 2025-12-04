@@ -1,0 +1,57 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: jdownloader
+  namespace: argocd
+  labels:
+    type: app
+spec:
+  destination:
+    namespace: prod
+    name: in-cluster
+  project: default
+  source:
+    repoURL: https://sony2k20.github.io/service-deployer-helm
+    targetRevision: 1.0.17
+    chart: service-deployer
+    helm:
+      values: |
+        fullnameOverride: pyload
+
+        updateStrategy: Recreate
+
+        image:
+          repository: lscr.io/linuxserver/pyload-ng
+          tag: latest
+
+        service:
+          port: 8000
+          nodePort: 30016
+          
+        ingress:
+          host: pyload.csnguyen.de
+
+        startupProbe:
+          httpGet:
+            path: /
+            port: 8000
+
+        persistentVolume:
+          - name: pyload-config
+            mountPath: /config
+          - name: pyload-downloads
+            mountPath: /downloads
+
+        resources:
+          limits:
+           cpu: 1000m
+           memory: 1Gi
+          requests:
+           cpu: 100m
+           memory: 128Mi
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+      - CreateNamespace=true
