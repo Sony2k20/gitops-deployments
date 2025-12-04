@@ -12,7 +12,7 @@ spec:
   project: default
   source:
     repoURL: https://sony2k20.github.io/service-deployer-helm
-    targetRevision: 1.0.17
+    targetRevision: 1.0.19
     chart: service-deployer
     helm:
       values: |
@@ -24,9 +24,22 @@ spec:
           repository: lscr.io/linuxserver/pyload-ng
           tag: latest
 
+        env:
+          PUID: "1000"
+          PGID: "100"
+
         service:
-          port: 8000
-          nodePort: 30016
+          type: ClusterIP
+          ports:
+            - name: http
+              port: 8000
+              targetPort: 8000
+              protocol: TCP
+            - name: clickNload
+              port: 9666
+              targetPort: 9666
+              protocol: TCP
+              nodePort: 9666
           
         ingress:
           host: pyload.csnguyen.de
