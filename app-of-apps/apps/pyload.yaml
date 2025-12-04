@@ -29,7 +29,7 @@ spec:
           PGID: "100"
 
         service:
-          type: ClusterIP
+          type: NodePort
           ports:
             - name: http
               port: 8000
