@@ -35,7 +35,7 @@ spec:
               port: 8000
               targetPort: 8000
               protocol: TCP
-            - name: clickNload
+            - name: click-n-load
               port: 9666
               targetPort: 9666
               protocol: TCP
