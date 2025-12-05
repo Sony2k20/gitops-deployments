@@ -131,9 +131,6 @@ data:
         - Cloudbeaver:
             icon: cloudbeaver.png
             href: https://cloudbeaver.csnguyen.de 
-        - JDownloader:
-            icon: /icons/jdownloader3.png
-            href: https://jdownloader.csnguyen.de   
         - Kubernetes:
             icon: kubernetes.png
             href: https://192.168.178.100:9999
@@ -152,6 +149,9 @@ data:
         - Prometheus:
             icon: prometheus.png
             href: https://prometheus.csnguyen.de   
+        - PyLoad:
+            icon: /icons/pyload.png
+            href: https://pyload.csnguyen.de   
         - Rancher:
             icon: rancher.png
             href: https://rancher.csnguyen.de
