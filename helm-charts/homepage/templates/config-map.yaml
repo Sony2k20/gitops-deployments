@@ -150,7 +150,7 @@ data:
             icon: prometheus.png
             href: https://prometheus.csnguyen.de   
         - PyLoad:
-            icon: /icons/pyload.png
+            icon: pyload.png
             href: https://pyload.csnguyen.de   
         - Rancher:
             icon: rancher.png
