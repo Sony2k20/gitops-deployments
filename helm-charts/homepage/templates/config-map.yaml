@@ -114,6 +114,9 @@ data:
         - Nextcloud:
             icon: nextcloud.png
             href: https://nextcloud.csnguyen.de
+        - PyLoad:
+            icon: pyload.png
+            href: https://pyload.csnguyen.de 
         - Stirling PDF:
             icon: stirling-pdf.png
             href: https://pdf.csnguyen.de
@@ -148,10 +151,7 @@ data:
             href: https://portainer.csnguyen.de
         - Prometheus:
             icon: prometheus.png
-            href: https://prometheus.csnguyen.de   
-        - PyLoad:
-            icon: pyload.png
-            href: https://pyload.csnguyen.de   
+            href: https://prometheus.csnguyen.de     
         - Rancher:
             icon: rancher.png
             href: https://rancher.csnguyen.de
