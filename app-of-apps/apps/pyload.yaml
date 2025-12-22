@@ -35,6 +35,7 @@ spec:
               port: 8000
               targetPort: 8000
               protocol: TCP
+              nodePort: 30017
             - name: click-n-load
               port: 9666
               targetPort: 9666
