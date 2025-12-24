@@ -23,6 +23,7 @@ spec:
         image:
           repository: lscr.io/linuxserver/pyload-ng
           tag: latest
+          pullPolicy: Always
 
         env:
           PUID: "1000"
