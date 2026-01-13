@@ -119,10 +119,7 @@ data:
             href: https://pyload.csnguyen.de 
         - Stirling PDF:
             icon: stirling-pdf.png
-            href: https://pdf.csnguyen.de
-        - Upsnap:
-            icon: upsnap.png
-            href: https://upsnap.csnguyen.de            
+            href: https://pdf.csnguyen.de       
         - Uptime Kuma:
             icon: uptime-kuma.png
             href: https://uptime-kuma.csnguyen.de     
@@ -155,7 +152,10 @@ data:
         - Rancher:
             icon: rancher.png
             href: https://rancher.csnguyen.de
-
+        - Upsnap:
+            icon: upsnap.png
+            href: https://upsnap.csnguyen.de     
+            
   widgets.yaml: |
     - greeting:
         text_size: xl
