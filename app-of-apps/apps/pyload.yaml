@@ -24,8 +24,8 @@ spec:
         updateStrategy: Recreate
 
         image:
-          repository: lscr.io/linuxserver/pyload-ng
-          tag: latest
+          repository: linuxserver/pyload #lscr.io/linuxserver/pyload-ng
+          tag: 0.5.0-ng
           pullPolicy: Always
 
         env:
