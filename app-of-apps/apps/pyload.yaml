@@ -16,6 +16,9 @@ spec:
     chart: service-deployer
     helm:
       values: |
+        # get token here
+        # https://github.com/pyload/pyload/files/4406037/GetRealdebridToken.zip
+
         fullnameOverride: pyload
 
         dailyRestart:
