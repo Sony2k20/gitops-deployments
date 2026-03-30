@@ -18,6 +18,9 @@ spec:
       values: |
         fullnameOverride: pyload
 
+        dailyRestart:
+          enabled: true
+
         updateStrategy: Recreate
 
         image:
