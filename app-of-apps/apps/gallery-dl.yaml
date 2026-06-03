@@ -12,7 +12,7 @@ spec:
   project: default
   source:
     repoURL: https://sony2k20.github.io/service-deployer-helm
-    targetRevision: 1.0.20
+    targetRevision: 1.0.21
     chart: service-deployer
     helm:
       values: |
@@ -22,6 +22,11 @@ spec:
           repository: mikf123/gallery-dl
           tag: latest
           pullPolicy: Always
+
+        commands:
+          enabled: true
+          command: ["/bin/sh", "-c"]
+          args: ["sleep infinity"]
 
         service:
           port: 80
