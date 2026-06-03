@@ -1,0 +1,39 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: gallery-dl
+  namespace: argocd
+  labels:
+    type: app
+spec:
+  destination:
+    namespace: prod
+    name: in-cluster
+  project: default
+  source:
+    repoURL: https://sony2k20.github.io/service-deployer-helm
+    targetRevision: 1.0.20
+    chart: service-deployer
+    helm:
+      values: |
+        fullnameOverride: gallery-dl
+
+        image:
+          repository: mikf123/gallery-dl
+          tag: latest
+          pullPolicy: Always
+
+        service:
+          port: 80
+          
+        ingress: 
+
+        persistentVolume:
+          - name: gallery-dl
+            mountPath: /gallery-dl
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+      - CreateNamespace=true
