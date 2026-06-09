@@ -1,0 +1,46 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: seerr
+  namespace: argocd
+  labels:
+    type: app
+spec:
+  destination:
+    namespace: prod
+    name: in-cluster
+  project: default
+  source:
+    repoURL: oci://ghcr.io/seerr-team/seerr
+    targetRevision: 3.7.0
+    chart: seerr-chart
+    helm:
+      values: |
+        config:
+          persistence:
+            existingClaim: seerr
+
+        ingress:
+          enabled: true
+          className: traefik
+          annotations: 
+            # cert-manager.io/cluster-issuer: letsencrypt-prod
+            traefik.ingress.kubernetes.io/router.middlewares: |
+              kube-system-redirect-https@kubernetescrd
+          path: /
+          hosts:
+            - host: seerr.csnguyen.de
+              paths:
+                - path: /
+                  pathType: Prefix
+          tls: 
+          - secretName: csnguyen-tls
+            hosts:
+              - seerr.csnguyen.de
+
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+      - CreateNamespace=true
