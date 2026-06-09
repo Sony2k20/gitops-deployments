@@ -27,8 +27,12 @@ spec:
           - name: seerr
             mountPath: /app/config
         service:
-          port: 5055
-          nodePort: 30018
+          type: NodePort
+          ports:
+            - name: http
+              port: 5055
+              targetPort: 5055
+              nodePort: 30018
   syncPolicy:
     automated:
       selfHeal: true
