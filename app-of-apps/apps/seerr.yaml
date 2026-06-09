@@ -11,42 +11,23 @@ spec:
     name: in-cluster
   project: default
   source:
-    repoURL: ghcr.io/seerr-team/seerr
-    chart: seerr-chart
-    targetRevision: 3.7.0
+    repoURL: https://sony2k20.github.io/service-deployer-helm
+    targetRevision: 1.0.21
+    chart: service-deployer
     helm:
       values: |
-        fullnameOverride: seerr
-        config:
-          persistence:
-            existingClaim: seerr
+        image:
+          repository: ghcr.io/seerr-team/seerr
+          tag: latest
+          pullPolicy: Always
+        ingress: 
+          host: seerr.csnguyen.de
+        persistentVolume:
+          - name: seerr
+            mountPath: /app/config
         service:
-          type: NodePort
+          port: 5055
           nodePort: 30018
-        ingress:
-          enabled: true
-          className: traefik
-          annotations: 
-            # cert-manager.io/cluster-issuer: letsencrypt-prod
-            traefik.ingress.kubernetes.io/router.middlewares: |
-              kube-system-redirect-https@kubernetescrd
-          path: /
-          hosts:
-            - host: seerr.csnguyen.de
-              paths:
-                - path: /
-                  pathType: Prefix
-          tls: 
-          - secretName: csnguyen-tls
-            hosts:
-              - seerr.csnguyen.de
-        securityContext:
-              privileged: false
-              runAsNonRoot: false    # Erlaubt es, als Root zu starten
-              runAsUser: 0           # Setzt die User-ID auf Root (0)
-              runAsGroup: 0          # Setzt die Gruppen-ID auf Root (0)
-              allowPrivilegeEscalation: true # Erlaubt dem Prozess, Root-Rechte zu behalten
-              readOnlyRootFilesystem: false
   syncPolicy:
     automated:
       selfHeal: true
