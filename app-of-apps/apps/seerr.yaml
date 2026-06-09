@@ -20,7 +20,9 @@ spec:
         config:
           persistence:
             existingClaim: seerr
-
+        service:
+          type: NodePort
+          nodePort: 30018
         ingress:
           enabled: true
           className: traefik
