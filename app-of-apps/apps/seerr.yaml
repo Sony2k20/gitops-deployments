@@ -16,6 +16,7 @@ spec:
     targetRevision: 3.7.0
     helm:
       values: |
+        fullnameOverride: seerr
         config:
           persistence:
             existingClaim: seerr
@@ -37,7 +38,13 @@ spec:
           - secretName: csnguyen-tls
             hosts:
               - seerr.csnguyen.de
-
+        securityContext:
+              privileged: false
+              runAsNonRoot: false    # Erlaubt es, als Root zu starten
+              runAsUser: 0           # Setzt die User-ID auf Root (0)
+              runAsGroup: 0          # Setzt die Gruppen-ID auf Root (0)
+              allowPrivilegeEscalation: true # Erlaubt dem Prozess, Root-Rechte zu behalten
+              readOnlyRootFilesystem: false
   syncPolicy:
     automated:
       selfHeal: true
